@@ -1,0 +1,190 @@
+.mainContainer {
+  padding: 0;
+}
+.heroCont {
+  height: 50vh;
+  background-image: url("../images/mainHeroMobile.jpg");
+  background-size: 457.5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  border-top: 0.3rem;
+  border-bottom: 0.3rem;
+  box-shadow: 1rem 1rem 5rem #555 inset;
+}
+.heroPic {
+  height: 100%;
+  width: auto;
+  transition: opacity 1s;
+}
+/*Sales Banner */
+.salesBanner {
+  background-color: #555;
+  color: white;
+
+  outline: 0.09rem white solid;
+  outline-offset: -1.4rem;
+  text-align: center;
+  padding: 1.8rem;
+}
+.superSale {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  margin: 1rem;
+}
+.bannerExtra {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0.2rem;
+}
+.discount {
+  font-size: 3rem;
+  font-family: "Times New Roman", Times, serif;
+  margin: 1rem;
+}
+.bannerEveryday {
+  font-family: "Times New Roman", Times, serif;
+}
+/* Shop Feature */
+.discoverCont {
+  width: 80vw;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  /* background: rgb(245, 247, 247); */
+  margin-bottom: 4rem;
+  border-bottom: #bbb9b9 0.1rem solid;
+  margin: 0 auto;
+}
+.discoverCopy {
+  width: 80vw;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  /* font-family: "Times New Roman", Times, serif; */
+  font-weight: 300;
+  color: rgb(90, 89, 88);
+}
+.findOut {
+  font-size: 0.6rem;
+  text-align: center;
+  text-decoration: underline;
+  padding-top: 1rem;
+  color: rgb(168, 89, 6);
+}
+
+.productsHeader {
+  width: 100%;
+}
+.productsHeader h2 {
+  text-align: center;
+  color: rgb(90, 89, 88);
+  font-weight: 200;
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+  padding-top: 1.5rem;
+}
+.shopByRoom {
+  padding-left: 0.5rem;
+  padding-bottom: 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  margin: 0;
+  color: rgb(90, 89, 88);
+}
+.roomCont {
+  width: 98%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 0.2rem;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+}
+.roomCont img {
+  width: 100%;
+  margin: 0 auto;
+}
+.kitLink {
+  grid-column: 1/2;
+  height: 100%;
+}
+.kitchenTitle {
+  grid-row: 2/3;
+}
+.bedLink {
+  grid-column: 2/3;
+  height: 100%;
+}
+.bedroomTitle {
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+.livingLink {
+  grid-column: 1/2;
+  grid-row: 3/4;
+  height: 100%;
+}
+.livingTitle {
+  grid-column: 1/2;
+  grid-row: 4/5;
+}
+.bathLink {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  height: 100%;
+}
+.bathroomTitle {
+  grid-column: 2/3;
+  grid-row: 4/5;
+}
+.bathroomTitle,
+.livingTitle,
+.bedroomTitle,
+.kitchenTitle {
+  text-align: center;
+  font-size: 0.6rem;
+  margin-top: 0.2rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.welcomeCont {
+  background-image: url("../images/welcomeBG.jpg");
+  min-height: 35vw;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  outline: 0.09rem white solid;
+  outline-offset: -1.4rem;
+  margin-bottom: 2rem;
+}
+.welcomeHeader {
+  text-align: center;
+  padding-top: 2rem;
+  color: white;
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+.intro {
+  font-size: 0.8rem;
+  padding: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+/* Seasonal Picks */
+.favoritesCont {
+  display: grid;
+}
+.seasonalPicks {
+  text-align: center;
+  color: rgb(90, 89, 88);
+  font-weight: 200;
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+  padding-top: 1.5rem;
+}
+.outdoorBedPic {
+  width: 90%;
+  margin: 0 auto;
+}
