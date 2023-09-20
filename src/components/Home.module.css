@@ -17,58 +17,30 @@
   width: auto;
   transition: opacity 1s;
 }
-/*Sales Banner */
-.salesBanner {
-  background-color: #555;
-  color: white;
 
-  outline: 0.09rem white solid;
-  outline-offset: -1.4rem;
-  text-align: center;
-  padding: 1.8rem;
-}
-.superSale {
-  font-family: "Times New Roman", Times, serif;
-  font-style: italic;
-  margin: 1rem;
-}
-.bannerExtra {
-  font-family: "Times New Roman", Times, serif;
-  margin: 0.2rem;
-}
-.discount {
-  font-size: 3rem;
-  font-family: "Times New Roman", Times, serif;
-  margin: 1rem;
-}
-.bannerEveryday {
-  font-family: "Times New Roman", Times, serif;
-}
 /* Shop Feature */
-.discoverCont {
+.subHeaderCont {
   width: 80vw;
-  padding-top: 4rem;
-  padding-bottom: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   /* background: rgb(245, 247, 247); */
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   border-bottom: #bbb9b9 0.1rem solid;
   margin: 0 auto;
 }
-.discoverCopy {
-  width: 80vw;
+.subHeaderCopy {
+  width: 100%;
   margin: 0 auto;
   text-align: center;
-  font-size: 1.5rem;
-  /* font-family: "Times New Roman", Times, serif; */
+  font-size: 1.7rem;
   font-weight: 300;
   color: rgb(90, 89, 88);
 }
-.findOut {
-  font-size: 0.6rem;
+.subCopy {
+  font-size: 0.8rem;
   text-align: center;
-  text-decoration: underline;
-  padding-top: 1rem;
-  color: rgb(168, 89, 6);
+  /* padding-top: 1rem; */
+  color: rgb(90, 89, 88);
 }
 
 .productsHeader {
@@ -97,7 +69,7 @@
   grid-template-rows: auto;
   grid-gap: 0.2rem;
   margin: 0 auto;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 .roomCont img {
   width: 100%;
@@ -146,31 +118,153 @@
   font-weight: 400;
   margin-bottom: 1rem;
 }
+/*Sales Banner */
+.salesBanner {
+  background-color: #555;
+  color: white;
+
+  outline: 0.09rem white solid;
+  outline-offset: -1.4rem;
+  text-align: center;
+  padding: 1.8rem;
+}
+.superSale {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  margin: 1rem;
+}
+.bannerExtra {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0.2rem;
+}
+.discount {
+  font-size: 3rem;
+  font-family: "Times New Roman", Times, serif;
+  margin: 1rem;
+}
+.bannerEveryday {
+  font-family: "Times New Roman", Times, serif;
+}
+/* Carousel */
+.favHeader {
+  /* text-align: center; */
+  color: rgb(90, 89, 88);
+  font-weight: 200;
+  font-size: 1.2rem;
+  margin-top: 4rem;
+  padding-left: 1rem;
+}
+.carouselCont {
+  width: 100%;
+  height: 35vh;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 4rem;
+  margin-top: 1rem;
+}
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  padding-bottom: 1rem;
+
+  /* width: 80%; */
+}
+.carouselInner {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 90%;
+  /* scroll-snap-align: start; */
+}
+
+.carouselItem {
+  flex: 0 0 100%;
+  scroll-snap-stop: always;
+  height: 50vh;
+}
+
+.carousel img {
+  max-width: 90%;
+  max-height: 45vh;
+  /* height: 90%; */
+  /* object-fit: cover; */
+  /* border-radius: 0.3rem; */
+}
+.caroItemTitle {
+  /* width: 90%;
+  text-align: center; */
+  color: rgb(90, 89, 88);
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.caroFavCopy {
+  font-size: 0.6rem;
+  max-width: 50vw;
+  margin: 0.2rem;
+}
+.favFreeShipping {
+  margin: 0;
+  font-size: 0.6rem;
+  color: red;
+  margin: 0.2rem;
+  font-style: bold;
+}
+
+@keyframes scroll {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  25% {
+    transform: translateX(-100%);
+  }
+  40%,
+  45% {
+    transform: translateX(-200%);
+  }
+  60%,
+  65% {
+    transform: translateX(-300%);
+  }
+  80%,
+  85% {
+    transform: translateX(-400%);
+  }
+}
+
 .welcomeCont {
-  background-image: url("../images/welcomeBG.jpg");
+  background-image: url("../images/pexels-monstera-production-7794399.jpg");
+  opacity: 0.8;
   min-height: 35vw;
+  height: 60vh;
   background-attachment: fixed;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   outline: 0.09rem white solid;
-  outline-offset: -1.4rem;
+  outline-offset: -1.6rem;
   margin-bottom: 2rem;
 }
 .welcomeHeader {
   text-align: center;
   padding-top: 2rem;
   color: white;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.4rem;
   margin-bottom: 0;
 }
 .intro {
   font-size: 0.8rem;
   padding: 2rem;
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
   color: white;
+  margin: 0;
 }
 /* Seasonal Picks */
 .favoritesCont {
@@ -187,4 +281,50 @@
 .outdoorBedPic {
   width: 90%;
   margin: 0 auto;
+}
+.outdoorBedCopy {
+  text-align: center;
+  font-size: 0.6rem;
+  margin-top: 0.2rem;
+  font-weight: 400;
+  padding-bottom: 3rem;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+.outdoorChairPic {
+  width: 90%;
+  margin: 0 auto;
+}
+.outdoorChairCopy {
+  text-align: center;
+  font-size: 0.6rem;
+  margin-top: 0.2rem;
+  font-weight: 400;
+  padding-bottom: 3rem;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+/* Free shipping banner */
+.freeShippingCont {
+  display: grid;
+  margin: 0 auto;
+}
+.freeShipPic {
+  width: 90%;
+  margin: 0 auto;
+}
+.freeShip {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #555;
+  color: white;
+  font-size: 1.2rem;
+  outline: 0.09rem white solid;
+  outline-offset: -1rem;
+  text-align: center;
+  padding: 1.8rem;
+  margin: 0;
+  margin-top: -0.2rem;
+  margin-bottom: 3rem;
 }
