@@ -8,9 +8,9 @@
   background-repeat: no-repeat;
   background-position: center;
   overflow: hidden;
-  border-top: 0.3rem;
-  border-bottom: 0.3rem;
-  box-shadow: 1rem 1rem 5rem #555 inset;
+  /* border-top: 0.3rem; */
+  /* border-bottom: 0.3rem; */
+  /* box-shadow: 1rem 1rem 5rem #555 inset; */
 }
 .heroPic {
   height: 100%;
@@ -23,9 +23,8 @@
   width: 80vw;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  /* background: rgb(245, 247, 247); */
   margin-bottom: 1rem;
-  border-bottom: #bbb9b9 0.1rem solid;
+  /* border-bottom: #bbb9b9 0.1rem solid; */
   margin: 0 auto;
 }
 .subHeaderCopy {
@@ -39,112 +38,92 @@
 .subCopy {
   font-size: 0.8rem;
   text-align: center;
-  /* padding-top: 1rem; */
   color: rgb(90, 89, 88);
 }
-
 .productsHeader {
   width: 100%;
 }
-.productsHeader h2 {
+
+/* Mobile Main Rooms */
+.livingRoomMobCont {
+  width: 90vw;
+  margin: 0 auto;
+}
+.livingRoomPicMob {
+  width: 90vw;
+}
+.mainRoomPicTitle {
+  font-weight: 600;
   text-align: center;
-  color: rgb(90, 89, 88);
-  font-weight: 200;
-  font-size: 1.2rem;
-  padding-bottom: 1rem;
-  padding-top: 1.5rem;
+  margin-bottom: 0;
 }
-.shopByRoom {
-  padding-left: 0.5rem;
-  padding-bottom: 0.2rem;
-  font-size: 0.7rem;
-  font-weight: 400;
-  margin: 0;
-  color: rgb(90, 89, 88);
+.mainRoomPicSub {
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 0;
 }
-.roomCont {
-  width: 98%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-gap: 0.2rem;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-}
-.roomCont img {
-  width: 100%;
-  margin: 0 auto;
-}
-.kitLink {
-  grid-column: 1/2;
-  height: 100%;
-}
-.kitchenTitle {
-  grid-row: 2/3;
-}
-.bedLink {
-  grid-column: 2/3;
-  height: 100%;
-}
-.bedroomTitle {
-  grid-row: 2/3;
-  grid-column: 2/3;
-}
-.livingLink {
-  grid-column: 1/2;
-  grid-row: 3/4;
-  height: 100%;
-}
-.livingTitle {
-  grid-column: 1/2;
-  grid-row: 4/5;
-}
-.bathLink {
-  grid-column: 2/3;
-  grid-row: 3/4;
-  height: 100%;
-}
-.bathroomTitle {
-  grid-column: 2/3;
-  grid-row: 4/5;
-}
-.bathroomTitle,
-.livingTitle,
-.bedroomTitle,
-.kitchenTitle {
+.shopNow {
   text-align: center;
   font-size: 0.6rem;
-  margin-top: 0.2rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  padding: 0.4rem;
+  width: 7rem;
+  background-color: rgb(9, 9, 140);
+  color: white;
+  margin: 0 auto;
+  margin-bottom: 3rem;
 }
+
 /*Sales Banner */
 .salesBanner {
-  background-color: #555;
-  color: white;
-
-  outline: 0.09rem white solid;
-  outline-offset: -1.4rem;
+  background-image: url("../images/pexels-dids-3844788-disBG.jpg");
+  background-size: cover;
   text-align: center;
   padding: 1.8rem;
+  margin-top: 4rem;
+}
+.salesBannerCopy {
+  background-color: white;
+  margin-top: 1rem;
 }
 .superSale {
   font-family: "Times New Roman", Times, serif;
   font-style: italic;
   margin: 1rem;
+  font-size: 1.5rem;
+  color: rgb(215, 168, 11);
+  background-color: white;
+  margin-top: -1rem;
 }
-.bannerExtra {
-  font-family: "Times New Roman", Times, serif;
-  margin: 0.2rem;
-}
-.discount {
-  font-size: 3rem;
-  font-family: "Times New Roman", Times, serif;
-  margin: 1rem;
+.discountPic {
+  width: 70vw;
 }
 .bannerEveryday {
-  font-family: "Times New Roman", Times, serif;
+  background-color: #c6a308;
+  text-align: center;
+  color: white;
+  padding: 0.2rem;
+  margin: 0;
+  margin-bottom: 4rem;
 }
+
+/* mailinglist */
+.mailinglistCont {
+  margin: 0 auto;
+  text-align: center;
+  background-color: #e7e7e7;
+}
+.mailinglist {
+  width: 85%;
+  border-color: #555;
+  border-style: solid;
+  border-width: 0.05rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 /* Carousel */
 .favHeader {
   /* text-align: center; */
@@ -156,11 +135,14 @@
 }
 .carouselCont {
   width: 100%;
-  height: 35vh;
+  height: 43vh;
   overflow: hidden;
   position: relative;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   margin-top: 1rem;
+  border-bottom: #bbb9b9 0.1rem solid;
+  bottom: 50%;
+  padding-bottom: 3rem;
 }
 .carousel {
   display: flex;
@@ -168,8 +150,6 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
   padding-bottom: 1rem;
-
-  /* width: 80%; */
 }
 .carouselInner {
   display: flex;
@@ -188,13 +168,8 @@
 .carousel img {
   max-width: 90%;
   max-height: 45vh;
-  /* height: 90%; */
-  /* object-fit: cover; */
-  /* border-radius: 0.3rem; */
 }
 .caroItemTitle {
-  /* width: 90%;
-  text-align: center; */
   color: rgb(90, 89, 88);
   margin: 0;
   font-size: 0.7rem;
@@ -236,19 +211,72 @@
     transform: translateX(-400%);
   }
 }
-
-.welcomeCont {
-  background-image: url("../images/pexels-monstera-production-7794399.jpg");
-  opacity: 0.8;
-  min-height: 35vw;
-  height: 60vh;
+/* Categories */
+.categoryCont {
+  width: 95vw;
+  margin: 0.5rem;
+  margin: 0 auto;
   background-attachment: fixed;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  outline: 0.09rem white solid;
+}
+.sqicon1,
+.sqicon2,
+.sqicon3,
+.sqicon4,
+.sqicon5 {
+  width: 5rem;
+  margin: 0 auto;
+  padding: 0.4rem;
+}
+.sofaCont,
+.lampCont,
+.tableCont,
+.accessCont,
+.homeOfficeCont {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: rgba(211, 211, 205, 0.3);
+  color: rgb(70, 69, 69);
+  margin-bottom: 1.5rem;
+}
+.copyCont {
+  align-self: center;
+}
+.sofaSQCopy,
+.lampSQCopy,
+.tableSQCopy,
+.accessSQCopy,
+.homeOfficeSQCopy {
+  font-size: 0.7rem;
+  padding-left: 0.4rem;
+  font-style: italic;
+}
+.viewItem {
+  font-size: 0.6rem;
+  padding-left: 0.4rem;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Seau de Boue intro */
+.welcomeCont {
+  background-image: url("../images/welcomeBG.jpg");
+  opacity: 0.8;
+  min-height: 35vw;
+  height: 65vh;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  outline: 0.07rem white solid;
   outline-offset: -1.6rem;
   margin-bottom: 2rem;
+  margin-top: 4rem;
 }
 .welcomeHeader {
   text-align: center;
@@ -258,6 +286,9 @@
   font-size: 1.4rem;
   margin-bottom: 0;
 }
+.introCont {
+  display: grid;
+}
 .intro {
   font-size: 0.8rem;
   padding: 2rem;
@@ -266,8 +297,11 @@
   color: white;
   margin: 0;
 }
-/* Seasonal Picks */
-.favoritesCont {
+.logo {
+  margin: 0 auto;
+}
+/* Favorites */
+/* .favoritesCont {
   display: grid;
 }
 .seasonalPicks {
@@ -305,7 +339,8 @@
   width: 90%;
   margin: 0 auto;
   padding-top: 1rem;
-}
+} */
+
 /* Free shipping banner */
 .freeShippingCont {
   display: grid;

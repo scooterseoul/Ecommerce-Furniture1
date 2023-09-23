@@ -1,16 +1,23 @@
 import React, { useRef, useEffect } from "react";
 import styles from "./Home.module.css";
 import heroPic from "../images/pexels-kindel-media-7578552 (2160p).mp4";
-// import heroImg from "../images/mainHeroMobile1.jpg";
-import kitRoomIcon from "../images/mainKitchen.png";
-import livingRoomIcon from "../images/mainLiving.png";
-import bathIcon from "../images/mainBath.png";
-import bedIcon from "../images/mainBed.png";
 import carouselOutdoorBed from "../images/pexels-maria-salazar-879010-outdoorBed.jpg";
 import carouselChairs from "../images/pexels-pixabay-220749-singleChairs.jpg";
 import carouselSofa from "../images/pexels-rachel-claire-4846097-greenSofa.jpg";
 import carouselDining from "../images/architect-2071534_1280-diningTable.jpg";
 import shipDining from "../images/table-5356682_1280.jpg";
+import discountPic from "../images/25dis.png";
+import livingRoomPicMob from "../images/pexels-vincent-rivaud-2227832-livingRoom.jpg";
+import diningRoomPicMob from "../images/pexels-rachel-claire-8113038-DiningMain.jpg";
+import bedroomPicMob from "../images/pexels-max-rahubovskiy-6782568-BedroomMain.jpg";
+import bathroomPicMob from "../images/pexels-max-rahubovskiy-6032424Bath.jpg";
+import mailinglist from "../images/mailinglist.png";
+import accessoriesSQ from "../images/pexels-artstory-online-14974588-accessSQ.jpg";
+import homeOfficeSQ from "../images/pexels-drew-williams-3143813-homeOfficeSQ.jpg";
+import tableSQ from "../images/pexels-franck-denis-5262675-tableSQ.jpg";
+import sofaSQ from "../images/pexels-audrey-maidwell-4075680-sofaSQ.jpg";
+import lampSQ from "../images/pexels-oleg-karsakóv-11019348-lightsSQ.jpg";
+import logo from "../images/icons8-bucket-64.png";
 
 const Home = () => {
   const videoRef = useRef(null);
@@ -50,30 +57,66 @@ const Home = () => {
             spaces worth being in.
           </p>
         </div>
-        <div className={styles.productsHeader}>
-          <h2>PRODUCTS</h2>
-        </div>
-        <h3 className={styles.shopByRoom}>Shop by room</h3>
-        <div className={styles.roomCont}>
-          <img src={kitRoomIcon} alt="kitchen" className={styles.kitLink} />
-          <h3 className={styles.kitchenTitle}>KITCHEN</h3>
+        {/* Main rooms */}{" "}
+        <div className={styles.livingRoomMobCont}>
           <img
-            src={livingRoomIcon}
+            src={livingRoomPicMob}
             alt="livingroom"
-            className={styles.livingLink}
+            className={styles.livingRoomPicMob}
           />
-          <h3 className={styles.livingTitle}>LIVING ROOM</h3>
-          <img src={bedIcon} alt="bedroom" className={styles.bedLink} />
-          <h3 className={styles.bedroomTitle}>BEDROOM</h3>
-
-          <img src={bathIcon} alt="bathroom" className={styles.bathLink} />
-          <h3 className={styles.bathroomTitle}>BATHROOM</h3>
+          <p className={styles.mainRoomPicTitle}>LIVING ROOMS</p>
+          <p className={styles.mainRoomPicSub}>New living room ideas</p>
+          <p className={styles.shopNow}>SHOP LIVING ROOMS</p>
+        </div>
+        <div className={styles.livingRoomMobCont}>
+          <img
+            src={diningRoomPicMob}
+            alt="diningroom"
+            className={styles.livingRoomPicMob}
+          />
+          <p className={styles.mainRoomPicTitle}>DINING ROOMS</p>
+          <p className={styles.mainRoomPicSub}>Warm spaces for dining</p>
+          <p className={styles.shopNow}>SHOP DINING ROOMS</p>
         </div>
         <div className={styles.salesBanner}>
-          <p className={styles.superSale}>Super Sale</p>
-          <p className={styles.bannerExtra}>EXTRA</p>
-          <p className={styles.discount}>25% OFF</p>
-          <p className={styles.bannerEveryday}>on Everyday items!</p>
+          <div className={styles.salesBannerCopy}>
+            <p className={styles.superSale}>Super Sale</p>
+            <img
+              src={discountPic}
+              alt="discount"
+              className={styles.discountPic}
+            />
+          </div>{" "}
+        </div>{" "}
+        <p className={styles.bannerEveryday}>SHOP NOW</p>
+        {/* Main rooms 2 */}
+        <div className={styles.livingRoomMobCont}>
+          <img
+            src={bedroomPicMob}
+            alt="bedroom"
+            className={styles.livingRoomPicMob}
+          />
+          <p className={styles.mainRoomPicTitle}>BEDROOMS</p>
+          <p className={styles.mainRoomPicSub}>Relaxing bedroom spaces</p>
+          <p className={styles.shopNow}>SHOP BEDROOMS</p>
+        </div>
+        <div className={styles.livingRoomMobCont}>
+          <img
+            src={bathroomPicMob}
+            alt="diningroom"
+            className={styles.livingRoomPicMob}
+          />
+          <p className={styles.mainRoomPicTitle}>BATHROOMS</p>
+          <p className={styles.mainRoomPicSub}>Interesting bathroom spaces</p>
+          <p className={styles.shopNow}>SHOP BATHROOMS</p>
+        </div>
+        {/* Mailing list */}
+        <div className={styles.mailinglistCont}>
+          <img
+            src={mailinglist}
+            className={styles.mailinglist}
+            alt="mailinglist"
+          />
         </div>
         {/* Carousel */}
         <h1 className={styles.favHeader}>FAVORITES</h1>
@@ -127,38 +170,68 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* <div className={styles.favoritesCont}>
-          <p className={styles.seasonalPicks}>SEASONAL PICKS!</p>
-          <img
-            src={outdoorChairPic}
-            alt="chair"
-            className={styles.outdoorChairPic}
-          ></img>
-          <p className={styles.outdoorChairCopy}>
-            Cosy up with friends on a hot summer night and chat the evening away
-            with these super outdoor chairs.
-          </p>
-          <img
-            src={outdoorBed}
-            alt="bed"
-            className={styles.outdoorBedPic}
-          ></img>
-          <p className={styles.outdoorBedCopy}>
-            Get ready for summer with this awesome outdoor swinging bed!
-          </p>
-        </div> */}
+        {/* Categories */}
+        <div className={styles.categoryCont}>
+          <div className={styles.sofaCont}>
+            <img src={sofaSQ} className={styles.sqicon1} alt="sofas" />
+            <div className={styles.copyCont}>
+              <p className={styles.sofaSQCopy}>Stylish sofas</p>
+              <p className={styles.viewItem}>SEE ALL SOFAS &#10148;</p>
+            </div>
+          </div>
+
+          <div className={styles.lampCont}>
+            {" "}
+            <img src={lampSQ} className={styles.sqicon2} alt="lamps" />
+            <div className={styles.copyCont}>
+              <p className={styles.lampSQCopy}>New illuminations</p>
+              <p className={styles.viewItem}>SEE ALL LIGHTING &#10148;</p>
+            </div>
+          </div>
+          <div className={styles.tableCont}>
+            <img src={tableSQ} className={styles.sqicon3} alt="tables" />
+            <div className={styles.copyCont}>
+              <p className={styles.tableSQCopy}>Dining in style</p>
+              <p className={styles.viewItem}>SEE ALL TABLES &#10148;</p>
+            </div>
+          </div>
+          <div className={styles.accessCont}>
+            <img
+              src={accessoriesSQ}
+              className={styles.sqicon4}
+              alt="accessories"
+            />
+            <div className={styles.copyCont}>
+              <p className={styles.accessSQCopy}>Accessorize you spaces</p>
+              <p className={styles.viewItem}>SEE ALL ACCESSORIES &#10148;</p>
+            </div>
+          </div>
+          <div className={styles.homeOfficeCont}>
+            <img
+              src={homeOfficeSQ}
+              className={styles.sqicon5}
+              alt="home office"
+            />
+            <div className={styles.copyCont}>
+              <p className={styles.homeOfficeSQCopy}>Work at home</p>
+              <p className={styles.viewItem}>SEE ALL OFFICE ITEMS &#10148;</p>
+            </div>
+          </div>
+        </div>
+        {/* Welcome */}
         <div className={styles.welcomeCont}>
           <h1 className={styles.welcomeHeader}>Le Seau a Boue</h1>
-          <p className={styles.intro}>
-            Step into a world where artistry meets functionality, where every
-            piece tells a story of timeless design and impeccable attention to
-            detail. Discover furniture that transforms spaces into living works
-            of art, enriching your home with sophistication and comfort. Step
-            into a world where artistry meets functionality, where every piece
-            tells a story of timeless design and impeccable attention to detail.
-          </p>
+          <div className={styles.introCont}>
+            <p className={styles.intro}>
+              Step into a world where artistry meets functionality, where every
+              piece tells a story of timeless design and impeccable attention to
+              detail. Discover furniture that transforms spaces into living
+              works of art, enriching your home with sophistication and comfort.
+            </p>
+            <img src={logo} alt="logo" className={styles.logo} />
+          </div>
         </div>
-        <div className={styles.freeShippingCont}>
+        {/* <div className={styles.freeShippingCont}>
           <img
             src={shipDining}
             alt="freeShipping"
@@ -168,7 +241,7 @@ const Home = () => {
             Get <strong>FREE</strong> shipping on <strong>ALL</strong> dining
             room sets!
           </p>
-        </div>
+        </div> */}
       </div>
     </>
   );
