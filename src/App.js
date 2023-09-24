@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Components for each route
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Rooms from "./components/Rooms";
 import Categories from "./components/Categories";
@@ -22,6 +23,7 @@ function App() {
         {/* You can add a 404 Not Found route here if needed */}
         {/* <Route component={NotFound} /> */}
       </Routes>
+      <Footer />
     </>
   );
 }

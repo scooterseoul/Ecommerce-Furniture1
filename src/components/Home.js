@@ -1,6 +1,5 @@
-import React, { useRef, useEffect } from "react";
 import styles from "./Home.module.css";
-import heroPic from "../images/pexels-kindel-media-7578552 (2160p).mp4";
+import mainHeaderPic from "../images/Screen Shot 2023-09-24 at 3.23.33 PM.png";
 import carouselOutdoorBed from "../images/pexels-maria-salazar-879010-outdoorBed.jpg";
 import carouselChairs from "../images/pexels-pixabay-220749-singleChairs.jpg";
 import carouselSofa from "../images/pexels-rachel-claire-4846097-greenSofa.jpg";
@@ -17,47 +16,26 @@ import homeOfficeSQ from "../images/pexels-drew-williams-3143813-homeOfficeSQ.jp
 import tableSQ from "../images/pexels-franck-denis-5262675-tableSQ.jpg";
 import sofaSQ from "../images/pexels-audrey-maidwell-4075680-sofaSQ.jpg";
 import lampSQ from "../images/pexels-oleg-karsakóv-11019348-lightsSQ.jpg";
-import logo from "../images/icons8-bucket-64.png";
 
 const Home = () => {
-  const videoRef = useRef(null);
-
-  const handleVideoEnd = () => {
-    videoRef.current.style.opacity = 0;
-  };
-
-  useEffect(() => {
-    // Check if the video element is valid
-    const videoElement = videoRef.current;
-
-    if (videoElement) {
-      // Set the playback rate to speed up the video (e.g., 2x speed)
-      videoElement.playbackRate = 2.5; // Adjust this value as needed
-    }
-  }, []);
-
   return (
     <>
       <div className={styles.mainContainer}>
         <div className={styles.heroCont}>
-          <video
-            className={styles.heroPic}
-            autoPlay
-            muted
-            onEnded={handleVideoEnd}
-            ref={videoRef}
-          >
-            <source src={heroPic} />
-          </video>
+          <img
+            src={mainHeaderPic}
+            alt="welcome"
+            className={styles.mainHeaderPic}
+          />
         </div>
         <div className={styles.subHeaderCont}>
-          <p className={styles.subHeaderCopy}> Beautiful Spaces</p>
           <p className={styles.subCopy}>
             Bring quality craftmanship into your favorite spaces to create
             spaces worth being in.
           </p>
         </div>
-        {/* Main rooms */}{" "}
+        {/* Main rooms */}
+        <p className={styles.furnHeader}>FURNITURE</p>
         <div className={styles.livingRoomMobCont}>
           <img
             src={livingRoomPicMob}
@@ -220,28 +198,19 @@ const Home = () => {
         </div>
         {/* Welcome */}
         <div className={styles.welcomeCont}>
-          <h1 className={styles.welcomeHeader}>Le Seau a Boue</h1>
-          <div className={styles.introCont}>
-            <p className={styles.intro}>
-              Step into a world where artistry meets functionality, where every
-              piece tells a story of timeless design and impeccable attention to
-              detail. Discover furniture that transforms spaces into living
-              works of art, enriching your home with sophistication and comfort.
-            </p>
-            <img src={logo} alt="logo" className={styles.logo} />
+          <div className={styles.overlay}>
+            <h1 className={styles.welcomeHeader}>Le Seau a Boue</h1>
+            <div className={styles.introCont}>
+              <p className={styles.intro}>
+                Step into a world where artistry meets functionality, where
+                every piece tells a story of timeless design and impeccable
+                attention to detail. Discover furniture that transforms spaces
+                into living works of art, enriching your home with
+                sophistication and comfort.
+              </p>
+            </div>
           </div>
         </div>
-        {/* <div className={styles.freeShippingCont}>
-          <img
-            src={shipDining}
-            alt="freeShipping"
-            className={styles.freeShipPic}
-          ></img>
-          <p className={styles.freeShip}>
-            Get <strong>FREE</strong> shipping on <strong>ALL</strong> dining
-            room sets!
-          </p>
-        </div> */}
       </div>
     </>
   );

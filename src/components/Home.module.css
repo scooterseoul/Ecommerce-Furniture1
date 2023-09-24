@@ -2,42 +2,34 @@
   padding: 0;
 }
 .heroCont {
-  height: 50vh;
-  background-image: url("../images/mainHeroMobile.jpg");
-  background-size: 457.5px;
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 60vh;
   overflow: hidden;
-  /* border-top: 0.3rem; */
-  /* border-bottom: 0.3rem; */
-  /* box-shadow: 1rem 1rem 5rem #555 inset; */
+  margin: 0 auto;
+  width: 90%;
 }
-.heroPic {
-  height: 100%;
-  width: auto;
-  transition: opacity 1s;
+.mainHeaderPic {
+  width: 100%;
 }
 
 /* Shop Feature */
 .subHeaderCont {
-  width: 80vw;
-  padding-top: 2rem;
+  width: 70vw;
   padding-bottom: 2rem;
   margin-bottom: 1rem;
-  /* border-bottom: #bbb9b9 0.1rem solid; */
   margin: 0 auto;
 }
-.subHeaderCopy {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 1.7rem;
-  font-weight: 300;
-  color: rgb(90, 89, 88);
-}
+
 .subCopy {
   font-size: 0.8rem;
   text-align: center;
+  color: rgb(90, 89, 88);
+}
+.furnHeader {
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: left;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
   color: rgb(90, 89, 88);
 }
 .productsHeader {
@@ -69,7 +61,7 @@
   font-weight: 600;
   padding: 0.4rem;
   width: 7rem;
-  background-color: rgb(9, 9, 140);
+  background-color: rgb(72, 72, 74);
   color: white;
   margin: 0 auto;
   margin-bottom: 3rem;
@@ -141,7 +133,7 @@
   margin-bottom: 2rem;
   margin-top: 1rem;
   border-bottom: #bbb9b9 0.1rem solid;
-  bottom: 50%;
+
   padding-bottom: 3rem;
 }
 .carousel {
@@ -265,18 +257,22 @@
 
 /* Seau de Boue intro */
 .welcomeCont {
-  background-image: url("../images/welcomeBG.jpg");
-  opacity: 0.8;
+  background-image: url("../images/armchair-4787933_1280.jpg");
+  width: 90%;
   min-height: 35vw;
-  height: 65vh;
+  height: 55vh;
   background-attachment: fixed;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  outline: 0.07rem white solid;
-  outline-offset: -1.6rem;
-  margin-bottom: 2rem;
+  margin: 0 auto;
   margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+.overlay {
+  background-color: rgb(70, 69, 69, 0.5);
+  min-height: 35vw;
+  height: 55vh;
 }
 .welcomeHeader {
   text-align: center;
@@ -285,6 +281,7 @@
   font-weight: 400;
   font-size: 1.4rem;
   margin-bottom: 0;
+  /* background-color: rgb(70, 69, 69, 0.5); */
 }
 .introCont {
   display: grid;
@@ -292,74 +289,13 @@
 .intro {
   font-size: 0.8rem;
   padding: 2rem;
+  padding-bottom: 3.7rem;
   font-weight: 400;
   text-align: center;
   color: white;
   margin: 0;
+  /* background-color: rgb(70, 69, 69, 0.5); */
 }
 .logo {
   margin: 0 auto;
-}
-/* Favorites */
-/* .favoritesCont {
-  display: grid;
-}
-.seasonalPicks {
-  text-align: center;
-  color: rgb(90, 89, 88);
-  font-weight: 200;
-  font-size: 1.2rem;
-  padding-bottom: 1rem;
-  padding-top: 1.5rem;
-}
-.outdoorBedPic {
-  width: 90%;
-  margin: 0 auto;
-}
-.outdoorBedCopy {
-  text-align: center;
-  font-size: 0.6rem;
-  margin-top: 0.2rem;
-  font-weight: 400;
-  padding-bottom: 3rem;
-  width: 90%;
-  margin: 0 auto;
-  padding-top: 1rem;
-}
-.outdoorChairPic {
-  width: 90%;
-  margin: 0 auto;
-}
-.outdoorChairCopy {
-  text-align: center;
-  font-size: 0.6rem;
-  margin-top: 0.2rem;
-  font-weight: 400;
-  padding-bottom: 3rem;
-  width: 90%;
-  margin: 0 auto;
-  padding-top: 1rem;
-} */
-
-/* Free shipping banner */
-.freeShippingCont {
-  display: grid;
-  margin: 0 auto;
-}
-.freeShipPic {
-  width: 90%;
-  margin: 0 auto;
-}
-.freeShip {
-  font-family: "Times New Roman", Times, serif;
-  background-color: #555;
-  color: white;
-  font-size: 1.2rem;
-  outline: 0.09rem white solid;
-  outline-offset: -1rem;
-  text-align: center;
-  padding: 1.8rem;
-  margin: 0;
-  margin-top: -0.2rem;
-  margin-bottom: 3rem;
 }
