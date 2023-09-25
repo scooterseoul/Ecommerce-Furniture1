@@ -1,5 +1,5 @@
 import styles from "./Home.module.css";
-import mainHeaderPic from "../images/Screen Shot 2023-09-24 at 3.23.33 PM.png";
+import mainHeaderPic from "../images/mainHeaderPic.png";
 import carouselOutdoorBed from "../images/pexels-maria-salazar-879010-outdoorBed.jpg";
 import carouselChairs from "../images/pexels-pixabay-220749-singleChairs.jpg";
 import carouselSofa from "../images/pexels-rachel-claire-4846097-greenSofa.jpg";
@@ -199,7 +199,7 @@ const Home = () => {
         {/* Welcome */}
         <div className={styles.welcomeCont}>
           <div className={styles.overlay}>
-            <h1 className={styles.welcomeHeader}>Le Seau a Boue</h1>
+            <h1 className={styles.welcomeHeader}>le Seau a Boue</h1>
             <div className={styles.introCont}>
               <p className={styles.intro}>
                 Step into a world where artistry meets functionality, where
