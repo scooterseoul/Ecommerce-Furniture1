@@ -1,7 +1,6 @@
 .footer {
   background-color: rgb(69, 68, 67);
   color: white;
-  /* height: 25vh; */
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 0.5rem;
@@ -11,11 +10,8 @@
 .getInTouch {
   grid-column: 1/2;
   text-align: right;
-  align-items: center;
-  grid-row: 2/4;
-  border-right: 0.1rem;
-  border-right-style: solid;
-  border-right-color: white;
+  align-self: center;
+  grid-row: 1/4;
   padding-right: 0.5rem;
 }
 .getText {
@@ -23,14 +19,12 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   margin-top: 0.5rem;
-  /* text-align: center; */
 }
 .inText {
   font-size: 1rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   margin-top: 0.5rem;
-  /* text-align: center; */
 }
 .touchText {
   font-size: 1.3rem;
@@ -42,32 +36,35 @@
 .contactIcon {
   width: 3rem;
 }
+.infoCont {
+  grid-column: 2/3;
+  border-left: 0.1rem;
+  border-left-style: solid;
+  border-left-color: white;
+  margin-left: 1rem;
+}
 .meetTeam {
   text-align: center;
   font-weight: 400;
   font-size: 0.8rem;
   padding: 0.3rem;
   margin-bottom: 1rem;
-  margin-left: 2rem;
-  grid-column: 2/3;
+  margin-top: 0.5rem;
+  text-decoration: underline;
 }
 
 .contactCont {
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: center;
-  /* border-bottom: 0.1rem;
-  border-bottom-color: white;
-  border-bottom-style: solid; */
 }
 .name {
   text-align: center;
   margin: 0;
   padding-bottom: 0.5rem;
   font-size: 0.8rem;
-  font-weight: bold;
-  /* text-decoration: underline; */
 }
+
 .gitIcon {
   text-align: right;
 }
@@ -88,19 +85,14 @@
   grid-column: 2/-1;
   grid-row: 2/3;
   margin-bottom: 0.5rem;
-  margin-left: 2rem;
-  margin-right: 1rem;
 }
 .alex {
   grid-column: 2/-1;
   grid-row: 3/4;
-  margin-left: 2rem;
-  margin-right: 1rem;
   margin-bottom: 0.5rem;
 }
 .shan {
   grid-column: 2/-1;
   grid-row: 4/5;
-  margin-left: 2rem;
-  margin-right: 1rem;
+  margin-bottom: 1rem;
 }

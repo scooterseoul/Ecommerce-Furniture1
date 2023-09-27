@@ -14,54 +14,68 @@ const Footer = () => {
         <p className={styles.inText}> in</p>
         <p className={styles.touchText}> touch</p>
       </div>
-      <div className={styles.meetTeam}>Meet the team...</div>
+      <div className={styles.infoCont}>
+        <div className={styles.meetTeam}>Meet the team!</div>
 
-      <div className={styles.guy}>
-        <p className={styles.name}>Guy K.</p>
-        <div className={styles.contactCont}>
-          <div className={styles.gitIcon}>
-            <Link to="/">
-              <img src={github} alt="github" className={styles.gitPic} />
-            </Link>
-          </div>
-          <div className={styles.linkdInIcon}>
-            {" "}
-            <Link to="/">
-              <img src={linkedin} alt="linkedin" className={styles.linkedPic} />
-            </Link>
+        <div className={styles.guy}>
+          <p className={styles.name}>Guy K.</p>
+          <div className={styles.contactCont}>
+            <div className={styles.gitIcon}>
+              <Link to="/">
+                <img src={github} alt="github" className={styles.gitPic} />
+              </Link>
+            </div>
+            <div className={styles.linkdInIcon}>
+              {" "}
+              <Link to="/">
+                <img
+                  src={linkedin}
+                  alt="linkedin"
+                  className={styles.linkedPic}
+                />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={styles.alex}>
-        <p className={styles.name}>Claudette A.</p>
-        <div className={styles.contactCont}>
-          <div className={styles.gitIcon}>
-            <Link to="/">
-              <img src={github} alt="github" className={styles.gitPic} />
-            </Link>
-          </div>
-          <div className={styles.linkdInIcon}>
-            {" "}
-            <Link to="/">
-              <img src={linkedin} alt="linkedin" className={styles.linkedPic} />
-            </Link>
+        <div className={styles.alex}>
+          <p className={styles.name}>Claudette A.</p>
+          <div className={styles.contactCont}>
+            <div className={styles.gitIcon}>
+              <Link to="/">
+                <img src={github} alt="github" className={styles.gitPic} />
+              </Link>
+            </div>
+            <div className={styles.linkdInIcon}>
+              {" "}
+              <Link to="/">
+                <img
+                  src={linkedin}
+                  alt="linkedin"
+                  className={styles.linkedPic}
+                />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.shan}>
-        <p className={styles.name}>Shanthi K.</p>
-        <div className={styles.contactCont}>
-          <div className={styles.gitIcon}>
-            <Link to="/">
-              <img src={github} alt="github" className={styles.gitPic} />
-            </Link>
-          </div>
-          <div className={styles.linkdInIcon}>
-            {" "}
-            <Link to="/">
-              <img src={linkedin} alt="linkedin" className={styles.linkedPic} />
-            </Link>
+        <div className={styles.shan}>
+          <p className={styles.name}>Shanthi K.</p>
+          <div className={styles.contactCont}>
+            <div className={styles.gitIcon}>
+              <Link to="/">
+                <img src={github} alt="github" className={styles.gitPic} />
+              </Link>
+            </div>
+            <div className={styles.linkdInIcon}>
+              {" "}
+              <Link to="/">
+                <img
+                  src={linkedin}
+                  alt="linkedin"
+                  className={styles.linkedPic}
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
