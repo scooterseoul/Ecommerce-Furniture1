@@ -1,0 +1,570 @@
+.mainContainer {
+  padding: 0;
+}
+.heroCont {
+  height: 60vh;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 90%;
+}
+.mainHeaderPic {
+  width: 100%;
+}
+
+/* Shop Feature */
+.subHeaderCont {
+  width: 70vw;
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin: 0 auto;
+}
+
+.subCopy {
+  font-size: 1rem;
+  text-align: center;
+  color: rgb(90, 89, 88);
+}
+.subCopy2 {
+  font-size: 0.8rem;
+  text-align: center;
+  color: rgb(90, 89, 88);
+}
+.furnHeader {
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: left;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  color: rgb(90, 89, 88);
+}
+.productsHeader {
+  width: 100%;
+}
+.deskMainHeaderPic {
+  display: none;
+}
+
+/* Mobile Main Rooms */
+.livingRoomMobCont {
+  width: 90vw;
+  margin: 0 auto;
+}
+.livingRoomPicMob {
+  width: 90vw;
+}
+.mainRoomPicTitle {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0;
+}
+.mainRoomPicSub {
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 0;
+}
+.shopNow {
+  text-align: center;
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 0.4rem;
+  width: 7rem;
+  background-color: rgb(72, 72, 74);
+  color: white;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+/* Mobile Sales Banner */
+.salesBanner {
+  background-image: url("../images/pexels-dids-3844788-disBG.jpg");
+  background-size: cover;
+  text-align: center;
+  padding: 1.8rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.salesBannerCopy {
+  background-color: white;
+  margin-top: 1rem;
+}
+.superSale {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  margin: 1rem;
+  font-size: 1.5rem;
+  color: rgb(215, 168, 11);
+  background-color: white;
+  margin-top: -1rem;
+}
+.discountPic {
+  width: 70vw;
+}
+.discountAccessories {
+  display: none;
+}
+.bannerEveryday {
+  background-color: #c6a308;
+  text-align: center;
+  color: white;
+  padding: 0.2rem;
+  margin: 0;
+  /* margin-bottom: 4rem; */
+}
+
+/* mailinglist */
+.mailinglistCont {
+  margin: 0 auto;
+  text-align: center;
+  background-color: #e7e7e7;
+}
+.mailinglist {
+  width: 85%;
+  border-color: #fcfafa;
+  border-style: solid;
+  border-width: 0.3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Carousel */
+.favHeader {
+  color: rgb(90, 89, 88);
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-top: 4rem;
+  padding-left: 1rem;
+}
+.carouselCont {
+  width: 100%;
+  height: 43vh;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  border-bottom: #bbb9b9 0.1rem solid;
+
+  padding-bottom: 3rem;
+}
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  padding-bottom: 1rem;
+}
+.carouselInner {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 90%;
+  /* scroll-snap-align: start; */
+}
+
+.carouselItem {
+  flex: 0 0 100%;
+  scroll-snap-stop: always;
+  height: 50vh;
+}
+
+.carousel img {
+  max-width: 90%;
+  max-height: 45vh;
+}
+.caroItemTitle {
+  color: rgb(90, 89, 88);
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.caroFavCopy {
+  font-size: 0.6rem;
+  max-width: 50vw;
+  margin: 0.2rem;
+}
+.favFreeShipping {
+  margin: 0;
+  font-size: 0.6rem;
+  color: red;
+  margin: 0.2rem;
+  font-style: bold;
+}
+
+@keyframes scroll {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  25% {
+    transform: translateX(-100%);
+  }
+  40%,
+  45% {
+    transform: translateX(-200%);
+  }
+  60%,
+  65% {
+    transform: translateX(-300%);
+  }
+  80%,
+  85% {
+    transform: translateX(-400%);
+  }
+}
+/* Categories */
+.categoryCont {
+  width: 95vw;
+  margin: 0.5rem;
+  margin: 0 auto;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sqicon1,
+.sqicon2,
+.sqicon3,
+.sqicon4,
+.sqicon5 {
+  width: 5rem;
+  margin: 0 auto;
+  padding: 0.4rem;
+}
+.sofaCont,
+.lampCont,
+.tableCont,
+.accessCont,
+.homeOfficeCont {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: rgba(211, 211, 205, 0.3);
+  color: rgb(70, 69, 69);
+  margin-bottom: 1.5rem;
+}
+.copyCont {
+  align-self: center;
+}
+.sofaSQCopy,
+.lampSQCopy,
+.tableSQCopy,
+.accessSQCopy,
+.homeOfficeSQCopy {
+  font-size: 0.7rem;
+  padding-left: 0.4rem;
+  font-style: italic;
+}
+.viewItem {
+  font-size: 0.6rem;
+  padding-left: 0.4rem;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Seau de Boue intro */
+.welcomeCont {
+  background-image: url("../images/armchair-4787933_1280.jpg");
+  width: 90%;
+  min-height: 35vw;
+  height: 55vh;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+.overlay {
+  background-color: rgb(70, 69, 69, 0.5);
+  min-height: 35vw;
+  height: 55vh;
+}
+.welcomeHeader {
+  text-align: center;
+  padding-top: 2rem;
+  color: white;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-bottom: 0;
+  font-family: "Times New Roman", Times, serif;
+  align-self: center;
+}
+.introCont {
+  display: grid;
+}
+.intro {
+  font-size: 0.8rem;
+  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 3.7rem;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+  margin: 0;
+  margin-bottom: 1rem;
+  /* background-color: rgb(70, 69, 69, 0.5); */
+}
+
+/*  mobile landscape */
+@media (max-width: 844px) and (orientation: landscape) {
+  .livingRoomMobCont img,
+  .diningRoomMobCont img,
+  .salesBanner img,
+  .heroCont img {
+    height: 80vh;
+    width: auto;
+    align-self: center; /* Adjust the width of the images to 100% */
+  }
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .heroCont {
+    background-color: rgb(184, 187, 187);
+  }
+  .mailinglist {
+    width: 70vw;
+  }
+  .carouselInner {
+    width: 50%;
+  }
+}
+
+/* for desktop */
+@media (min-width: 1024px) {
+  .mainHero {
+    display: grid;
+    grid-gap: 0.2rem;
+    grid-template-columns: 3fr 1fr;
+    width: 90%;
+    height: 50vh;
+    margin: 0 auto;
+    margin-bottom: 8rem;
+  }
+  .heroCont {
+    height: 100%;
+    width: 100%;
+  }
+  .deskMainHeaderPic {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .subHeaderCont {
+    display: block;
+    width: 100%;
+    background-image: url("../images/mainRT.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* outline: 0.05rem rgb(247, 245, 245) solid;
+    outline-offset: -1rem; */
+    box-shadow: 0.25rem 0rem 0.4rem 0 rgb(93, 91, 91);
+  }
+  .mainHeaderPic {
+    display: none;
+  }
+
+  .subCopy {
+    display: block;
+    color: white;
+    width: 60%;
+    margin: auto;
+    font-size: 0.9rem;
+    text-align: center;
+    position: relative;
+    top: 30%;
+    font-weight: bold;
+  }
+  .subCopy2 {
+    position: relative;
+    top: 40%;
+    width: 70%;
+    color: white;
+    margin: auto;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  /* Main Rooms */
+  .furnHeader {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-bottom: 1.5rem;
+  }
+  .mainRoomsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .livingRoomMobCont {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .livingRoomPicMob {
+    width: 100%;
+    height: 50%;
+  }
+  .shopNow {
+    margin-bottom: 0;
+  }
+
+  /* Sales Banner */
+  .salesBanner {
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    background-image: none;
+    margin-bottom: 6rem;
+    transform: rotate(-7deg);
+  }
+  .salesBannerCopy {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 0 auto;
+    border-radius: 1rem;
+    box-shadow: 1rem 0.9rem 2rem 0.1rem #757474;
+  }
+  .superSale {
+    display: none;
+  }
+  .discountPic {
+    width: 80%;
+    padding: 0.5rem;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    align-self: center;
+    margin-left: 1rem;
+  }
+  .disAccCont {
+    grid-column: 2/3;
+    display: block;
+    flex-direction: row-reverse;
+    margin-bottom: -0.3rem;
+  }
+
+  .discountAccessories {
+    display: inline;
+    width: 100%;
+    border-radius: 0 1rem 1rem 0;
+    padding: 0;
+  }
+
+  .bannerEveryday {
+    display: none;
+  }
+
+  /*Favorite*/
+  .favHeader {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 0;
+    margin-top: 3rem;
+    font-weight: bold;
+  }
+  .carousel {
+    padding: 0;
+    /* display: block;
+    overflow-x: none;
+    scroll-snap-type: none;
+    -webkit-overflow-scrolling: none; */
+  }
+  .carouselCont {
+    width: 100%;
+    height: 80%;
+    border-bottom: 0;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 1rem;
+    border-bottom-color: none;
+    border-bottom: none;
+    background-image: url("../images/pexels-la-miko-3616764-WHITEBG.jpg");
+    min-height: 35vw;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-size: cover;
+    padding: 0;
+  }
+  .carouselInner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 90%;
+    min-width: 35vw;
+    height: auto;
+    margin: 0;
+    padding: 3rem;
+    align-self: center;
+  }
+
+  .carouselItem {
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+    width: 60%;
+    min-width: 35%;
+    /* border-radius: 1rem; */
+    margin-bottom: 3rem;
+    box-shadow: 0.5rem 0.4rem 0.8rem 0.1rem #908e8e;
+  }
+  .carousel img {
+    width: 100%;
+    max-width: 100%;
+    /* border-radius: 1rem 1rem 0 0; */
+  }
+
+  .caroItemTitle {
+    text-align: center;
+    width: 60%;
+    min-width: 35%;
+    padding-top: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .caroFavCopy {
+    text-align: center;
+    width: 60%;
+    min-width: 35%;
+    margin: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .favFreeShipping {
+    text-align: center;
+    width: 60%;
+    min-width: 35%;
+    margin: 0;
+    padding-bottom: 1rem;
+    font-weight: bold;
+  }
+  .favImages,
+  .caroItemTitle,
+  .caroFavCopy,
+  .favFreeShipping {
+    margin: 0 auto;
+  }
+
+  /* mailinglist */
+  .mailinglistCont {
+    width: 40%;
+    background-color: white;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  .mailinglist {
+    border: none;
+  }
+}
