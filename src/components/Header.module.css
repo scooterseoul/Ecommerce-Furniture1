@@ -29,9 +29,9 @@
   padding-top: 0.5rem;
 }
 .cart {
-  grid-column: 3/-1;
-  position: absolute;
-  right: 0;
+  grid-column: 3/4;
+  /* position: absolute; */
+  text-align: right;
 }
 .cartPic {
   width: 1rem;
@@ -44,4 +44,10 @@ a:link {
 a:visited {
   text-decoration: none;
   color: black;
+}
+@media (min-width: 1024px) {
+  .header {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
