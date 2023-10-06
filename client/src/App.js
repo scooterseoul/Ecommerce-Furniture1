@@ -5,8 +5,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
-import Rooms from "./components/Rooms";
-import Categories from "./components/Categories";
+import Products from "./components/Products";
 
 function App() {
   return (
@@ -14,13 +13,13 @@ function App() {
       <Header />
 
       <Routes>
-        {/* You can add a Navbar here if needed */}
+        {/* add a Navbar here  */}
 
         <Route path="/" element={<Home />} />
-        <Route path="/rooms/:room" element={<Rooms />} />
-        <Route path="/categories/:catagory" element={<Categories />} />
+        <Route path="/products/:products" element={<Products />} />
 
-        {/* You can add a 404 Not Found route here if needed */}
+        {/* add a cart page */}
+        {/* add a 404 Not Found route here if needed */}
         {/* <Route component={NotFound} /> */}
       </Routes>
       <Footer />
