@@ -109,7 +109,6 @@
   color: white;
   padding: 0.2rem;
   margin: 0;
-  /* margin-bottom: 4rem; */
 }
 
 /* mailinglist */
@@ -127,92 +126,6 @@
   margin-bottom: 1rem;
 }
 
-/* Carousel */
-.favHeader {
-  color: rgb(90, 89, 88);
-  font-weight: 300;
-  font-size: 1.2rem;
-  margin-top: 4rem;
-  padding-left: 1rem;
-}
-.carouselCont {
-  width: 100%;
-  height: 43vh;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-  border-bottom: #bbb9b9 0.1rem solid;
-
-  padding-bottom: 3rem;
-}
-.carousel {
-  display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-  padding-bottom: 1rem;
-}
-.carouselInner {
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  width: 90%;
-  /* scroll-snap-align: start; */
-}
-
-.carouselItem {
-  flex: 0 0 100%;
-  scroll-snap-stop: always;
-  height: 50vh;
-}
-
-.carousel img {
-  max-width: 90%;
-  max-height: 45vh;
-}
-.caroItemTitle {
-  color: rgb(90, 89, 88);
-  margin: 0;
-  font-size: 0.7rem;
-  font-weight: bold;
-  text-decoration: underline;
-}
-.caroFavCopy {
-  font-size: 0.6rem;
-  max-width: 50vw;
-  margin: 0.2rem;
-}
-.favFreeShipping {
-  margin: 0;
-  font-size: 0.6rem;
-  color: red;
-  margin: 0.2rem;
-  font-style: bold;
-}
-
-@keyframes scroll {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  20%,
-  25% {
-    transform: translateX(-100%);
-  }
-  40%,
-  45% {
-    transform: translateX(-200%);
-  }
-  60%,
-  65% {
-    transform: translateX(-300%);
-  }
-  80%,
-  85% {
-    transform: translateX(-400%);
-  }
-}
 /* Categories */
 .categoryCont {
   width: 95vw;
@@ -270,7 +183,7 @@
   background-image: url("../images/armchair-4787933_1280.jpg");
   width: 90%;
   min-height: 35vw;
-  height: 55vh;
+  height: 100vh;
   background-attachment: fixed;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -282,7 +195,7 @@
 .overlay {
   background-color: rgb(70, 69, 69, 0.5);
   min-height: 35vw;
-  height: 55vh;
+  height: 100vh;
 }
 .welcomeHeader {
   text-align: center;
@@ -296,9 +209,10 @@
 }
 .introCont {
   display: grid;
+  height: 100vh;
 }
 .intro {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 1rem;
   padding-top: 2rem;
   padding-bottom: 3.7rem;
@@ -307,7 +221,6 @@
   color: white;
   margin: 0;
   margin-bottom: 1rem;
-  /* background-color: rgb(70, 69, 69, 0.5); */
 }
 
 /*  mobile landscape */
@@ -318,7 +231,7 @@
   .heroCont img {
     height: 80vh;
     width: auto;
-    align-self: center; /* Adjust the width of the images to 100% */
+    align-self: center;
   }
   .mainContainer {
     display: flex;
@@ -365,8 +278,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* outline: 0.05rem rgb(247, 245, 245) solid;
-    outline-offset: -1rem; */
     box-shadow: 0.25rem 0rem 0.4rem 0 rgb(93, 91, 91);
   }
   .mainHeaderPic {
@@ -426,7 +337,7 @@
     height: auto;
     margin: 0 auto;
     background-image: none;
-    margin-bottom: 6rem;
+    margin-bottom: 8rem;
     transform: rotate(-7deg);
   }
   .salesBannerCopy {
@@ -465,106 +376,69 @@
     display: none;
   }
 
-  /*Favorite*/
-  .favHeader {
-    width: 90%;
-    margin: 0 auto;
-    padding-left: 0;
-    margin-top: 3rem;
-    font-weight: bold;
-  }
-  .carousel {
-    padding: 0;
-    /* display: block;
-    overflow-x: none;
-    scroll-snap-type: none;
-    -webkit-overflow-scrolling: none; */
-  }
-  .carouselCont {
-    width: 100%;
-    height: 80%;
-    border-bottom: 0;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 1rem;
-    border-bottom-color: none;
-    border-bottom: none;
-    background-image: url("../images/pexels-la-miko-3616764-WHITEBG.jpg");
-    min-height: 35vw;
-    background-attachment: fixed;
-    background-position: bottom;
-    background-size: cover;
-    padding: 0;
-  }
-  .carouselInner {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    width: 90%;
-    min-width: 35vw;
-    height: auto;
-    margin: 0;
-    padding: 3rem;
-    align-self: center;
-  }
-
-  .carouselItem {
-    height: auto;
-    margin: 0 auto;
-    background-color: white;
-    width: 60%;
-    min-width: 35%;
-    /* border-radius: 1rem; */
-    margin-bottom: 3rem;
-    box-shadow: 0.5rem 0.4rem 0.8rem 0.1rem #908e8e;
-  }
-  .carousel img {
-    width: 100%;
-    max-width: 100%;
-    /* border-radius: 1rem 1rem 0 0; */
-  }
-
-  .caroItemTitle {
-    text-align: center;
-    width: 60%;
-    min-width: 35%;
-    padding-top: 1rem;
-    font-size: 1rem;
-    text-decoration: none;
-    padding-bottom: 0.5rem;
-  }
-
-  .caroFavCopy {
-    text-align: center;
-    width: 60%;
-    min-width: 35%;
-    margin: 0;
-    padding-bottom: 0.5rem;
-  }
-
-  .favFreeShipping {
-    text-align: center;
-    width: 60%;
-    min-width: 35%;
-    margin: 0;
-    padding-bottom: 1rem;
-    font-weight: bold;
-  }
-  .favImages,
-  .caroItemTitle,
-  .caroFavCopy,
-  .favFreeShipping {
-    margin: 0 auto;
-  }
-
   /* mailinglist */
   .mailinglistCont {
     width: 40%;
     background-color: white;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
   }
   .mailinglist {
     border: none;
+  }
+
+  /* Categories */
+  .categoryCont {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    padding-bottom: 3rem;
+  }
+  .sqicon1,
+  .sqicon2,
+  .sqicon3,
+  .sqicon4,
+  .sqicon5 {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .sofaCont,
+  .lampCont,
+  .tableCont,
+  .accessCont,
+  .homeOfficeCont {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: none;
+    width: 100%;
+  }
+
+  .sofaSQCopy,
+  .lampSQCopy,
+  .tableSQCopy,
+  .accessSQCopy,
+  .homeOfficeSQCopy {
+    font-size: 0.7rem;
+    padding-left: 0.4rem;
+    font-style: italic;
+  }
+  /* Seau de Boue intro */
+
+  .welcomeHeader {
+    font-size: 2rem;
+    padding-top: 3rem;
+  }
+  .introCont {
+    height: 70%;
+    align-items: center;
+  }
+
+  .intro {
+    font-size: 1rem;
+    width: 50%;
+    margin: 0 auto;
   }
 }

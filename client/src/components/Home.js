@@ -1,10 +1,6 @@
 import styles from "./Home.module.css";
 import mainHeaderPic from "../images/mainHeaderPic.png";
-import carouselOutdoorBed from "../images/pexels-maria-salazar-879010-outdoorBed.jpg";
-import carouselChairs from "../images/pexels-pixabay-220749-singleChairs.jpg";
-import carouselSofa from "../images/pexels-rachel-claire-4846097-greenSofa.jpg";
-import carouselDining from "../images/architect-2071534_1280-diningTable.jpg";
-// import shipDining from "../images/table-5356682_1280.jpg";
+import Favorites from "./Favorites";
 import discountPic from "../images/25dis.png";
 import livingRoomPicMob from "../images/pexels-vincent-rivaud-2227832-livingRoom.jpg";
 import diningRoomPicMob from "../images/pexels-rachel-claire-8113038-DiningMain.jpg";
@@ -109,73 +105,7 @@ const Home = () => {
           </div>{" "}
         </div>{" "}
         {/* Carousel */}
-        <h1 className={styles.favHeader}>FAVORITES</h1>
-        <div className={styles.carouselCont}>
-          <div className={styles.carousel}>
-            <div className={styles.carouselInner}>
-              <div className={styles.carouselItem}>
-                <img
-                  src={carouselChairs}
-                  alt="rocking chair"
-                  className={styles.favImages}
-                />
-                <p className={styles.caroItemTitle}>Gorgeous Rocking Chairs</p>
-                <p className={styles.caroFavCopy}>
-                  Beautifully made retro pair of rockers
-                </p>
-                <p className={styles.favFreeShipping}>Free Shipping</p>
-              </div>
-              <div className={styles.carouselItem}>
-                <img
-                  src={carouselOutdoorBed}
-                  alt="outdoor bed"
-                  className={styles.favImages}
-                />
-                <p className={styles.caroItemTitle}>Wicker Outdoor Swing Bed</p>
-                <p className={styles.caroFavCopy}>
-                  Enjoy the cool summer nights on this fun swing bed
-                </p>
-                <p className={styles.favFreeShipping}>Free Shipping</p>
-              </div>
-              <div className={styles.carouselItem}>
-                <img
-                  src={carouselSofa}
-                  alt="green sofa"
-                  className={styles.favImages}
-                />
-                <p className={styles.caroItemTitle}>Plush Hunter Green Sofa</p>
-                <p className={styles.caroFavCopy}>
-                  Jazz up any space with this super comfy sofa
-                </p>
-                <p className={styles.favFreeShipping}>Free Shipping</p>
-              </div>
-              <div className={styles.carouselItem}>
-                <img
-                  src={carouselDining}
-                  alt="dining table"
-                  className={styles.favImages}
-                />
-                <p className={styles.caroItemTitle}>
-                  Sleek Minimalist Dining Set
-                </p>
-                <p className={styles.caroFavCopy}>
-                  Well crafted dining set. Perfect for small spaces
-                </p>
-                <p className={styles.favFreeShipping}>Free Shipping</p>
-              </div>
-              {/* <div className={styles.carouselItem}>
-                <img src={shipDining} alt="table" />
-                <p className={styles.caroItemTitle}>
-                  Beautiful Outdoor Dining Table
-                </p>
-                <p className={styles.caroFavCopy}>
-                  Spend evenings outdoors with the sleek dining set
-                </p>
-                <p className={styles.favFreeShipping}>Free Shipping</p>
-              </div> */}
-            </div>
-          </div>
-        </div>
+        <Favorites />
         {/* Mailing list */}
         <div className={styles.mailinglistCont}>
           <img
@@ -242,7 +172,16 @@ const Home = () => {
                 every piece tells a story of timeless design and impeccable
                 attention to detail. Discover furniture that transforms spaces
                 into living works of art, enriching your home with
-                sophistication and comfort.
+                sophistication and comfort. <br />
+                <br />
+                At our furniture store, we offer an exquisite array of styles
+                and designs, catering to a wide range of tastes and preferences.
+                Whether you're drawn to the elegance of classic pieces, the chic
+                modern aesthetics, or the cozy charm of rustic furniture, our
+                diverse collection has something to inspire every corner of your
+                home. Explore our showroom and let your imagination run wild as
+                you envision how our curated selection can bring your interior
+                design dreams to life.
               </p>
             </div>
           </div>

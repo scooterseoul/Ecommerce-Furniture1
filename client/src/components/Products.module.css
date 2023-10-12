@@ -1,0 +1,120 @@
+/* Hero Section Styles */
+.heroCont {
+  width: 95%;
+  margin: 1rem auto; /* Combined margin properties */
+}
+
+.livingRoomHeroPic {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Sub Header Styles */
+.subHeaderCont {
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 0.08rem solid gray; /* Combined border properties */
+}
+
+.subCopy {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(98, 94, 94);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.subCopy2 {
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgb(98, 94, 94);
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* Product List Styles */
+.productListCont {
+  margin-top: 2rem;
+  width: 90%;
+}
+
+.productGrid {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4rem 2rem auto;
+  border-bottom: 0.08rem solid gray; /* Combined border properties */
+  margin-top: 2rem;
+}
+
+.listImages {
+  width: 90%;
+  height: 4rem;
+  margin: 0 auto;
+}
+
+.itemTitle {
+  font-size: 0.7rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 90%;
+  color: rgb(61, 60, 60);
+  padding-left: 0.5rem;
+  margin: 0.3rem 0 0; /* Combined margin properties */
+}
+
+.listItemCopy {
+  font-size: 0.5rem;
+  object-fit: cover;
+  color: rgb(61, 60, 60);
+  text-align: center;
+  width: 90%;
+}
+
+/* Mailing List Styles */
+.mailinglistCont {
+  margin: 0 auto;
+  text-align: center;
+  /* background-color: #e7e7e7; */
+}
+
+.mailinglist {
+  width: 75%;
+  border: 0.3rem solid #fcfafa; /* Combined border properties */
+  margin: 1rem 0 3rem; /* Combined margin properties */
+}
+
+/* Mobile Landscape Styles */
+@media (max-width: 844px) and (orientation: landscape) {
+  .productListCont {
+    margin: 0 auto;
+  }
+
+  .listItem {
+    padding-bottom: 1rem;
+  }
+
+  .listImages {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .itemTitle,
+  .listItemCopy {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+  }
+
+  .mailinglist {
+    width: 60vw;
+  }
+}
