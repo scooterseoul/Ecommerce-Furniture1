@@ -71,7 +71,7 @@ const Header = () => {
             <li>
               <Link
                 // activeClassName={styles.active}
-                to="/products/cart"
+                to="/cart"
                 className={styles.cartPic}
                 onClick={closeNavbar}
               >
