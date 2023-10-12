@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import cartIcon from "../images/icons8-shopping-cart-64.png";
 
@@ -34,53 +34,49 @@ const Header = () => {
                : styles.navElements + " " + styles.close
            }`}
         >
-          {/* {`nav-links ${showNavbar ? styles.navLinksActive : ''}`}> */}
+          {/* {`nav-links ${showNavbar ? styles.LinksActive : ''}`}> */}
           <ul>
             <li>
-              <NavLink
+              <Link
                 // activeClassName={`${showNavbar && styles.active}`}
                 to="/products/living"
                 onClick={closeNavbar}
               >
                 Living Room
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink
+              <Link
                 // activeClassName={`${showNavbar && styles.active}`}
                 to="/products/bedroom"
                 onClick={closeNavbar}
               >
                 Bedroom
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink
+              <Link
                 // activeClassName={`${showNavbar && styles.active}`}
                 to="/products/dinning"
                 onClick={closeNavbar}
               >
                 Dinning Room
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink
-                // activeClassName={`${styles.active}`}
-                to="/products/bathroom"
-                onClick={closeNavbar}
-              >
+              <Link to="/products/bathroom" onClick={closeNavbar}>
                 Bathroom
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink
+              <Link
                 // activeClassName={styles.active}
                 to="/products/cart"
                 className={styles.cartPic}
                 onClick={closeNavbar}
               >
                 <img src={cartIcon} alt="cart" className={styles.cartPic} />
-              </NavLink>
+              </Link>
             </li>
           </ul>
         </div>
