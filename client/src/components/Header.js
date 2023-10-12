@@ -1,11 +1,8 @@
 // import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
-// import hamMenu from "../images/icons8-hamburger-menu-50.png";
 import cartIcon from "../images/icons8-shopping-cart-64.png";
-import Navbar from "./Navbar";
-import "./navbar.css";
 
 const Header = () => {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -14,65 +11,82 @@ const Header = () => {
     setShowNavbar(!showNavbar);
   };
 
+  const closeNavbar = () => {
+    setShowNavbar(false);
+  };
+
   return (
-    <>
-      <nav className={styles.navbar}>
-        <div className={styles.navbarContainer}>
-          <div className={styles.logo}>#Logo</div>
-          <button className={styles.menuIcon} onClick={handleShowNavbar}>
-            &#9776;
-          </button>
-          <div
-            className={`${styles.navElements} 
-           ${showNavbar && styles["navElements"] + " " + styles.active}`}
-          >
-            <ul>
-              <li>
-                <NavLink
-                  activeClassName={`${showNavbar && styles.active}`}
-                  to="/products/living"
-                >
-                  Living Room
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName={`${showNavbar && styles.active}`}
-                  to="/products/bedroom"
-                >
-                  Bedroom
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName={`${showNavbar && styles.active}`}
-                  to="/products/dinning"
-                >
-                  Dinning Room
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName={`${styles.active}`}
-                  to="/products/bathroom"
-                >
-                  Bathroom
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName={styles.active}
-                  to="/cart"
-                  className={styles.cartPic}
-                >
-                  <img src={cartIcon} alt="cart" className={styles.cartPic} />
-                </NavLink>
-              </li>
-            </ul>
-          </div>
+    // <div className={styles.navbar}>
+    <nav className={styles.navbar}>
+      <div className={styles.navbarContainer}>
+        <Link to="/" className={styles.logo}>
+          le SEAU a BOUE
+        </Link>
+        <button className={styles.menuIcon} onClick={handleShowNavbar}>
+          &#9776;
+        </button>
+        <div
+          className={`${styles.navElements}
+           ${
+             showNavbar
+               ? //  ? styles["navElementsActive"]
+                 styles.navElement + " " + styles.active
+               : styles.navElements + " " + styles.close
+           }`}
+        >
+          {/* {`nav-links ${showNavbar ? styles.navLinksActive : ''}`}> */}
+          <ul>
+            <li>
+              <NavLink
+                // activeClassName={`${showNavbar && styles.active}`}
+                to="/products/living"
+                onClick={closeNavbar}
+              >
+                Living Room
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                // activeClassName={`${showNavbar && styles.active}`}
+                to="/products/bedroom"
+                onClick={closeNavbar}
+              >
+                Bedroom
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                // activeClassName={`${showNavbar && styles.active}`}
+                to="/products/dinning"
+                onClick={closeNavbar}
+              >
+                Dinning Room
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                // activeClassName={`${styles.active}`}
+                to="/products/bathroom"
+                onClick={closeNavbar}
+              >
+                Bathroom
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                // activeClassName={styles.active}
+                to="/products/cart"
+                className={styles.cartPic}
+                onClick={closeNavbar}
+              >
+                <img src={cartIcon} alt="cart" className={styles.cartPic} />
+              </NavLink>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
+    // </div>
   );
 };
 
