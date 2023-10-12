@@ -16,14 +16,16 @@ const Header = () => {
 
   return (
     <>
-      <Navbar />
       <nav className={styles.navbar}>
         <div className={styles.navbarContainer}>
           <div className={styles.logo}>#Logo</div>
           <button className={styles.menuIcon} onClick={handleShowNavbar}>
             &#9776;
           </button>
-          <div className={`${styles.navElements}  ${showNavbar && "active"}`}>
+          <div
+            className={`${styles.navElements} 
+           ${showNavbar && styles["navElements"] + " " + styles.active}`}
+          >
             <ul>
               <li>
                 <NavLink
