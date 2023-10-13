@@ -4,6 +4,8 @@ import carouselOutdoorBed from "../imagesFavorites/pexels-maria-salazar-879010-o
 import carouselChairs from "../imagesFavorites/pexels-pixabay-220749-singleChairs.jpg";
 import carouselSofa from "../imagesFavorites/pexels-rachel-claire-4846097-greenSofa.jpg";
 import carouselDining from "../imagesFavorites/architect-2071534_1280-diningTable.jpg";
+import carouselCushions from "../imagesFavorites/pillows-4326131_1280.jpg";
+import carouselDeskChair from "../imagesFavorites/desk-chair-pexels-lisa-fotios-1957478.jpeg";
 
 const Favorites = () => {
   return (
@@ -53,21 +55,21 @@ const Favorites = () => {
           </div>{" "}
           <div className={styles.carouselItem}>
             <img
-              src={carouselDining}
-              alt="dining table"
+              src={carouselCushions}
+              alt="cushions"
               className={styles.favImages}
             />
-            <p className={styles.caroItemTitle}>Sleek Minimalist Dining Set</p>
+            <p className={styles.caroItemTitle}>Cushions and accents</p>
             <button className={styles.caroFavCopy}>TAKE A LOOK &#10148;</button>
             <p className={styles.favFreeShipping}>Free Shipping</p>
           </div>{" "}
           <div className={styles.carouselItem}>
             <img
-              src={carouselDining}
-              alt="dining table"
+              src={carouselDeskChair}
+              alt="desk chair"
               className={styles.favImages}
             />
-            <p className={styles.caroItemTitle}>Sleek Minimalist Dining Set</p>
+            <p className={styles.caroItemTitle}>Ergo Desk Chair</p>
             <button className={styles.caroFavCopy}>TAKE A LOOK &#10148;</button>
             <p className={styles.favFreeShipping}>Free Shipping</p>
           </div>
