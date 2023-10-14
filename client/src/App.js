@@ -6,12 +6,12 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Products from "./components/Products";
+import { ProductProvider } from "./components/StripeContext";
 
 function App() {
   return (
-    <>
+    <ProductProvider>
       <Header />
-
       <Routes>
         {/* add a Navbar here  */}
 
@@ -23,7 +23,7 @@ function App() {
         {/* <Route component={NotFound} /> */}
       </Routes>
       <Footer />
-    </>
+    </ProductProvider>
   );
 }
 

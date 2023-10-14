@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "server",
   "version": "1.0.0",
   "description": "express API",
   "scripts": {
@@ -14,7 +14,9 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongoose": "^6.9.0"
+    "mongoose": "^6.9.0",
+    "stripe": "^13.10.0"
   }
 }
