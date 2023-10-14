@@ -22,12 +22,12 @@
 .subCopy {
   font-size: 1rem;
   text-align: center;
-  color: rgb(90, 89, 88);
+  color: rgb(60, 60, 60);
 }
 .subCopy2 {
   font-size: 0.8rem;
   text-align: center;
-  color: rgb(90, 89, 88);
+  color: rgb(60, 60, 60);
 }
 .furnHeader {
   font-weight: 600;
@@ -35,7 +35,7 @@
   text-align: left;
   margin-bottom: 1rem;
   padding-left: 1rem;
-  color: rgb(90, 89, 88);
+  color: rgb(60, 60, 60);
 }
 .productsHeader {
   width: 100%;
@@ -69,7 +69,7 @@
   font-weight: 600;
   padding: 0.4rem;
   width: 7rem;
-  background-color: rgb(72, 72, 74);
+  background-color: rgb(60, 60, 60);
   color: white;
   margin: 0 auto;
   margin-bottom: 3rem;
@@ -157,7 +157,7 @@
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   background-color: rgba(211, 211, 205, 0.3);
-  color: rgb(70, 69, 69);
+  color: rgb(60, 60, 60);
   margin-bottom: 1.5rem;
 }
 .copyCont {
@@ -183,23 +183,22 @@
   background-image: url("../images/armchair-4787933_1280.jpg");
   width: 90%;
   min-height: 35vw;
-  height: 80vh;
+  height: auto;
   background-attachment: fixed;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
   margin-top: 4rem;
-  margin-bottom: 3rem;
 }
 .overlay {
-  background-color: rgb(70, 69, 69, 0.5);
+  background-color: rgb(60, 60, 60, 0.4);
   min-height: 35vw;
   height: 80vh;
 }
 .welcomeHeader {
   text-align: center;
-  padding-top: 2rem;
+  /* padding-top: 2rem; */
   color: white;
   font-weight: 400;
   font-size: 1.4rem;
@@ -209,18 +208,34 @@
 }
 .introCont {
   display: grid;
-  height: 100vh;
+  height: 80vh;
 }
 .intro {
   font-size: 0.7rem;
   padding: 1rem;
   padding-top: 2rem;
-  padding-bottom: 3.7rem;
   font-weight: 400;
   text-align: center;
   color: white;
   margin: 0;
-  margin-bottom: 1rem;
+}
+.buttonToTop {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+.backToTopButton {
+  background-color: rgb(60, 60, 60);
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 400;
+  padding: 0.4rem;
+  width: 7rem;
+  margin: 0 auto;
 }
 
 /*  mobile landscape */
@@ -440,5 +455,6 @@
     font-size: 1rem;
     width: 50%;
     margin: 0 auto;
+    margin-bottom: 2rem;
   }
 }

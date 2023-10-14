@@ -12,6 +12,12 @@ import deskTopHeaderPic from "../images/dTMain.png";
 import discountAccessories from "../images/living-room-5979695_1280.jpg";
 
 const Home = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <div className={styles.mainContainer}>
@@ -115,8 +121,8 @@ const Home = () => {
         {/* Welcome */}
         <div className={styles.welcomeCont}>
           <div className={styles.overlay}>
-            <h1 className={styles.welcomeHeader}>le Seau a Boue</h1>
             <div className={styles.introCont}>
+              <h1 className={styles.welcomeHeader}>le Seau a Boue</h1>
               <p className={styles.intro}>
                 Step into a world where artistry meets functionality, where
                 every piece tells a story of timeless design and impeccable
@@ -135,6 +141,12 @@ const Home = () => {
               </p>
             </div>
           </div>
+        </div>
+        {/* Back to top Button */}
+        <div className={styles.buttonToTop}>
+          <button className={styles.backToTopButton} onClick={scrollToTop}>
+            Back to Top
+          </button>
         </div>
       </div>
     </>

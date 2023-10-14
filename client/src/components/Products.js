@@ -13,6 +13,12 @@ import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
 
 const Products = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className={styles.mainCont}>
       <div className={styles.productHero}>
@@ -238,6 +244,12 @@ const Products = () => {
             </div>
           </li>
         </ul>
+      </div>
+      {/* Back to top Button */}
+      <div className={styles.buttonToTop}>
+        <button className={styles.backToTopButton} onClick={scrollToTop}>
+          Back to Top
+        </button>
       </div>
       {/* Mailing list */}
       <div className={styles.mailinglistCont}>

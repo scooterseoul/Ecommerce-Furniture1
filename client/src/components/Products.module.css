@@ -20,14 +20,14 @@
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
-  color: rgb(98, 94, 94);
+  color: rgb(60, 60, 60);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .subCopy2 {
   text-align: center;
   font-size: 0.8rem;
-  color: rgb(98, 94, 94);
+  color: rgb(60, 60, 60);
   width: 70%;
   margin: 0 auto;
   margin-bottom: 2rem;
@@ -66,17 +66,36 @@
   font-size: 0.7rem;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   width: 90%;
-  color: rgb(61, 60, 60);
+  color: rgb(60, 60, 60);
   padding-left: 0.5rem;
-  margin: 0.3rem 0 0; /* Combined margin properties */
+  margin: 0.3rem 0 0;
 }
 
 .listItemCopy {
   font-size: 0.5rem;
   object-fit: cover;
-  color: rgb(61, 60, 60);
+  color: rgb(60, 60, 60);
   text-align: center;
   width: 90%;
+}
+
+.buttonToTop {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  margin-top: 4rem;
+}
+.backToTopButton {
+  background-color: rgb(60, 60, 60);
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 400;
+  padding: 0.4rem;
+  width: 7rem;
+  color: white;
+  margin: 0 auto;
 }
 
 /* Mailing List Styles */
@@ -84,13 +103,12 @@
   margin: 0 auto;
   text-align: center;
   margin-top: 3rem;
-  /* background-color: #e7e7e7; */
+  /* background-color: #b50e0e; */
 }
 
 .mailinglist {
   width: 75%;
-  border: 0.3rem solid #fcfafa; /* Combined border properties */
-  margin: 1rem 0 3rem; /* Combined margin properties */
+  margin: 1rem 0 3rem;
 }
 
 /* Mobile Landscape Styles */
