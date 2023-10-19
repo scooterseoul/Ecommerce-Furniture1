@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const Product = require("../models/Product");
 
 // Get all products with price details
 router.get("/", async (req, res, next) => {

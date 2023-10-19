@@ -1,8 +1,5 @@
 version: "3"
 services:
-  mongodb:
-    volumes:
-      - mongodb_data:/data/db
   server:
     command: npm run start:dev
     volumes:
@@ -12,5 +9,3 @@ services:
     volumes:
       - ./client:/app/
       - ./client/node_modules:/app/node_modules
-volumes:
-  mongodb_data:
