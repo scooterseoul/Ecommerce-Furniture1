@@ -57,7 +57,7 @@ const Products = () => {
                   />
                   <p className={styles.itemTitle}>{product.name}</p>
                   <p className={styles.listItemCopy}>{product.description}</p>
-                  <p className={styles.listItemCopy}>
+                  <p className={styles.listItemPrice}>
                     $
                     {Number(product.price.unit_amount_decimal / 100).toFixed(2)}
                   </p>
