@@ -6,12 +6,12 @@ const Product = require("../models/Product");
 // Get all products with price details
 router.get("/", async (req, res, next) => {
   try {
-    const products = await Stripe.products.list({
+    const response = await Stripe.products.list({
       limit: 20,
     });
-
+    const products = response.data;
     const productsWithPrices = await Promise.all(
-      products.data.map(async (product) => {
+      products.map(async (product) => {
         const price = await Stripe.prices.retrieve(product.default_price);
         return { ...product, price };
       })
@@ -35,6 +35,7 @@ router.get("/", async (req, res, next) => {
       } else if (products[i].metadata.type === "table") {
         tables.push(products[i]);
       } else if (products[i].metadata.type === "sofa") {
+        sofas.push(products[i]);
       } else if (products[i].metadata.type === "accessory") {
         accessories.push(products[i]);
       } else {
