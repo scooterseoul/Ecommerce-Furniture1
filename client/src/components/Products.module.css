@@ -1,7 +1,7 @@
 /* Hero Section Styles */
 .heroCont {
   width: 95%;
-  margin: 1rem auto; /* Combined margin properties */
+  margin: 1rem auto;
 }
 
 .livingRoomHeroPic {
@@ -68,7 +68,6 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   width: 100%;
   color: rgb(60, 60, 60);
-  /* padding-left: 0.5rem; */
   margin: 0.3rem 0 0;
 }
 
@@ -113,7 +112,6 @@
   margin: 0 auto;
   text-align: center;
   margin-top: 3rem;
-  /* background-color: #b50e0e; */
 }
 
 .mailinglist {
