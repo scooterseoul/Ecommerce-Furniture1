@@ -1,12 +1,14 @@
-import React from "react";
+
+import { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
 import styles from "./Products.module.css";
-import { useContext } from "react";
 import { ProductContext } from "./StripeContext";
 import livingRoomHero from "../imagesProduct/PROD-LIVING-ROOM-HERO-pexels-terry-magallanes-12639296.jpg";
 import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
 
 const Products = () => {
+    const { products } = useParams();
   const { productData, setProductData } = useContext(ProductContext);
 
   const scrollToTop = () => {

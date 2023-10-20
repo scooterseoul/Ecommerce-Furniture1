@@ -1,29 +1,88 @@
+// import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-import hamMenu from "../images/icons8-hamburger-menu-50.png";
 import cartIcon from "../images/icons8-shopping-cart-64.png";
 
 const Header = () => {
-  return (
-    <header className={styles.header}>
-      <div className={styles.headerCont}>
-        <div className={styles.hamMenu}>
-          <img src={hamMenu} alt="menu" className={styles.hamMenuPic} />
-        </div>
+  const [showNavbar, setShowNavbar] = useState(false);
 
-        <div className={styles.logo}>
-          <Link to="/">
-            {/* <img src={logo} alt="logo" className={styles.logoPic} /> */}
-            <p className={styles.logoText}>le SEAU a BOUE</p>
-          </Link>
-        </div>
-        {/* <Link to="/rooms/kitchen">Rooms</Link>
-      <Link to="/categories/chairs">Catagories</Link> */}
-        <div className={styles.cart}>
-          <img src={cartIcon} alt="cart" className={styles.cartPic} />
+  const handleShowNavbar = () => {
+    setShowNavbar(!showNavbar);
+  };
+
+  const closeNavbar = () => {
+    setShowNavbar(false);
+  };
+
+  return (
+    // <div className={styles.navbar}>
+    <nav className={styles.navbar}>
+      <div className={styles.navbarContainer}>
+        <Link to="/" className={styles.logo}>
+          le SEAU a BOUE
+        </Link>
+        <button className={styles.menuIcon} onClick={handleShowNavbar}>
+          &#9776;
+        </button>
+        <div
+          className={`${styles.navElements}
+           ${
+             showNavbar
+               ? //  ? styles["navElementsActive"]
+                 styles.navElement + " " + styles.active
+               : styles.navElements + " " + styles.close
+           }`}
+        >
+          {/* {`nav-links ${showNavbar ? styles.LinksActive : ''}`}> */}
+          <ul>
+            <li>
+              <Link
+                // activeClassName={`${showNavbar && styles.active}`}
+                to="/products/living"
+                onClick={closeNavbar}
+              >
+                Living Room
+              </Link>
+            </li>
+            <li>
+              <Link
+                // activeClassName={`${showNavbar && styles.active}`}
+                to="/products/bedroom"
+                onClick={closeNavbar}
+              >
+                Bedroom
+              </Link>
+            </li>
+            <li>
+              <Link
+                // activeClassName={`${showNavbar && styles.active}`}
+                to="/products/dinning"
+                onClick={closeNavbar}
+              >
+                Dinning Room
+              </Link>
+            </li>
+            <li>
+              <Link to="/products/bathroom" onClick={closeNavbar}>
+                Bathroom
+              </Link>
+            </li>
+            <li>
+              <Link
+                // activeClassName={styles.active}
+                to="/cart"
+                className={styles.cartPic}
+                onClick={closeNavbar}
+              >
+                <img src={cartIcon} alt="cart" className={styles.cartPic} />
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
+    </nav>
+    // </div>
   );
 };
 
