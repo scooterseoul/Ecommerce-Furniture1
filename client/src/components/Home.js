@@ -1,25 +1,23 @@
 import styles from "./Home.module.css";
 import mainHeaderPic from "../images/mainHeaderPic.png";
-import carouselOutdoorBed from "../images/pexels-maria-salazar-879010-outdoorBed.jpg";
-import carouselChairs from "../images/pexels-pixabay-220749-singleChairs.jpg";
-import carouselSofa from "../images/pexels-rachel-claire-4846097-greenSofa.jpg";
-import carouselDining from "../images/architect-2071534_1280-diningTable.jpg";
-// import shipDining from "../images/table-5356682_1280.jpg";
+import Favorites from "./Favorites";
 import discountPic from "../images/25dis.png";
 import livingRoomPicMob from "../images/pexels-vincent-rivaud-2227832-livingRoom.jpg";
 import diningRoomPicMob from "../images/pexels-rachel-claire-8113038-DiningMain.jpg";
 import bedroomPicMob from "../images/pexels-max-rahubovskiy-6782568-BedroomMain.jpg";
 import bathroomPicMob from "../images/pexels-max-rahubovskiy-6032424Bath.jpg";
 import mailinglist from "../images/mailinglist.png";
-import accessoriesSQ from "../images/pexels-artstory-online-14974588-accessSQ.jpg";
-import homeOfficeSQ from "../images/pexels-drew-williams-3143813-homeOfficeSQ.jpg";
-import tableSQ from "../images/pexels-franck-denis-5262675-tableSQ.jpg";
-import sofaSQ from "../images/pexels-audrey-maidwell-4075680-sofaSQ.jpg";
-import lampSQ from "../images/pexels-oleg-karsakóv-11019348-lightsSQ.jpg";
+import CategorySection from "./CategorySection";
 import deskTopHeaderPic from "../images/dTMain.png";
 import discountAccessories from "../images/living-room-5979695_1280.jpg";
 
 const Home = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <div className={styles.mainContainer}>
@@ -109,73 +107,7 @@ const Home = () => {
           </div>{" "}
         </div>{" "}
         {/* Carousel */}
-        <h1 className={styles.favHeader}>FAVORITES</h1>
-        <div className={styles.carouselCont}>
-          <div className={styles.carousel}>
-            <div className={styles.carouselInner}>
-              <div className={styles.carouselItem}>
-                <img
-                  src={carouselChairs}
-                  alt="rocking chair"
-                  className={styles.favImages}
-                />
-                <p className={styles.caroItemTitle}>Gorgeous Rocking Chairs</p>
-                <p className={styles.caroFavCopy}>
-                  Beautifully made retro pair of rockers
-                </p>
-                <p className={styles.favFreeShipping}>Free Shipping</p>
-              </div>
-              <div className={styles.carouselItem}>
-                <img
-                  src={carouselOutdoorBed}
-                  alt="outdoor bed"
-                  className={styles.favImages}
-                />
-                <p className={styles.caroItemTitle}>Wicker Outdoor Swing Bed</p>
-                <p className={styles.caroFavCopy}>
-                  Enjoy the cool summer nights on this fun swing bed
-                </p>
-                <p className={styles.favFreeShipping}>Free Shipping</p>
-              </div>
-              <div className={styles.carouselItem}>
-                <img
-                  src={carouselSofa}
-                  alt="green sofa"
-                  className={styles.favImages}
-                />
-                <p className={styles.caroItemTitle}>Plush Hunter Green Sofa</p>
-                <p className={styles.caroFavCopy}>
-                  Jazz up any space with this super comfy sofa
-                </p>
-                <p className={styles.favFreeShipping}>Free Shipping</p>
-              </div>
-              <div className={styles.carouselItem}>
-                <img
-                  src={carouselDining}
-                  alt="dining table"
-                  className={styles.favImages}
-                />
-                <p className={styles.caroItemTitle}>
-                  Sleek Minimalist Dining Set
-                </p>
-                <p className={styles.caroFavCopy}>
-                  Well crafted dining set. Perfect for small spaces
-                </p>
-                <p className={styles.favFreeShipping}>Free Shipping</p>
-              </div>
-              {/* <div className={styles.carouselItem}>
-                <img src={shipDining} alt="table" />
-                <p className={styles.caroItemTitle}>
-                  Beautiful Outdoor Dining Table
-                </p>
-                <p className={styles.caroFavCopy}>
-                  Spend evenings outdoors with the sleek dining set
-                </p>
-                <p className={styles.favFreeShipping}>Free Shipping</p>
-              </div> */}
-            </div>
-          </div>
-        </div>
+        <Favorites />
         {/* Mailing list */}
         <div className={styles.mailinglistCont}>
           <img
@@ -185,67 +117,36 @@ const Home = () => {
           />
         </div>
         {/* Categories */}
-        <div className={styles.categoryCont}>
-          <div className={styles.sofaCont}>
-            <img src={sofaSQ} className={styles.sqicon1} alt="sofas" />
-            <div className={styles.copyCont}>
-              <p className={styles.sofaSQCopy}>Stylish sofas</p>
-              <p className={styles.viewItem}>SEE ALL SOFAS &#10148;</p>
-            </div>
-          </div>
-
-          <div className={styles.lampCont}>
-            {" "}
-            <img src={lampSQ} className={styles.sqicon2} alt="lamps" />
-            <div className={styles.copyCont}>
-              <p className={styles.lampSQCopy}>New illuminations</p>
-              <p className={styles.viewItem}>SEE ALL LIGHTING &#10148;</p>
-            </div>
-          </div>
-          <div className={styles.tableCont}>
-            <img src={tableSQ} className={styles.sqicon3} alt="tables" />
-            <div className={styles.copyCont}>
-              <p className={styles.tableSQCopy}>Dining in style</p>
-              <p className={styles.viewItem}>SEE ALL TABLES &#10148;</p>
-            </div>
-          </div>
-          <div className={styles.accessCont}>
-            <img
-              src={accessoriesSQ}
-              className={styles.sqicon4}
-              alt="accessories"
-            />
-            <div className={styles.copyCont}>
-              <p className={styles.accessSQCopy}>Accessorize you spaces</p>
-              <p className={styles.viewItem}>SEE ALL ACCESSORIES &#10148;</p>
-            </div>
-          </div>
-          <div className={styles.homeOfficeCont}>
-            <img
-              src={homeOfficeSQ}
-              className={styles.sqicon5}
-              alt="home office"
-            />
-            <div className={styles.copyCont}>
-              <p className={styles.homeOfficeSQCopy}>Work at home</p>
-              <p className={styles.viewItem}>SEE ALL OFFICE ITEMS &#10148;</p>
-            </div>
-          </div>
-        </div>
+        <CategorySection />
         {/* Welcome */}
         <div className={styles.welcomeCont}>
           <div className={styles.overlay}>
-            <h1 className={styles.welcomeHeader}>le Seau a Boue</h1>
             <div className={styles.introCont}>
+              <h1 className={styles.welcomeHeader}>le Seau a Boue</h1>
               <p className={styles.intro}>
                 Step into a world where artistry meets functionality, where
                 every piece tells a story of timeless design and impeccable
                 attention to detail. Discover furniture that transforms spaces
                 into living works of art, enriching your home with
-                sophistication and comfort.
+                sophistication and comfort. <br />
+                <br />
+                At our furniture store, we offer an exquisite array of styles
+                and designs, catering to a wide range of tastes and preferences.
+                Whether you're drawn to the elegance of classic pieces, the chic
+                modern aesthetics, or the cozy charm of rustic furniture, our
+                diverse collection has something to inspire every corner of your
+                home. Explore our showroom and let your imagination run wild as
+                you envision how our curated selection can bring your interior
+                design dreams to life.
               </p>
             </div>
           </div>
+        </div>
+        {/* Back to top Button */}
+        <div className={styles.buttonToTop}>
+          <button className={styles.backToTopButton} onClick={scrollToTop}>
+            Back to Top
+          </button>
         </div>
       </div>
     </>

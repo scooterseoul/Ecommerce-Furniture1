@@ -1,0 +1,214 @@
+
+/* Hero Section Styles */
+.heroCont {
+  width: 95%;
+  margin: 1rem auto;
+}
+
+.livingRoomHeroPic {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Sub Header Styles */
+.subHeaderCont {
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 0.08rem solid gray;
+}
+
+.subCopy {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(60, 60, 60);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.subCopy2 {
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgb(60, 60, 60);
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* Product List Styles */
+.productListCont {
+  margin-top: 2rem;
+  width: 90%;
+}
+
+.productGrid {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4rem 2rem auto;
+  border-bottom: 0.08rem solid gray;
+  margin-top: 2rem;
+  height: 90%;
+}
+
+.listImages {
+  height: 4rem;
+  width: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.itemTitle {
+  font-size: 0.7rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 100%;
+  color: rgb(60, 60, 60);
+  margin: 0.3rem 0 0;
+}
+
+.listItemCopy {
+  font-size: 0.5rem;
+  object-fit: cover;
+  color: rgb(60, 60, 60);
+  width: 90%;
+  margin-top: 0.3rem;
+}
+.listItemPrice {
+  font-size: 0.5rem;
+  object-fit: cover;
+  color: rgb(60, 60, 60);
+  width: 90%;
+  align-self: flex-end;
+  margin-bottom: 0.3rem;
+  margin-top: 0;
+}
+
+.buttonToTop {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  margin-top: 4rem;
+}
+.backToTopButton {
+  background-color: rgb(60, 60, 60);
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 400;
+  padding: 0.4rem;
+  width: 7rem;
+  color: white;
+  margin: 0 auto;
+}
+
+/* Mailing List Styles */
+.mailinglistCont {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.mailinglist {
+  width: 75%;
+  margin: 1rem 0 3rem;
+}
+
+/* Mobile Landscape Styles */
+@media (max-width: 844px) and (orientation: landscape) {
+  .productListCont {
+    margin: 0 auto;
+  }
+
+  .listItem {
+    padding-bottom: 1rem;
+  }
+
+  .listImages {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .itemTitle,
+  .listItemCopy {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+  }
+
+  .mailinglist {
+    width: 60vw;
+  }
+}
+/* for desktop */
+@media (min-width: 1024px) {
+  .heroCont {
+    width: 90%;
+  }
+  .subHeaderCont {
+    margin-bottom: 5rem;
+  }
+  /* Product List Styles */
+  .productListCont {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .productGrid {
+    padding-left: 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+  }
+
+  .listItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin-top: 0;
+    border-bottom: none;
+  }
+
+  .listImages {
+    height: 14rem;
+    margin: 0 auto;
+    grid-column: 1/-1;
+    overflow: hidden;
+  }
+  .itemTitle {
+    border-bottom: 0.08rem solid gray;
+    width: 100%;
+    padding-bottom: 0.2rem;
+    padding-left: 0;
+    grid-column: 1/3;
+    grid-row: 2/3;
+  }
+
+  .listItemCopy {
+    text-align: left;
+    grid-column: 1/-1;
+    grid-row: 3/4;
+  }
+  .listItemPrice {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    text-align: right;
+    width: 100%;
+  }
+
+  /* Mailing List Styles */
+  .mailinglistCont {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .mailinglist {
+    width: 40%;
+  }
+}
