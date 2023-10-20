@@ -1,9 +1,9 @@
 FROM node:16-alpine
-WORKDIR /api
+WORKDIR /server
 
 COPY package*.json ./
 
-COPY . /api
+COPY . /server
 
 RUN ["npm", "i"]
 CMD ["npm", "start"]
