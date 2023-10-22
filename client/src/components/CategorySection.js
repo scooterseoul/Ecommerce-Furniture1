@@ -4,7 +4,7 @@ import accessoriesSQ from "../images/pexels-artstory-online-14974588-accessSQ.jp
 import homeOfficeSQ from "../images/pexels-drew-williams-3143813-homeOfficeSQ.jpg";
 import tableSQ from "../images/pexels-franck-denis-5262675-tableSQ.jpg";
 import sofaSQ from "../images/pexels-audrey-maidwell-4075680-sofaSQ.jpg";
-import lampSQ from "../images/pexels-oleg-karsakóv-11019348-lightsSQ.jpg";
+import lampSQ from "../images/pexels-drew-williams-3143813-homeOfficeSQ.jpg";
 
 export const CategorySection = () => {
   return (

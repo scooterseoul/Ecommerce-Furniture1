@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Products.module.css";
@@ -8,9 +7,15 @@ import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
 
 const Products = () => {
-    const { products } = useParams();
-  const { productData, setProductData } = useContext(ProductContext);
+  const { products } = useParams();
+  const { productData, setCart } = useContext(ProductContext);
+  // console.log("VVVV : " + JSON.stringify(productData));
 
+  const handleAddTocart = (product) => {
+    // console.log("CCAARRTT handle cart" + JSON.stringify(product));
+    setCart((prevItems) => [...prevItems, product]);
+    // console.log("CCAARRTT handle cart" + JSON.stringify(cart));
+  };
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -54,6 +59,16 @@ const Products = () => {
                     $
                     {Number(product.price.unit_amount_decimal / 100).toFixed(2)}
                   </p>
+                  <div className={styles.productFooter}>
+                    <button
+                      className={styles.addToCart}
+                      onClick={() => {
+                        handleAddTocart(product);
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               </li>
             );

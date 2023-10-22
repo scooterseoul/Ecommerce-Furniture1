@@ -1,32 +1,32 @@
 import React, { createContext, useState, useEffect } from "react";
-
+import { productsData } from "./stripedata";
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
-  const [productData, setProductData] = useState([]);
+  const [productData, setProductData] = useState(productsData);
   const [cart, setCart] = useState([]);
-  console.log(productData);
+  // console.log(productData);
+  // alert("STRipeContext");
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `${process.env.REACT_APP_API_URL}/products`
+  //       );
+  //       if (!response.ok) {
+  //         throw new Error(`Error: ${response.statusText}`);
+  //       }
+  //       console.log("NNN:" + JSON.stringify(response));
+  //       const data = await response.json();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/products`
-        );
-        if (!response.ok) {
-          throw new Error(`Error: ${response.statusText}`);
-        }
+  //       setProductData(data);
+  //     } catch (e) {
+  //       console.error(e.message);
+  //     }
+  //   };
 
-        const data = await response.json();
-        console.log(data);
-        setProductData(data);
-      } catch (e) {
-        console.error(e.message);
-      }
-    };
-
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   //   useEffect(() => {
   //     const storeData = async () => {

@@ -1,4 +1,3 @@
-
 /* Hero Section Styles */
 .heroCont {
   width: 95%;
@@ -120,6 +119,13 @@
   margin: 1rem 0 3rem;
 }
 
+.productFooter {
+  display: grid;
+  grid-auto-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
 /* Mobile Landscape Styles */
 @media (max-width: 844px) and (orientation: landscape) {
   .productListCont {

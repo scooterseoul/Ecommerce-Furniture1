@@ -1,6 +1,7 @@
 .navbarContainer {
+  width: 90vw;
   margin: 0 auto;
-  padding: 0rem 0.5rem;
+  /* padding: 0rem 0.5rem; */
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,0 +1,84 @@
+.cartCont {
+  width: 90vw;
+  margin: 0.5rem auto;
+}
+
+.cartHeader {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartMenu {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cartMenu li a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.5s linear;
+}
+
+.cartMenu li a:hover {
+  font-weight: 500;
+}
+
+.cartTable {
+  width: 100%;
+}
+
+/* table,
+td,
+th {
+  border: 1px solid black;
+} */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+td img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.orderTotal {
+  padding-right: 3rem;
+  text-align: right;
+}
+
+.checkOut {
+  background-color: #ff0000;
+  max-width: fit-content;
+  /* width: 3rem; */
+  display: flex;
+  /* align-items: flex-end; */
+  justify-content: flex-end;
+}
+/* table thead tr th {
+  text-align: left;
+  border-bottom: 1px solid lightgray;
+} */
+/* table th,
+table td {
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+} */
+/* table th, */
+/* table td { */
+/* Added padding for better layout after collapsing */
+/* padding: 4px 8px; */
+/* } */
