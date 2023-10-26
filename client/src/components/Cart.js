@@ -8,8 +8,27 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 const Cart = () => {
   // alert("CART");
   const [qty, setQty] = useState(1);
-  const { cart } = useContext(ProductContext);
-  console.log("VVVV : " + JSON.stringify(cart));
+  const [total, setTotal] = useState(0);
+  const { cart, incrementQty, decrementQty } = useContext(ProductContext);
+  // console.log("Cart.js : " + JSON.stringify(cart.product));
+  useEffect(() => {
+    const sum = cart.reduce((total, cartItem) => {
+      console.log(
+        "SUBTOTAL : " +
+          cartItem.product.price.unit_amount_decimal +
+          "  " +
+          cartItem.product.qty
+      );
+      return (
+        total +
+        cartItem.product.price.unit_amount_decimal * cartItem.product.qty
+      );
+    }, 0);
+    setTotal(sum / 100);
+  }, [cart]);
+
+  console.log("SUBTOTAL 111 : " + total);
+  //
 
   return (
     <section className={styles.cartCont}>
@@ -36,46 +55,47 @@ const Cart = () => {
                 <th>Products</th>
                 <th>Quatity</th>
                 <th>Item Price</th>
-                <th>Sub Total</th>
+                <th className={styles.alignRight}>Sub Total</th>
               </tr>
             </thead>
             <tbody>
               {cart.map((cartItem) => {
                 return (
-                  <tr>
+                  <tr key={cartItem.product.id}>
                     <td>
-                      <img src={cartItem.images[0]} alt={cartItem.name} />
-                      <td>{cartItem.name}</td>
+                      {/* <img src={cartItem.images[0]} alt={cartItem.name} /> */}
+                      <td>{cartItem.product.name}</td>
                     </td>
                     <td>
                       <FontAwesomeIcon
                         size="xl"
                         className={styles.fontawesomeIcons}
                         icon={faMinusSquare}
-                        onClick={() => {
-                          qty > 0 && setQty(qty - 1);
-                        }}
+                        onClick={() =>
+                          cartItem.product.qty > 0 &&
+                          decrementQty(cartItem.product)
+                        }
                       />
-                      {qty}
+                      {cartItem.product.qty}
                       <FontAwesomeIcon
                         size="xl"
                         className={styles.fontawesomeIcons}
                         icon={faPlusSquare}
-                        onClick={() => {
-                          setQty(qty + 1);
-                        }}
+                        onClick={() => incrementQty(cartItem.product)}
                       />
                     </td>
                     <td>
                       $
-                      {Number(cartItem.price.unit_amount_decimal / 100).toFixed(
-                        2
-                      )}
+                      {Number(
+                        cartItem.product.price.unit_amount_decimal / 100
+                      ).toFixed(2)}
                     </td>
-                    <td>
+                    <td className={styles.alignRight}>
                       $
                       {Number(
-                        (cartItem.price.unit_amount_decimal * qty) / 100
+                        (cartItem.product.price.unit_amount_decimal *
+                          cartItem.product.qty) /
+                          100
                       ).toFixed(2)}
                     </td>
                   </tr>
@@ -87,7 +107,10 @@ const Cart = () => {
                 <td colSpan={3} className={styles.orderTotal}>
                   SubTotal:
                 </td>
-                <td>5000</td>
+                <td className={styles.alignRight}>
+                  {" "}
+                  ${Number(total).toFixed(2)}
+                </td>
               </tr>
               <tr>
                 <td colSpan={3} className={styles.orderTotal}>

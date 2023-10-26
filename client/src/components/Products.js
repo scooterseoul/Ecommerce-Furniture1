@@ -8,12 +8,12 @@ import CategorySection from "./CategorySection";
 
 const Products = () => {
   const { products } = useParams();
-  const { productData, setCart } = useContext(ProductContext);
-  // console.log("VVVV : " + JSON.stringify(productData));
+  const { productData, cart, setCart, addToCart } = useContext(ProductContext);
+  // console.log("PRRoducts : " + JSON.stringify(cart));
 
   const handleAddTocart = (product) => {
-    // console.log("CCAARRTT handle cart" + JSON.stringify(product));
-    setCart((prevItems) => [...prevItems, product]);
+    addToCart(product);
+
     // console.log("CCAARRTT handle cart" + JSON.stringify(cart));
   };
   const scrollToTop = () => {
