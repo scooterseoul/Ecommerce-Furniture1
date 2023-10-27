@@ -1,6 +1,5 @@
-
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./Products.module.css";
 import { ProductContext } from "./StripeContext";
 import livingRoomHero from "../imagesProduct/PROD-LIVING-ROOM-HERO-pexels-terry-magallanes-12639296.jpg";
@@ -8,13 +7,13 @@ import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
 
 const Products = () => {
-    const { products } = useParams();
-  const { productData, setProductData } = useContext(ProductContext);
+  const { products } = useParams();
+  const { productData } = useContext(ProductContext);
 
-  const scrollToTop = () => {
+  const scrollToTop = (behavior) => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: behavior,
     });
   };
   return (
@@ -30,9 +29,7 @@ const Products = () => {
         </div>
         <div className={styles.subHeaderCont}>
           <p className={styles.subCopy}>LIVING ROOM SPACES</p>
-          <p className={styles.subCopy2}>
-            Spruce up your favorite spaces to be in!
-          </p>
+          <p className={styles.subCopy2}>Spruce up your favorite spaces!</p>
         </div>
       </div>
 
@@ -43,13 +40,17 @@ const Products = () => {
             return (
               <li key={product.id}>
                 <div className={styles.listItem}>
-                  <img
-                    src={product.images}
-                    alt={product.name}
-                    className={styles.listImages}
-                  />
+                  <Link
+                    to={"/item/" + product.id}
+                    onClick={() => scrollToTop("instant")}
+                  >
+                    <img
+                      src={product.images}
+                      alt={product.name}
+                      className={styles.listImages}
+                    />
+                  </Link>
                   <p className={styles.itemTitle}>{product.name}</p>
-                  <p className={styles.listItemCopy}>{product.description}</p>
                   <p className={styles.listItemPrice}>
                     $
                     {Number(product.price.unit_amount_decimal / 100).toFixed(2)}
@@ -62,7 +63,10 @@ const Products = () => {
       </div>
       {/* Back to top Button */}
       <div className={styles.buttonToTop}>
-        <button className={styles.backToTopButton} onClick={scrollToTop}>
+        <button
+          className={styles.backToTopButton}
+          onClick={() => scrollToTop("smooth")}
+        >
           Back to Top
         </button>
       </div>
