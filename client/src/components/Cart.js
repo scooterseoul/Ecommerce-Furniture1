@@ -30,20 +30,46 @@ const Cart = () => {
   console.log("SUBTOTAL 111 : " + total);
   //
 
+  const handleCheckout = async () => {
+    console.log("handleCheckout()");
+    const url = "http://localhost:5001/api/products/create-checkout-session"; // Replace with the actual API endpoint URL
+    const data = {
+      key1: "value1",
+      key2: "value2",
+    };
+    const res = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      // .then((response) => response.json())
+      // .then((data) => {
+      //   console.log("Response data:", data);
+      // })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+    console.log("RESPONSE : " + JSON.stringify(res));
+    const body = await res.json();
+    window.location.href = body.url;
+  };
+
   return (
     <section className={styles.cartCont}>
       <div className={styles.cartHeader}>
         <h2 className={styles.cartTitle}>YOUR SHOPPING CART</h2>
         <ul className={styles.cartMenu}>
           <li>
-            <a href="#back" className="btn">
+            <a href="#back" className={styles.cartButtons}>
               CONTINUE SHOPPING
             </a>
           </li>
           <li>
-            <a href="#checkout" className="btn">
+            <button className={styles.cartButtons} onClick={handleCheckout}>
               CHECKOUT
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -53,7 +79,7 @@ const Cart = () => {
             <thead>
               <tr className={styles.cartTableHeading}>
                 <th>Products</th>
-                <th>Quatity</th>
+                <th>Quantity</th>
                 <th>Item Price</th>
                 <th className={styles.alignRight}>Sub Total</th>
               </tr>
@@ -61,12 +87,18 @@ const Cart = () => {
             <tbody>
               {cart.map((cartItem) => {
                 return (
-                  <tr key={cartItem.product.id}>
-                    <td>
-                      {/* <img src={cartItem.images[0]} alt={cartItem.name} /> */}
-                      <td>{cartItem.product.name}</td>
+                  <tr key={cartItem.product.id} className={styles.productRow}>
+                    <td className={styles.product}>
+                      <img
+                        src={cartItem.product.images[0]}
+                        alt={cartItem.name}
+                      />
+                      <div className={styles.productDescription}>
+                        {cartItem.product.name}
+                        <a href="#remove">Remove</a>
+                      </div>
                     </td>
-                    <td>
+                    <td className={styles.productQuantity}>
                       <FontAwesomeIcon
                         size="xl"
                         className={styles.fontawesomeIcons}
@@ -84,7 +116,7 @@ const Cart = () => {
                         onClick={() => incrementQty(cartItem.product)}
                       />
                     </td>
-                    <td>
+                    <td className={styles.alignRight}>
                       $
                       {Number(
                         cartItem.product.price.unit_amount_decimal / 100
@@ -102,27 +134,26 @@ const Cart = () => {
                 );
               })}
             </tbody>
-            <tfoot>
-              <tr>
-                <td colSpan={3} className={styles.orderTotal}>
+            <tfoot className={styles.footer}>
+              <tr className={styles.footerRow}>
+                <td className={styles.orderTotal}>
                   SubTotal:
-                </td>
-                <td className={styles.alignRight}>
-                  {" "}
-                  ${Number(total).toFixed(2)}
+                  <span className={styles.alignRight1}>
+                    ${Number(total).toFixed(2)}
+                  </span>
                 </td>
               </tr>
-              <tr>
-                <td colSpan={3} className={styles.orderTotal}>
+              <tr className={styles.footerRow}>
+                <td className={styles.orderTotal}>
                   GST:
+                  <span>5000</span>
                 </td>
-                <td>5000</td>
               </tr>
-              <tr>
-                <td colSpan={3} className={styles.orderTotal}>
+              <tr className={styles.footerRow}>
+                <td className={styles.orderTotal}>
                   Total (Incl. GST):
+                  <span>5000</span>
                 </td>
-                <td>5000</td>
               </tr>
             </tfoot>
           </table>
