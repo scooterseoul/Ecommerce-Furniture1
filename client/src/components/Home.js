@@ -10,6 +10,7 @@ import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
 import deskTopHeaderPic from "../images/dTMain.png";
 import discountAccessories from "../images/living-room-5979695_1280.jpg";
+import React, { useState } from "react";
 
 const Home = () => {
   const scrollToTop = () => {
