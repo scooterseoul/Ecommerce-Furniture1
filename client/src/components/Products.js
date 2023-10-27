@@ -42,9 +42,10 @@ const Products = () => {
                 <div className={styles.listItem}>
                   <Link to={"/item/" + product.id}>
                     <img
+                      src={product.images}
                       alt={product.name}
                       className={styles.listImages}
-                    />{" "}
+                    />
                   </Link>
                   <p className={styles.itemTitle}>{product.name}</p>
                   <p className={styles.listItemPrice}>
