@@ -10,10 +10,10 @@ const Products = () => {
   const { products } = useParams();
   const { productData } = useContext(ProductContext);
 
-  const scrollToTop = () => {
+  const scrollToTop = (behavior) => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: behavior,
     });
   };
   return (
@@ -40,7 +40,10 @@ const Products = () => {
             return (
               <li key={product.id}>
                 <div className={styles.listItem}>
-                  <Link to={"/item/" + product.id}>
+                  <Link
+                    to={"/item/" + product.id}
+                    onClick={() => scrollToTop("instant")}
+                  >
                     <img
                       src={product.images}
                       alt={product.name}
@@ -60,7 +63,10 @@ const Products = () => {
       </div>
       {/* Back to top Button */}
       <div className={styles.buttonToTop}>
-        <button className={styles.backToTopButton} onClick={scrollToTop}>
+        <button
+          className={styles.backToTopButton}
+          onClick={() => scrollToTop("smooth")}
+        >
           Back to Top
         </button>
       </div>
