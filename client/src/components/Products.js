@@ -5,10 +5,19 @@ import { ProductContext } from "./StripeContext";
 import livingRoomHero from "../imagesProduct/PROD-LIVING-ROOM-HERO-pexels-terry-magallanes-12639296.jpg";
 import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
+import MailingList from "./MailingList";
 
 const Products = () => {
   const { products } = useParams();
   const { productData } = useContext(ProductContext);
+  const [showMailingList, setShowMailingList] = useState(false);
+  const openPopup = () => {
+    setShowMailingList(true);
+  };
+
+  const closePopup = () => {
+    setShowMailingList(false);
+  };
 
   const scrollToTop = (behavior) => {
     window.scrollTo({
@@ -71,7 +80,8 @@ const Products = () => {
         </button>
       </div>
       {/* Mailing list */}
-      <div className={styles.mailinglistCont}>
+      {showMailingList && <MailingList closePopup={closePopup} />}
+      <div className={styles.mailinglistCont} onClick={openPopup}>
         <img
           src={mailinglist}
           className={styles.mailinglist}

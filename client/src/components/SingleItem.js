@@ -1,11 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductContext } from "./StripeContext";
 import styles from "./SingleItem.module.css";
 import CategorySection from "./CategorySection";
 import mailinglist from "../images/mailinglist.png";
+import MailingList from "./MailingList";
 
 const SingleItem = () => {
+  const [showMailingList, setShowMailingList] = useState(false);
+  const openPopup = () => {
+    setShowMailingList(true);
+  };
+  const closePopup = () => {
+    setShowMailingList(false);
+  };
+
   const { id } = useParams();
   const { productData } = useContext(ProductContext);
 
@@ -71,7 +80,9 @@ const SingleItem = () => {
         </div>
       </div>
       {/* Mailing list */}
-      <div className={styles.mailinglistCont}>
+      {showMailingList && <MailingList closePopup={closePopup} />}
+      {/* <br /> */}
+      <div className={styles.mailinglistCont} onClick={openPopup}>
         <img
           src={mailinglist}
           className={styles.mailinglist}

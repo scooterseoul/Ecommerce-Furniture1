@@ -11,8 +11,18 @@ import CategorySection from "./CategorySection";
 import deskTopHeaderPic from "../images/dTMain.png";
 import discountAccessories from "../images/living-room-5979695_1280.jpg";
 import React, { useState } from "react";
+import MailingList from "./MailingList";
 
 const Home = () => {
+  const [showMailingList, setShowMailingList] = useState(false);
+  const openPopup = () => {
+    setShowMailingList(true);
+  };
+
+  const closePopup = () => {
+    setShowMailingList(false);
+  };
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -110,7 +120,8 @@ const Home = () => {
         {/* Carousel */}
         <Favorites />
         {/* Mailing list */}
-        <div className={styles.mailinglistCont}>
+        {showMailingList && <MailingList closePopup={closePopup} />}
+        <div className={styles.mailinglistCont} onClick={openPopup}>
           <img
             src={mailinglist}
             className={styles.mailinglist}
