@@ -37,6 +37,7 @@
 .accessCont img,
 .homeOfficeCont img {
   width: 4rem;
+  border-radius: 0.2rem;
 }
 .copyCont {
   align-self: center;

@@ -11,6 +11,7 @@ import CategorySection from "./CategorySection";
 import deskTopHeaderPic from "../images/dTMain.png";
 import discountAccessories from "../images/living-room-5979695_1280.jpg";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import MailingList from "./MailingList";
 
 const Home = () => {
@@ -58,45 +59,55 @@ const Home = () => {
         <p className={styles.furnHeader}>FURNITURE</p>
         <div className={styles.mainRoomsContainer}>
           <div className={styles.livingRoomMobCont}>
-            <img
-              src={livingRoomPicMob}
-              alt="livingroom"
-              className={styles.livingRoomPicMob}
-            />
-            <p className={styles.mainRoomPicTitle}>LIVING ROOMS</p>
-            <p className={styles.mainRoomPicSub}>New living room ideas</p>
-            <p className={styles.shopNow}>SHOP LIVING ROOMS</p>
+            <Link to="/products/living">
+              <img
+                src={livingRoomPicMob}
+                alt="livingroom"
+                className={styles.livingRoomPicMob}
+              />
+              <p className={styles.mainRoomPicTitle}>LIVING ROOMS</p>
+              <p className={styles.mainRoomPicSub}>New living room ideas</p>
+              <p className={styles.shopNow}>SHOP LIVING ROOMS</p>
+            </Link>
           </div>
           <div className={styles.livingRoomMobCont}>
-            <img
-              src={diningRoomPicMob}
-              alt="diningroom"
-              className={styles.livingRoomPicMob}
-            />
-            <p className={styles.mainRoomPicTitle}>DINING ROOMS</p>
-            <p className={styles.mainRoomPicSub}>Warm spaces for dining</p>
-            <p className={styles.shopNow}>SHOP DINING ROOMS</p>
+            <Link to="/products/dining">
+              <img
+                src={diningRoomPicMob}
+                alt="diningroom"
+                className={styles.livingRoomPicMob}
+              />
+              <p className={styles.mainRoomPicTitle}>DINING ROOMS</p>
+              <p className={styles.mainRoomPicSub}>Warm spaces for dining</p>
+              <p className={styles.shopNow}>SHOP DINING ROOMS</p>
+            </Link>
           </div>
           {/* Main rooms 2 */}
           <div className={styles.livingRoomMobCont}>
-            <img
-              src={bedroomPicMob}
-              alt="bedroom"
-              className={styles.livingRoomPicMob}
-            />
-            <p className={styles.mainRoomPicTitle}>BEDROOMS</p>
-            <p className={styles.mainRoomPicSub}>Relaxing bedroom spaces</p>
-            <p className={styles.shopNow}>SHOP BEDROOMS</p>
+            <Link to="/products/bedroom">
+              <img
+                src={bedroomPicMob}
+                alt="bedroom"
+                className={styles.livingRoomPicMob}
+              />
+              <p className={styles.mainRoomPicTitle}>BEDROOMS</p>
+              <p className={styles.mainRoomPicSub}>Relaxing bedroom spaces</p>
+              <p className={styles.shopNow}>SHOP BEDROOMS</p>
+            </Link>
           </div>
           <div className={styles.livingRoomMobCont}>
-            <img
-              src={bathroomPicMob}
-              alt="diningroom"
-              className={styles.livingRoomPicMob}
-            />
-            <p className={styles.mainRoomPicTitle}>BATHROOMS</p>
-            <p className={styles.mainRoomPicSub}>Interesting bathroom spaces</p>
-            <p className={styles.shopNow}>SHOP BATHROOMS</p>
+            <Link to="/products/bathroom">
+              <img
+                src={bathroomPicMob}
+                alt="diningroom"
+                className={styles.livingRoomPicMob}
+              />
+              <p className={styles.mainRoomPicTitle}>BATHROOMS</p>
+              <p className={styles.mainRoomPicSub}>
+                Interesting bathroom spaces
+              </p>
+              <p className={styles.shopNow}>SHOP BATHROOMS</p>
+            </Link>
           </div>
         </div>
         <div className={styles.salesBanner}>

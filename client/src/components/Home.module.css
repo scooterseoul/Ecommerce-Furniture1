@@ -51,6 +51,7 @@
 }
 .livingRoomPicMob {
   width: 90vw;
+  border-radius: 0.2rem;
 }
 .mainRoomPicTitle {
   font-weight: 600;
@@ -73,6 +74,7 @@
   color: white;
   margin: 0 auto;
   margin-bottom: 3rem;
+  border-radius: 0.2rem;
 }
 
 /* Mobile Sales Banner */
@@ -115,7 +117,6 @@
 .mailinglistCont {
   margin: 0 auto;
   text-align: center;
-  background-color: #e7e7e7;
 }
 .mailinglist {
   width: 85%;
@@ -123,7 +124,7 @@
   border-style: solid;
   border-width: 0.3rem;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 /* Categories */
@@ -236,6 +237,7 @@
   padding: 0.4rem;
   width: 7rem;
   margin: 0 auto;
+  border-radius: 0.2rem;
 }
 
 /*  mobile landscape */
