@@ -59,10 +59,10 @@ const Header = () => {
             <li>
               <Link
                 // activeClassName={`${showNavbar && styles.active}`}
-                to="/products/dinning"
+                to="/products/dining"
                 onClick={closeNavbar}
               >
-                Dinning Room
+                Dining Room
               </Link>
             </li>
             <li>

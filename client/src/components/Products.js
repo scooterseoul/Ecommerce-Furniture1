@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-// import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./Products.module.css";
 import { ProductContext } from "./StripeContext";
 import livingRoomHero from "../imagesProduct/PROD-LIVING-ROOM-HERO-pexels-terry-magallanes-12639296.jpg";
@@ -10,42 +10,14 @@ import { faPlusSquare, faMinusSquare } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 const Products = () => {
-  // const { products } = useParams();
-  // const [qty, setQty] = useState(1);
-  const {
-    productData,
-    cart,
-    setCart,
-    incrementQty,
-    // incrementQty,
-    decrementQty,
-    addToCart,
-  } = useContext(ProductContext);
-  // console.log("CCCRRT : " + JSON.stringify(cart));
+  const { products } = useParams();
+  const { productData } = useContext(ProductContext);
 
-  const handleAddTocart = async (product) => {
-    await addToCart(product);
-    await incrementProductQty(product);
-    // setQty(quantity);
-  };
+  const scrollToTop = (behavior) => {
 
-  const incrementProductQty = async (product) => {
-    // await addToCart(product);
-    await incrementQty(product);
-    // setQty(quantity);
-  };
-
-  // const decrementProductQty = async (product) => {
-  //   await addToCart(product);
-  //   await incrementProductQty(product);
-  //   // setQty(quantity);
-  // };
-
-  // incrementQty(product)
-  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: behavior,
     });
   };
   return (
@@ -61,9 +33,7 @@ const Products = () => {
         </div>
         <div className={styles.subHeaderCont}>
           <p className={styles.subCopy}>LIVING ROOM SPACES</p>
-          <p className={styles.subCopy2}>
-            Spruce up your favorite spaces to be in!
-          </p>
+          <p className={styles.subCopy2}>Spruce up your favorite spaces!</p>
         </div>
       </div>
 
@@ -75,13 +45,17 @@ const Products = () => {
             return (
               <li key={product.id}>
                 <div className={styles.listItem}>
-                  <img
-                    src={product.images}
-                    alt={product.name}
-                    className={styles.listImages}
-                  />
+                  <Link
+                    to={"/item/" + product.id}
+                    onClick={() => scrollToTop("instant")}
+                  >
+                    <img
+                      src={product.images}
+                      alt={product.name}
+                      className={styles.listImages}
+                    />
+                  </Link>
                   <p className={styles.itemTitle}>{product.name}</p>
-                  <p className={styles.listItemCopy}>{product.description}</p>
                   <p className={styles.listItemPrice}>
                     $
                     {Number(product.price.unit_amount_decimal / 100).toFixed(2)}
@@ -128,7 +102,10 @@ const Products = () => {
       </div>
       {/* Back to top Button */}
       <div className={styles.buttonToTop}>
-        <button className={styles.backToTopButton} onClick={scrollToTop}>
+        <button
+          className={styles.backToTopButton}
+          onClick={() => scrollToTop("smooth")}
+        >
           Back to Top
         </button>
       </div>
