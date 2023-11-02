@@ -5,17 +5,30 @@ import { ProductContext } from "./StripeContext";
 import livingRoomHero from "../imagesProduct/PROD-LIVING-ROOM-HERO-pexels-terry-magallanes-12639296.jpg";
 import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusSquare, faMinusSquare } from "@fortawesome/free-solid-svg-icons";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 const Products = () => {
   const { products } = useParams();
-  const { productData, cart, setCart, addToCart } = useContext(ProductContext);
-  // console.log("PRRoducts : " + JSON.stringify(cart));
+  const [qty, setQty] = useState(1);
+  const {
+    productData,
+    cart,
+    setCart,
+    getProductQty,
+    incrementQty,
+    decrementQty,
+    addToCart,
+  } = useContext(ProductContext);
+  // console.log("CCCRRT : " + JSON.stringify(cart));
 
-  const handleAddTocart = (product) => {
-    addToCart(product);
-
-    // console.log("CCAARRTT handle cart" + JSON.stringify(cart));
+  const handleAddTocart = async (product) => {
+    await addToCart(product);
+    const quantity = await getProductQty(product);
+    // setQty(quantity);
   };
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -45,6 +58,7 @@ const Products = () => {
         <ul className={styles.productGrid}>
           {/* List of Products */}
           {productData.map((product) => {
+            // console.log("KKK : " + JSON.stringify(product));
             return (
               <li key={product.id}>
                 <div className={styles.listItem}>
@@ -55,19 +69,43 @@ const Products = () => {
                   />
                   <p className={styles.itemTitle}>{product.name}</p>
                   <p className={styles.listItemCopy}>{product.description}</p>
-                  <p className={styles.listItemPrice}>
+                  {/* <p className={styles.listItemPrice}>
                     $
                     {Number(product.price.unit_amount_decimal / 100).toFixed(2)}
-                  </p>
+                  </p> */}
+
                   <div className={styles.productFooter}>
-                    <button
-                      className={styles.addToCart}
-                      onClick={() => {
-                        handleAddTocart(product);
-                      }}
-                    >
-                      Add to Cart
-                    </button>
+                    <div className={styles.footerLeft}>
+                      {product.qty > 0 && (
+                        <>
+                          <FontAwesomeIcon
+                            size="xl"
+                            className="fontawesomeIcons"
+                            icon={faMinusSquare}
+                            onClick={() =>
+                              product.qty > 0 && decrementQty(product)
+                            }
+                          />
+                          <p className={styles.productQty}>{product.qty}</p>
+                          <FontAwesomeIcon
+                            size="xl"
+                            className="fontawesomeIcons"
+                            icon={faPlusSquare}
+                            onClick={() => incrementQty(product)}
+                          />
+                        </>
+                      )}
+                    </div>
+                    <div className={styles.footerRight}>
+                      <button
+                        className={styles.addToCart}
+                        onClick={() => {
+                          handleAddTocart(product);
+                        }}
+                      >
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
                 </div>
               </li>

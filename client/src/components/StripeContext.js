@@ -10,19 +10,8 @@ export const ProductProvider = ({ children }) => {
   const [productData, setProductData] = useState(productsData);
   const [cart, setCart] = useState([]);
 
-  // function addToCart(product) {
-  //   const itemIndex = cart.findIndex((item) => item.product.id === product.id);
-  //   // console.log("isExistsInCart:" + itemIndex);
-  //   if (itemIndex <= -1) {
-  //     setCart((prevItems) => [...prevItems, { product, qty: 1 }]);
-  //   } else {
-  //     setCart((prevItems) =>
-  //       prevItems.map((item) =>
-  //         item.product.id === product.id ? { ...item, qty: item.qty + 1 } : item
-  //       )
-  //     );
-  //   }
-  // }
+  const cartItemsCount = cart.reduce((sum, item) => sum + item.product.qty, 0);
+
   function addToCart(product) {
     const itemIndex = cart.findIndex((item) => item.product.id === product.id);
 
@@ -40,6 +29,28 @@ export const ProductProvider = ({ children }) => {
         )
       );
     }
+  }
+
+  function getProductQty(product) {
+    // const productInCart = cart.filter((item) => item.product.id === product.id);
+    // console.log("JJJJ :" + productInCart.product.qty);
+    // return productInCart.qty;
+    const cartAfterAdd = cart.find((item) => item.product.id === product.id);
+    const qty = !cartAfterAdd ? 1 : cartAfterAdd.product.qty + 1;
+    product.qty = qty;
+
+    const updatedArray = productData.map((item) => {
+      if (item.id === product.id) {
+        return {
+          ...item,
+          product: { ...item.product, qty: qty },
+        };
+      } else {
+        return item;
+      }
+    });
+    setProductData(updatedArray);
+    // return qty;
   }
 
   function incrementQty(product) {
@@ -69,10 +80,12 @@ export const ProductProvider = ({ children }) => {
     });
     setCart(updatedArray);
   }
-  // function removeFromCart(id) {
-  //   const afterDeleteUpdatedArray = cart.filter((item) => item.id !== id);
-  //   setCart(afterDeleteUpdatedArray);
-  // }
+
+  function removeFromCart(id) {
+    // console.log("REEMMOOVEE : " + id);
+    const cartAfterDelete = cart.filter((item) => item.product.id !== id);
+    setCart(cartAfterDelete);
+  }
 
   // function emptyTheCart() {
   //   setCart([]);
@@ -125,9 +138,12 @@ export const ProductProvider = ({ children }) => {
         setProductData,
         cart,
         setCart,
+        cartItemsCount,
         addToCart,
+        getProductQty,
         incrementQty,
         decrementQty,
+        removeFromCart,
       }}
     >
       {children}

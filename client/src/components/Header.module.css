@@ -103,6 +103,21 @@ a:visited {
   margin-right: 0px;
 }
 
+.cartPic {
+  position: relative;
+}
+
+.cartPic .cartItemCount {
+  position: absolute;
+  top: -0.6rem;
+  right: 0;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
 @media (min-width: 40rem) {
   .navbar {
     width: 90%;

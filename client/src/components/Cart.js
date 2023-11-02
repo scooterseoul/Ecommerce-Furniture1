@@ -5,12 +5,16 @@ import deskTopHeaderPic from "../images/dTMain.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare, faMinusSquare } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { useNavigate } from "react-router-dom";
+
 const Cart = () => {
-  // alert("CART");
-  const [qty, setQty] = useState(1);
+  const navigate = useNavigate();
   const [total, setTotal] = useState(0);
-  const { cart, incrementQty, decrementQty } = useContext(ProductContext);
-  // console.log("Cart.js : " + JSON.stringify(cart.product));
+  const [gst, setGst] = useState(0);
+  const [orderTotal, setOrderTotal] = useState(0);
+  const { cart, incrementQty, decrementQty, removeFromCart } =
+    useContext(ProductContext);
+
   useEffect(() => {
     const sum = cart.reduce((total, cartItem) => {
       console.log(
@@ -25,10 +29,9 @@ const Cart = () => {
       );
     }, 0);
     setTotal(sum / 100);
-  }, [cart]);
-
-  console.log("SUBTOTAL 111 : " + total);
-  //
+    setGst((total * 15) / 100);
+    setOrderTotal(total + gst);
+  }, [cart, gst, total]);
 
   const handleCheckout = async () => {
     console.log("handleCheckout()");
@@ -62,7 +65,11 @@ const Cart = () => {
         <h2 className={styles.cartTitle}>YOUR SHOPPING CART</h2>
         <ul className={styles.cartMenu}>
           <li>
-            <a href="#back" className={styles.cartButtons}>
+            <a
+              href="#back"
+              className={styles.cartButtons}
+              onClick={() => navigate(-1)}
+            >
               CONTINUE SHOPPING
             </a>
           </li>
@@ -84,84 +91,108 @@ const Cart = () => {
                 <th className={styles.alignRight}>Sub Total</th>
               </tr>
             </thead>
-            <tbody>
-              {cart.map((cartItem) => {
-                return (
-                  <tr key={cartItem.product.id} className={styles.productRow}>
-                    <td className={styles.product}>
-                      <img
-                        src={cartItem.product.images[0]}
-                        alt={cartItem.name}
-                      />
-                      <div className={styles.productDescription}>
-                        {cartItem.product.name}
-                        <a href="#remove">Remove</a>
-                      </div>
-                    </td>
-                    <td className={styles.productQuantity}>
-                      <FontAwesomeIcon
-                        size="xl"
-                        className={styles.fontawesomeIcons}
-                        icon={faMinusSquare}
-                        onClick={() =>
-                          cartItem.product.qty > 0 &&
-                          decrementQty(cartItem.product)
-                        }
-                      />
-                      {cartItem.product.qty}
-                      <FontAwesomeIcon
-                        size="xl"
-                        className={styles.fontawesomeIcons}
-                        icon={faPlusSquare}
-                        onClick={() => incrementQty(cartItem.product)}
-                      />
-                    </td>
-                    <td className={styles.alignRight}>
-                      $
-                      {Number(
-                        cartItem.product.price.unit_amount_decimal / 100
-                      ).toFixed(2)}
-                    </td>
-                    <td className={styles.alignRight}>
-                      $
-                      {Number(
-                        (cartItem.product.price.unit_amount_decimal *
-                          cartItem.product.qty) /
-                          100
-                      ).toFixed(2)}
+            {cart.length <= 0 ? (
+              <>
+                <div className={styles.productRow}>
+                  <h2>Your cart is empty</h2>
+                </div>
+                <div className={styles.checkOut}>
+                  <a
+                    href="#checkout"
+                    className="btn"
+                    onClick={() => navigate(-1)}
+                  >
+                    START SHOPPING
+                  </a>
+                </div>
+              </>
+            ) : (
+              <>
+                <tbody>
+                  {cart.map((cartItem) => {
+                    return (
+                      <tr
+                        key={cartItem.product.id}
+                        className={styles.productRow}
+                      >
+                        <td className={styles.product}>
+                          <img
+                            src={cartItem.product.images[0]}
+                            alt={cartItem.name}
+                          />
+                          <div className={styles.productDescription}>
+                            {cartItem.product.name}
+                            <a
+                              href="#remove"
+                              onClick={() =>
+                                removeFromCart(cartItem.product.id)
+                              }
+                            >
+                              Remove
+                            </a>
+                          </div>
+                        </td>
+                        <td className={styles.productQuantity}>
+                          <FontAwesomeIcon
+                            size="xl"
+                            className="fontawesomeIcons"
+                            icon={faMinusSquare}
+                            onClick={() =>
+                              cartItem.product.qty > 0 &&
+                              decrementQty(cartItem.product)
+                            }
+                          />
+                          {cartItem.product.qty}
+                          <FontAwesomeIcon
+                            size="xl"
+                            className="fontawesomeIcons"
+                            icon={faPlusSquare}
+                            onClick={() => incrementQty(cartItem.product)}
+                          />
+                        </td>
+                        <td className={styles.alignRight}>
+                          $
+                          {Number(
+                            cartItem.product.price.unit_amount_decimal / 100
+                          ).toFixed(2)}
+                        </td>
+                        <td className={styles.alignRight}>
+                          $
+                          {Number(
+                            (cartItem.product.price.unit_amount_decimal *
+                              cartItem.product.qty) /
+                              100
+                          ).toFixed(2)}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+                <tfoot className={styles.footer}>
+                  <tr className={styles.footerRow}>
+                    <td className={styles.orderTotal}>
+                      SubTotal:
+                      <span className={styles.alignRight1}>
+                        ${Number(total).toFixed(2)}
+                      </span>
                     </td>
                   </tr>
-                );
-              })}
-            </tbody>
-            <tfoot className={styles.footer}>
-              <tr className={styles.footerRow}>
-                <td className={styles.orderTotal}>
-                  SubTotal:
-                  <span className={styles.alignRight1}>
-                    ${Number(total).toFixed(2)}
-                  </span>
-                </td>
-              </tr>
-              <tr className={styles.footerRow}>
-                <td className={styles.orderTotal}>
-                  GST:
-                  <span>5000</span>
-                </td>
-              </tr>
-              <tr className={styles.footerRow}>
-                <td className={styles.orderTotal}>
-                  Total (Incl. GST):
-                  <span>5000</span>
-                </td>
-              </tr>
-            </tfoot>
+                  <tr className={styles.footerRow}>
+                    <td className={styles.orderTotal}>
+                      GST:
+                      <span>${Number(gst).toFixed(2)}</span>
+                    </td>
+                  </tr>
+                  <tr className={styles.footerRow}>
+                    <td className={styles.orderTotal}>
+                      Total (Incl. GST):
+                      <span>${Number(orderTotal).toFixed(2)}</span>
+                    </td>
+                  </tr>
+                </tfoot>
+              </>
+            )}
           </table>
-          <div className={styles.checkOut}>
-            <a href="#checkout" className="btn">
-              CHECKOUT
-            </a>
-          </div>
         </div>
       )}
       {/* </div> */}
