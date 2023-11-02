@@ -4,3 +4,16 @@
 .fontawesomeIcons:hover {
   color: rgba(0, 0, 0, 0.85);
 }
+
+.btn {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(0, 0, 0, 0.75);
+}
