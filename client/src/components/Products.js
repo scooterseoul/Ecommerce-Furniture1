@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./Products.module.css";
 import { ProductContext } from "./StripeContext";
-import livingRoomHero from "../imagesProduct/PROD-LIVING-ROOM-HERO-pexels-terry-magallanes-12639296.jpg";
+import livingRoomHero from "../images/LIVpexels-rdne-stock-project-8580720.jpg";
 import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
 import MailingList from "./MailingList";
@@ -18,7 +18,9 @@ const Products = () => {
   const closePopup = () => {
     setShowMailingList(false);
   };
-
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
   const scrollToTop = (behavior) => {
     window.scrollTo({
       top: 0,
@@ -49,10 +51,7 @@ const Products = () => {
             return (
               <li key={product.id}>
                 <div className={styles.listItem}>
-                  <Link
-                    to={"/item/" + product.id}
-                    onClick={() => scrollToTop("instant")}
-                  >
+                  <Link to={"/item/" + product.id} onClick={scrollTop}>
                     <img
                       src={product.images}
                       alt={product.name}

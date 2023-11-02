@@ -11,6 +11,10 @@ const Favorites = () => {
   const { productData } = useContext(ProductContext);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1023);
 
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -34,6 +38,7 @@ const Favorites = () => {
   return (
     <div className={styles.carouselCont}>
       <h1 className={styles.favHeader}>FAVORITES & SEASONALS</h1>
+
       {isMobile ? (
         <Slider {...settings}>
           {productData
@@ -44,7 +49,7 @@ const Favorites = () => {
             .map((product) => (
               <div key={product.id}>
                 <div className={styles.carouselItem}>
-                  <Link to={"/item/" + product.id}>
+                  <Link to={"/item/" + product.id} onClick={scrollTop}>
                     <img src={product.images[0]} alt={product.name} />
                   </Link>
                   <p className={styles.caroItemTitle}>{product.name}</p>
@@ -64,7 +69,7 @@ const Favorites = () => {
             )
             .map((product) => (
               <div key={product.id} className={styles.carouselItem}>
-                <Link to={"/item/" + product.id}>
+                <Link to={"/item/" + product.id} onClick={scrollTop}>
                   <img src={product.images[0]} alt={product.name} />
                 </Link>
                 <p className={styles.caroItemTitle}>{product.name}</p>

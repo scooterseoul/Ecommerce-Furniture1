@@ -23,7 +23,9 @@ const Home = () => {
   const closePopup = () => {
     setShowMailingList(false);
   };
-
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -59,7 +61,7 @@ const Home = () => {
         <p className={styles.furnHeader}>FURNITURE</p>
         <div className={styles.mainRoomsContainer}>
           <div className={styles.livingRoomMobCont}>
-            <Link to="/products/living">
+            <Link to="/products/living" onClick={scrollTop}>
               <img
                 src={livingRoomPicMob}
                 alt="livingroom"
@@ -71,7 +73,7 @@ const Home = () => {
             </Link>
           </div>
           <div className={styles.livingRoomMobCont}>
-            <Link to="/products/dining">
+            <Link to="/products/dining" onClick={scrollTop}>
               <img
                 src={diningRoomPicMob}
                 alt="diningroom"
@@ -84,7 +86,7 @@ const Home = () => {
           </div>
           {/* Main rooms 2 */}
           <div className={styles.livingRoomMobCont}>
-            <Link to="/products/bedroom">
+            <Link to="/products/bedroom" onClick={scrollTop}>
               <img
                 src={bedroomPicMob}
                 alt="bedroom"
@@ -96,7 +98,7 @@ const Home = () => {
             </Link>
           </div>
           <div className={styles.livingRoomMobCont}>
-            <Link to="/products/bathroom">
+            <Link to="/products/bathroom" onClick={scrollTop}>
               <img
                 src={bathroomPicMob}
                 alt="diningroom"
@@ -110,24 +112,27 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className={styles.salesBanner}>
-          <div className={styles.salesBannerCopy}>
-            <p className={styles.superSale}>Super Sale</p>
-            <img
-              src={discountPic}
-              alt="discount"
-              className={styles.discountPic}
-            />
-            <div className={styles.disAccCont}>
+        <Link to="/discount" onClick={scrollTop}>
+          <div className={styles.salesBanner}>
+            <div className={styles.salesBannerCopy}>
+              <p className={styles.superSale}>Super Sale</p>
+
               <img
-                src={discountAccessories}
+                src={discountPic}
                 alt="discount"
-                className={styles.discountAccessories}
-              />{" "}
-              <p className={styles.bannerEveryday}>SHOP NOW</p>
-            </div>
+                className={styles.discountPic}
+              />
+              <div className={styles.disAccCont}>
+                <img
+                  src={discountAccessories}
+                  alt="discount"
+                  className={styles.discountAccessories}
+                />{" "}
+                <p className={styles.bannerEveryday}>SHOP NOW</p>
+              </div>
+            </div>{" "}
           </div>{" "}
-        </div>{" "}
+        </Link>
         {/* Carousel */}
         <Favorites />
         {/* Mailing list */}
