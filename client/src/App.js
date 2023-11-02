@@ -2,14 +2,13 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 // Components for each route
+import { ProductProvider } from "./components/StripeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import Cart from "./components/Cart";
 import SingleItem from "./components/SingleItem";
-
-import { ProductProvider } from "./components/StripeContext";
 
 function App() {
   return (

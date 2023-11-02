@@ -53,8 +53,9 @@ a {
 .listItem {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 4rem 2rem auto;
+  grid-template-rows: 4rem 2rem auto 1rem;
   border-bottom: 0.08rem solid gray;
+  gap: 0.5rem;
   margin-top: 2rem;
   height: 90%;
 }
@@ -74,6 +75,7 @@ a {
   margin-top: 0.5rem;
   margin-bottom: 0;
 }
+
 .listItemPrice {
   font-size: 0.5rem;
   object-fit: cover;
@@ -112,6 +114,38 @@ a {
 .mailinglist {
   width: 75%;
   margin: 1rem 0 3rem;
+}
+
+.productFooter {
+  /* grid-row: 4/4; */
+  margin: 0;
+  padding: 0;
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  /* justify-content: space-evenly; */
+  vertical-align: top;
+}
+
+.footerLeft {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.3rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: -0.8rem;
+}
+
+.footerRight {
+  justify-content: flex-end;
+}
+
+.footerRight button {
+  padding: 0.3rem 0.7rem;
+}
+
+.productQty {
+  color: black;
 }
 
 /* Mobile Landscape Styles */

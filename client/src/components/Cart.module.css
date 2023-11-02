@@ -1,0 +1,123 @@
+.cartCont {
+  width: 90vw;
+  margin: 0.5rem auto;
+}
+
+.cartHeader {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartMenu {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cartMenu li a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.5s linear;
+}
+
+.cartMenu li a:hover {
+  font-weight: 500;
+}
+
+.cartTable {
+  width: 100%;
+}
+
+.cartButtons {
+  padding: 0.3rem 0.7rem;
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+td img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+th,
+tr {
+  display: grid;
+  grid-auto-flow: row;
+  white-space: nowrap;
+}
+
+tfoot tr,
+tr {
+  grid-template-columns: 23rem 10rem 10rem 10rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.footer {
+  width: 80%;
+}
+
+.footerRow {
+  display: flex;
+  width: 88%;
+  justify-content: flex-end;
+  padding-top: 0rem;
+  padding-bottom: 0.1rem;
+}
+/* .cartTableHeading,
+.productRow,
+.quantity {
+} */
+.product,
+.productQuantity {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.8rem;
+}
+
+.productDescription {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.15rem;
+}
+
+.productQuantity {
+  gap: 0.5rem;
+}
+
+.orderTotal {
+  display: flex;
+  gap: 2rem;
+  /* padding-right: 3rem;
+  text-align: right; */
+}
+
+/* .checkOut {
+  background-color: #ff0000;
+  max-width: fit-content;
+  /* width: 3rem; *
+  display: flex;
+  /* align-items: flex-end; *
+  justify-content: flex-end;
+} */
+.alignRight {
+  text-align: right;
+  padding-right: 6rem;
+}

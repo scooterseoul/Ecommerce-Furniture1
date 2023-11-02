@@ -1,23 +1,203 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Products.module.css";
+import React, { useState, useEffect, useContext } from "react";
+import styles from "./Cart.module.css";
+import { ProductContext } from "./StripeContext";
+import deskTopHeaderPic from "../images/dTMain.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusSquare, faMinusSquare } from "@fortawesome/free-solid-svg-icons";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { useNavigate } from "react-router-dom";
 
-// import deskTopHeaderPic from "../images/dTMain.png";
+const Cart = () => {
+  const navigate = useNavigate();
+  const [total, setTotal] = useState(0);
+  const [gst, setGst] = useState(0);
+  const [orderTotal, setOrderTotal] = useState(0);
+  const { cart, incrementQty, decrementQty, removeFromCart } =
+    useContext(ProductContext);
 
-const Products = () => {
+  useEffect(() => {
+    const sum = cart.reduce((total, cartItem) => {
+      console.log(
+        "SUBTOTAL : " +
+          cartItem.product.price.unit_amount_decimal +
+          "  " +
+          cartItem.product.qty
+      );
+      return (
+        total +
+        cartItem.product.price.unit_amount_decimal * cartItem.product.qty
+      );
+    }, 0);
+    setTotal(sum / 100);
+    setGst((total * 15) / 100);
+    setOrderTotal(total + gst);
+  }, [cart, gst, total]);
+
+  const handleCheckout = async () => {
+    console.log("handleCheckout()");
+    const url = "http://localhost:5001/api/products/create-checkout-session"; // Replace with the actual API endpoint URL
+    const data = {
+      key1: "value1",
+      key2: "value2",
+    };
+    const res = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      // .then((response) => response.json())
+      // .then((data) => {
+      //   console.log("Response data:", data);
+      // })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+    console.log("RESPONSE : " + JSON.stringify(res));
+    const body = await res.json();
+    window.location.href = body.url;
+  };
+
   return (
-    <section className={styles.productsCont}>
-      <div className={styles.productsHero}>
-        <div className={styles.heroCont}>
-          {/* <img src={deskTopHeaderPic} alt="welcome" className={styles.hero} /> */}
-          <p className={styles.heroTitle}>CART PAGE</p>
+    <section className={styles.cartCont}>
+      <div className={styles.cartHeader}>
+        <h2 className={styles.cartTitle}>YOUR SHOPPING CART</h2>
+        <ul className={styles.cartMenu}>
+          <li>
+            <a
+              href="#back"
+              className={styles.cartButtons}
+              onClick={() => navigate(-1)}
+            >
+              CONTINUE SHOPPING
+            </a>
+          </li>
+          <li>
+            <button className={styles.cartButtons} onClick={handleCheckout}>
+              CHECKOUT
+            </button>
+          </li>
+        </ul>
+      </div>
+      {cart && (
+        <div className={styles.cartCont}>
+          <table className={styles.cartTable}>
+            <thead>
+              <tr className={styles.cartTableHeading}>
+                <th>Products</th>
+                <th>Quantity</th>
+                <th>Item Price</th>
+                <th className={styles.alignRight}>Sub Total</th>
+              </tr>
+            </thead>
+            {cart.length <= 0 ? (
+              <>
+                <div className={styles.productRow}>
+                  <h2>Your cart is empty</h2>
+                </div>
+                <div className={styles.checkOut}>
+                  <a
+                    href="#checkout"
+                    className="btn"
+                    onClick={() => navigate(-1)}
+                  >
+                    START SHOPPING
+                  </a>
+                </div>
+              </>
+            ) : (
+              <>
+                <tbody>
+                  {cart.map((cartItem) => {
+                    return (
+                      <tr
+                        key={cartItem.product.id}
+                        className={styles.productRow}
+                      >
+                        <td className={styles.product}>
+                          <img
+                            src={cartItem.product.images[0]}
+                            alt={cartItem.name}
+                          />
+                          <div className={styles.productDescription}>
+                            {cartItem.product.name}
+                            <a
+                              href="#remove"
+                              onClick={() =>
+                                removeFromCart(cartItem.product.id)
+                              }
+                            >
+                              Remove
+                            </a>
+                          </div>
+                        </td>
+                        <td className={styles.productQuantity}>
+                          <FontAwesomeIcon
+                            size="xl"
+                            className="fontawesomeIcons"
+                            icon={faMinusSquare}
+                            onClick={() =>
+                              cartItem.product.qty > 0 &&
+                              decrementQty(cartItem.product)
+                            }
+                          />
+                          {cartItem.product.qty}
+                          <FontAwesomeIcon
+                            size="xl"
+                            className="fontawesomeIcons"
+                            icon={faPlusSquare}
+                            onClick={() => incrementQty(cartItem.product)}
+                          />
+                        </td>
+                        <td className={styles.alignRight}>
+                          $
+                          {Number(
+                            cartItem.product.price.unit_amount_decimal / 100
+                          ).toFixed(2)}
+                        </td>
+                        <td className={styles.alignRight}>
+                          $
+                          {Number(
+                            (cartItem.product.price.unit_amount_decimal *
+                              cartItem.product.qty) /
+                              100
+                          ).toFixed(2)}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+                <tfoot className={styles.footer}>
+                  <tr className={styles.footerRow}>
+                    <td className={styles.orderTotal}>
+                      SubTotal:
+                      <span className={styles.alignRight1}>
+                        ${Number(total).toFixed(2)}
+                      </span>
+                    </td>
+                  </tr>
+                  <tr className={styles.footerRow}>
+                    <td className={styles.orderTotal}>
+                      GST:
+                      <span>${Number(gst).toFixed(2)}</span>
+                    </td>
+                  </tr>
+                  <tr className={styles.footerRow}>
+                    <td className={styles.orderTotal}>
+                      Total (Incl. GST):
+                      <span>${Number(orderTotal).toFixed(2)}</span>
+                    </td>
+                  </tr>
+                </tfoot>
+              </>
+            )}
+          </table>
         </div>
-      </div>
-      <div className={styles.productsCont}>
-        <h1>CART PAGE Content</h1>
-      </div>
+      )}
       {/* </div> */}
     </section>
   );
 };
 
-export default Products;
+export default Cart;
