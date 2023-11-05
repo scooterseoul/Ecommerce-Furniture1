@@ -40,6 +40,7 @@
 .listItemPrice {
   padding-top: 1rem;
 }
+
 .listImages,
 .itemTitle,
 .listItemCopy,
@@ -62,20 +63,7 @@
   font-size: 0.8rem;
   text-align: right;
 }
-.cartButtonCont {
-  width: 100%;
-  text-align: center;
-}
-.addToCart {
-  background-color: rgb(60, 60, 60);
-  color: white;
-  border: none;
-  text-align: center;
-  font-size: 0.7rem;
-  font-weight: bold;
-  padding: 0.4rem;
-  color: white;
-}
+
 /* Mailing List Styles */
 .mailinglistCont {
   margin: 0 auto;

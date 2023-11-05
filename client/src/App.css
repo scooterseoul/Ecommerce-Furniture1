@@ -1,16 +1,26 @@
 .fontawesomeIcons {
   color: rgba(0, 0, 0, 0.6);
 }
+
 .fontawesomeIcons:hover {
   color: rgba(0, 0, 0, 0.85);
 }
 
+.cartButtonsCont {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .btn {
-  color: rgba(255, 255, 255, 0.6);
-  background-color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(0, 0, 0, 0.55);
   outline: none;
   border: none;
   cursor: pointer;
+  padding: 0.2rem 0.3rem;
+  white-space: nowrap;
 }
 
 .btn:hover {

@@ -61,141 +61,100 @@ const Cart = () => {
 
   return (
     <section className={styles.cartCont}>
-      <div className={styles.cartHeader}>
-        <h2 className={styles.cartTitle}>YOUR SHOPPING CART</h2>
-        <ul className={styles.cartMenu}>
-          <li>
-            <a
-              href="#back"
-              className={styles.cartButtons}
-              onClick={() => navigate(-1)}
-            >
-              CONTINUE SHOPPING
-            </a>
-          </li>
-          <li>
-            <button className={styles.cartButtons} onClick={handleCheckout}>
-              CHECKOUT
-            </button>
-          </li>
-        </ul>
-      </div>
       {cart && (
-        <div className={styles.cartCont}>
-          <table className={styles.cartTable}>
-            <thead>
-              <tr className={styles.cartTableHeading}>
-                <th>Products</th>
-                <th>Quantity</th>
-                <th>Item Price</th>
-                <th className={styles.alignRight}>Sub Total</th>
-              </tr>
-            </thead>
-            {cart.length <= 0 ? (
-              <>
-                <div className={styles.productRow}>
-                  <h2>Your cart is empty</h2>
-                </div>
-                <div className={styles.checkOut}>
-                  <a
-                    href="#checkout"
-                    className="btn"
-                    onClick={() => navigate(-1)}
-                  >
-                    START SHOPPING
-                  </a>
-                </div>
-              </>
-            ) : (
-              <>
-                <tbody>
-                  {cart.map((cartItem) => {
-                    return (
-                      <tr
-                        key={cartItem.product.id}
-                        className={styles.productRow}
-                      >
-                        <td className={styles.product}>
-                          <img
-                            src={cartItem.product.images[0]}
-                            alt={cartItem.name}
-                          />
-                          <div className={styles.productDescription}>
-                            {cartItem.product.name}
-                            <a
-                              href="#remove"
-                              onClick={() =>
-                                removeFromCart(cartItem.product.id)
-                              }
-                            >
-                              Remove
-                            </a>
-                          </div>
-                        </td>
-                        <td className={styles.productQuantity}>
-                          <FontAwesomeIcon
-                            size="xl"
-                            className="fontawesomeIcons"
-                            icon={faMinusSquare}
-                            onClick={() =>
-                              cartItem.product.qty > 0 &&
-                              decrementQty(cartItem.product)
-                            }
-                          />
-                          {cartItem.product.qty}
-                          <FontAwesomeIcon
-                            size="xl"
-                            className="fontawesomeIcons"
-                            icon={faPlusSquare}
-                            onClick={() => incrementQty(cartItem.product)}
-                          />
-                        </td>
-                        <td className={styles.alignRight}>
-                          $
-                          {Number(
-                            cartItem.product.price.unit_amount_decimal / 100
-                          ).toFixed(2)}
-                        </td>
-                        <td className={styles.alignRight}>
-                          $
-                          {Number(
-                            (cartItem.product.price.unit_amount_decimal *
-                              cartItem.product.qty) /
-                              100
-                          ).toFixed(2)}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-                <tfoot className={styles.footer}>
-                  <tr className={styles.footerRow}>
-                    <td className={styles.orderTotal}>
-                      SubTotal:
-                      <span className={styles.alignRight1}>
-                        ${Number(total).toFixed(2)}
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className={styles.footerRow}>
-                    <td className={styles.orderTotal}>
-                      GST:
-                      <span>${Number(gst).toFixed(2)}</span>
-                    </td>
-                  </tr>
-                  <tr className={styles.footerRow}>
-                    <td className={styles.orderTotal}>
-                      Total (Incl. GST):
-                      <span>${Number(orderTotal).toFixed(2)}</span>
-                    </td>
-                  </tr>
-                </tfoot>
-              </>
-            )}
-          </table>
+        <div className="cartButtonsCont">
+          <button href="#back" className="btn" onClick={() => navigate(-2)}>
+            CONTINUE SHOPPING
+          </button>
+          <button className="btn" onClick={handleCheckout}>
+            CHECKOUT
+          </button>
         </div>
       )}
-      {/* </div> */}
+      <div className={styles.cartHeader}>
+        <h2 className={styles.cartTitle}>YOUR SHOPPING CART</h2>
+        <hr className={styles.line} />
+      </div>
+
+      {!cart ? (
+        <>
+          <div className={styles.productRow}>
+            <h2>Your cart is empty</h2>
+          </div>
+          <div className={styles.checkOut}>
+            <a href="#checkout" className="btn" onClick={() => navigate(-1)}>
+              START SHOPPING
+            </a>
+          </div>
+        </>
+      ) : (
+        <div className={styles.productCont}>
+          <div className={styles.productHeadings}>
+            <h3>Item Description</h3>
+            <h3>Item Price</h3>
+            <h3>Quantity</h3>
+
+            <h3>Sub Total</h3>
+          </div>
+          {cart.map((cartItem) => {
+            return (
+              <figure key={cartItem.product.id} className={styles.product}>
+                <img src={cartItem.product.images[0]} alt={cartItem.name} />
+                <figcaption className={styles.productDescriptionCont}>
+                  <div className={styles.productDescription}>
+                    {cartItem.product.name}
+                    <a
+                      href="#remove"
+                      onClick={() => removeFromCart(cartItem.product.id)}
+                    >
+                      Remove
+                    </a>
+                  </div>
+                  <div className={styles.productQtyRow}>
+                    <div className={styles.productRow}>
+                      <div className={styles.unitPrice}>Unit Price: </div>
+                      <div>
+                        $
+                        {Number(
+                          cartItem.product.price.unit_amount_decimal / 100
+                        ).toFixed(2)}
+                      </div>
+                    </div>
+                    <div className={styles.productQtyCont}>
+                      <div className={styles.productQuantity}>
+                        <FontAwesomeIcon
+                          size="xl"
+                          className="fontawesomeIcons"
+                          icon={faMinusSquare}
+                          onClick={() =>
+                            cartItem.product.qty > 0 &&
+                            decrementQty(cartItem.product)
+                          }
+                        />
+                        {cartItem.product.qty}
+                        <FontAwesomeIcon
+                          size="xl"
+                          className="fontawesomeIcons"
+                          icon={faPlusSquare}
+                          onClick={() => incrementQty(cartItem.product)}
+                        />
+                      </div>
+                      <div className={styles.productTotal}>
+                        $
+                        {Number(
+                          (cartItem.product.price.unit_amount_decimal *
+                            cartItem.product.qty) /
+                            100
+                        ).toFixed(2)}
+                      </div>
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 };

@@ -1,19 +1,30 @@
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { ProductContext } from "./StripeContext";
 import styles from "./SingleItem.module.css";
 import CategorySection from "./CategorySection";
 import mailinglist from "../images/mailinglist.png";
 
 const SingleItem = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
-  const { productData } = useContext(ProductContext);
+  const [addedToCart, setAddedToCart] = useState(false);
+  const { productData, addToCart } = useContext(ProductContext);
 
   const product = productData.find((product) => product.id === id);
 
   if (!product) {
     return <div>Product not found.</div>;
   }
+
+  const handleAddTocart = async (product) => {
+    if (!addedToCart) {
+      await addToCart(product);
+      setAddedToCart(true);
+    } else {
+      navigate("/cart");
+    }
+  };
 
   return (
     <div>
@@ -34,8 +45,20 @@ const SingleItem = () => {
             </div>
 
             {/* Add to Cart button */}
-            <div className={styles.cartButtonCont}>
-              <button className={styles.addToCart}>ADD TO CART</button>
+            <div className="cartButtonsCont">
+              {/* <div className={styles.cartButtons}> */}
+              <button href="#back" className="btn" onClick={() => navigate(-1)}>
+                CONTINUE SHOPPING
+              </button>
+
+              <button
+                className="btn"
+                onClick={() => {
+                  handleAddTocart(product);
+                }}
+              >
+                {!addedToCart ? "ADD TO CART" : "GO TO CART"}
+              </button>
             </div>
           </div>
           <p className={styles.listItemCopy}>

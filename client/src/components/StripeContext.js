@@ -31,39 +31,39 @@ export const ProductProvider = ({ children }) => {
     }
   }
 
-  function getProductQty(product) {
-    // const productInCart = cart.filter((item) => item.product.id === product.id);
-    // console.log("JJJJ :" + productInCart.product.qty);
-    // return productInCart.qty;
-    const cartAfterAdd = cart.find((item) => item.product.id === product.id);
-    // cartAfterAdd &&
-    console.log("JJJJ :" + JSON.stringify(cartAfterAdd));
-    let qty = 0;
-    if (!cartAfterAdd) {
-      alert("11");
-      qty = 1;
-    } else if (cartAfterAdd.product.qty > 0) {
-      alert("222");
-      qty = cartAfterAdd.product.qty + 1;
-    }
-    console.log("JJJJ :" + JSON.stringify(cartAfterAdd));
-    // const qty = !cartAfterAdd ? 1 : cartAfterAdd.product.qty + 1;
-    // const qty = cartAfterAdd && cartAfterAdd.product.qty + 1;
-    product.qty = qty;
+  // function getProductQty(product) {
+  //   // const productInCart = cart.filter((item) => item.product.id === product.id);
+  //   // console.log("JJJJ :" + productInCart.product.qty);
+  //   // return productInCart.qty;
+  //   const cartAfterAdd = cart.find((item) => item.product.id === product.id);
+  //   // cartAfterAdd &&
+  //   console.log("JJJJ :" + JSON.stringify(cartAfterAdd));
+  //   let qty = 0;
+  //   if (!cartAfterAdd) {
+  //     alert("11");
+  //     qty = 1;
+  //   } else if (cartAfterAdd.product.qty > 0) {
+  //     alert("222");
+  //     qty = cartAfterAdd.product.qty + 1;
+  //   }
+  //   console.log("JJJJ :" + JSON.stringify(cartAfterAdd));
+  //   // const qty = !cartAfterAdd ? 1 : cartAfterAdd.product.qty + 1;
+  //   // const qty = cartAfterAdd && cartAfterAdd.product.qty + 1;
+  //   product.qty = qty;
 
-    const updatedArray = productData.map((item) => {
-      if (item.id === product.id) {
-        return {
-          ...item,
-          product: { ...item.product, qty: qty },
-        };
-      } else {
-        return item;
-      }
-    });
-    setProductData(updatedArray);
-    // return product;
-  }
+  //   const updatedArray = productData.map((item) => {
+  //     if (item.id === product.id) {
+  //       return {
+  //         ...item,
+  //         product: { ...item.product, qty: qty },
+  //       };
+  //     } else {
+  //       return item;
+  //     }
+  //   });
+  //   setProductData(updatedArray);
+  //   // return product;
+  // }
 
   function incrementQty(product) {
     // const updatedArray = cart.map((item) => {
@@ -181,7 +181,7 @@ export const ProductProvider = ({ children }) => {
         setCart,
         cartItemsCount,
         addToCart,
-        getProductQty,
+        // getProductQty,
         incrementQty,
         decrementQty,
         removeFromCart,
