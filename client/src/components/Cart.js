@@ -16,12 +16,12 @@ const Cart = () => {
 
   useEffect(() => {
     const sum = cart.reduce((total, cartItem) => {
-      console.log(
-        "SUBTOTAL : " +
-          cartItem.product.price.unit_amount_decimal +
-          "  " +
-          cartItem.product.qty
-      );
+      // console.log(
+      //   "SUBTOTAL : " +
+      //     cartItem.product.price.unit_amount_decimal +
+      //     "  " +
+      //     cartItem.product.qty
+      // );
       return (
         total +
         cartItem.product.price.unit_amount_decimal * cartItem.product.qty
@@ -33,29 +33,37 @@ const Cart = () => {
   }, [cart, gst, total]);
 
   const handleCheckout = async () => {
-    console.log("handleCheckout()");
+    // console.log("cart: " + JSON.stringify(cart));
     const url = "http://localhost:5001/api/products/create-checkout-session"; // Replace with the actual API endpoint URL
-    const data = {
-      key1: "value1",
-      key2: "value2",
-    };
-    const res = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
+
+    const lineItems = cart.map((item) => ({
+      price_data: {
+        currency: item.product.price.currency,
+        product_data: {
+          name: item.product.name,
+        },
+        unit_amount: item.product.price.unit_amount / 100,
       },
-    })
-      // .then((response) => response.json())
-      // .then((data) => {
-      //   console.log("Response data:", data);
-      // })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-    console.log("RESPONSE : " + JSON.stringify(res));
-    const body = await res.json();
-    window.location.href = body.url;
+      quantity: item.product.qty,
+    }));
+    const data = {
+      line_items: lineItems,
+    };
+    console.log("LLLine ITEMS : " + JSON.stringify(data));
+    // const res = await fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
+
+    // const body = await res.json();
+    // console.log("RESPONSE : " + JSON.stringify(res));
+    // window.location.href = body.url;
   };
 
   return (

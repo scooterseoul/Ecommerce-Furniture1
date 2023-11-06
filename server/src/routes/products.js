@@ -84,44 +84,15 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post("/create-checkout-session", async (req, res) => {
-  const session = await Stripe.checkout.sessions.create({
-    line_items: [
-      {
-        price_data: {
-          currency: "usd",
-          product_data: {
-            name: "T-shirt",
-          },
-          unit_amount: 2000,
-        },
-        quantity: 1,
-      },
-      {
-        price_data: {
-          currency: "usd",
-          product_data: {
-            name: "jjjjjj",
-          },
-          unit_amount: 3500,
-        },
-        quantity: 3,
-      },
-      {
-        price_data: {
-          currency: "usd",
-          product_data: {
-            name: "3rd item",
-          },
-          unit_amount: 1500,
-        },
-        quantity: 5,
-      },
-    ],
-    mode: "payment",
-    success_url: "http://localhost:4242/success",
-    cancel_url: "http://localhost:4242/cancel",
-  });
-  res.json({ url: session.url });
+  const lineItems = req.body.line_items;
+  console.log("SERVER : " + JSON.stringify(lineItems));
+  // const session = await Stripe.checkout.sessions.create({
+  //   line_items: lineItems,
+  //   mode: "payment",
+  //   success_url: "http://localhost:4242/success",
+  //   cancel_url: "http://localhost:4242/cancel",
+  // });
+  // res.json({ url: session.url });
   // res.redirect(303, session.url);
 });
 
