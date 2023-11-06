@@ -84,12 +84,14 @@
     grid-column: 1/2;
     margin-bottom: 1rem;
   }
+
   .namePriceCont {
     grid-column: 2/3;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 3fr 1fr 1fr;
   }
+
   .itemTitle {
     grid-column: 1/2;
     grid-row: 1/2;
@@ -106,13 +108,14 @@
   .readyToShip {
     width: 80%;
   }
-  .cartButtonCont {
-    grid-column: 1/2;
+
+  .cartBtnsCont {
+    /* grid-column: 1/2;
     grid-row: 3/4;
-    width: 50%;
     margin: 0 auto;
-    align-self: center;
+    align-self: center; */
   }
+
   .itemSubInfoCont {
     grid-column: 1/2;
     grid-row: 3/4;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import styles from "./Cart.module.css";
 import { ProductContext } from "./StripeContext";
-import deskTopHeaderPic from "../images/dTMain.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare, faMinusSquare } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -76,7 +75,7 @@ const Cart = () => {
         <hr className={styles.line} />
       </div>
 
-      {!cart ? (
+      {cart.length <= 0 ? (
         <>
           <div className={styles.productRow}>
             <h2>Your cart is empty</h2>
@@ -89,70 +88,102 @@ const Cart = () => {
         </>
       ) : (
         <div className={styles.productCont}>
-          <div className={styles.productHeadings}>
-            <h3>Item Description</h3>
-            <h3>Item Price</h3>
-            <h3>Quantity</h3>
-
-            <h3>Sub Total</h3>
+          <div className={styles.orderDetails}>
+            <div className={styles.productHeadings}>
+              <h3>Item Description</h3>
+              <h3>Item Price</h3>
+              <h3>Quantity</h3>
+              <h3>Sub Total</h3>
+            </div>
+            {cart.map((cartItem) => {
+              return (
+                <figure key={cartItem.product.id} className={styles.product}>
+                  <img src={cartItem.product.images[0]} alt={cartItem.name} />
+                  <figcaption className={styles.productDescriptionCont}>
+                    <div className={styles.productDescription}>
+                      {cartItem.product.name}
+                      <a
+                        className={styles.removeBtn}
+                        href="#remove"
+                        onClick={() => removeFromCart(cartItem.product.id)}
+                      >
+                        Remove
+                      </a>
+                    </div>
+                    <div className={styles.productQtyRow}>
+                      <div className={styles.productRow}>
+                        <div className={styles.unitPrice}>Unit Price: </div>
+                        <div>
+                          $
+                          {Number(
+                            cartItem.product.price.unit_amount_decimal / 100
+                          ).toFixed(2)}
+                        </div>
+                      </div>
+                      <div className={styles.productQtyCont}>
+                        <div className={styles.productQuantity}>
+                          <FontAwesomeIcon
+                            size="xl"
+                            className="fontawesomeIcons"
+                            icon={faMinusSquare}
+                            onClick={() =>
+                              cartItem.product.qty > 0 &&
+                              decrementQty(cartItem.product)
+                            }
+                          />
+                          {cartItem.product.qty}
+                          <FontAwesomeIcon
+                            size="xl"
+                            className="fontawesomeIcons"
+                            icon={faPlusSquare}
+                            onClick={() => incrementQty(cartItem.product)}
+                          />
+                        </div>
+                        <div className={styles.productTotal}>
+                          $
+                          {Number(
+                            (cartItem.product.price.unit_amount_decimal *
+                              cartItem.product.qty) /
+                              100
+                          ).toFixed(2)}
+                        </div>
+                      </div>
+                    </div>
+                  </figcaption>
+                </figure>
+              );
+            })}
           </div>
-          {cart.map((cartItem) => {
-            return (
-              <figure key={cartItem.product.id} className={styles.product}>
-                <img src={cartItem.product.images[0]} alt={cartItem.name} />
-                <figcaption className={styles.productDescriptionCont}>
-                  <div className={styles.productDescription}>
-                    {cartItem.product.name}
-                    <a
-                      href="#remove"
-                      onClick={() => removeFromCart(cartItem.product.id)}
-                    >
-                      Remove
-                    </a>
+          <div className={styles.orderSummaryCont}>
+            {cart.length > 0 && (
+              <>
+                <hr className={styles.line} />
+                <div className={styles.orderSummary}>
+                  <h3>ORDER SUMMARY</h3>
+                  <div className={styles.orderRow}>
+                    SubTotal:
+                    <span className={styles.alignRight1}>
+                      ${Number(total).toFixed(2)}
+                    </span>
                   </div>
-                  <div className={styles.productQtyRow}>
-                    <div className={styles.productRow}>
-                      <div className={styles.unitPrice}>Unit Price: </div>
-                      <div>
-                        $
-                        {Number(
-                          cartItem.product.price.unit_amount_decimal / 100
-                        ).toFixed(2)}
-                      </div>
-                    </div>
-                    <div className={styles.productQtyCont}>
-                      <div className={styles.productQuantity}>
-                        <FontAwesomeIcon
-                          size="xl"
-                          className="fontawesomeIcons"
-                          icon={faMinusSquare}
-                          onClick={() =>
-                            cartItem.product.qty > 0 &&
-                            decrementQty(cartItem.product)
-                          }
-                        />
-                        {cartItem.product.qty}
-                        <FontAwesomeIcon
-                          size="xl"
-                          className="fontawesomeIcons"
-                          icon={faPlusSquare}
-                          onClick={() => incrementQty(cartItem.product)}
-                        />
-                      </div>
-                      <div className={styles.productTotal}>
-                        $
-                        {Number(
-                          (cartItem.product.price.unit_amount_decimal *
-                            cartItem.product.qty) /
-                            100
-                        ).toFixed(2)}
-                      </div>
-                    </div>
+                  <div className={styles.orderRow}>
+                    GST:
+                    <span>${Number(gst).toFixed(2)}</span>
                   </div>
-                </figcaption>
-              </figure>
-            );
-          })}
+                  <div className={`${styles.orderRow} ${styles.total}`}>
+                    Total (Incl. GST):
+                    <span>${Number(orderTotal).toFixed(2)}</span>
+                  </div>
+                  <button
+                    className={`${styles.checkoutBtn} btn`}
+                    onClick={handleCheckout}
+                  >
+                    CHECKOUT
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       )}
     </section>

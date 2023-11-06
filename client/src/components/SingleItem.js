@@ -45,8 +45,7 @@ const SingleItem = () => {
             </div>
 
             {/* Add to Cart button */}
-            <div className="cartButtonsCont">
-              {/* <div className={styles.cartButtons}> */}
+            <div className={`${styles.cartBtnsCont} cartButtonsCont`}>
               <button href="#back" className="btn" onClick={() => navigate(-1)}>
                 CONTINUE SHOPPING
               </button>
