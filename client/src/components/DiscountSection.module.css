@@ -1,17 +1,12 @@
-/* Hero Section Styles */
 .heroCont {
   width: 95%;
   margin: 1rem auto;
 }
 
-.livingRoomHeroPic {
+.discountHeroPic {
   width: 100%;
   margin: 0 auto;
 }
-a {
-  text-decoration: none;
-}
-
 /* Sub Header Styles */
 .subHeaderCont {
   width: 90%;
@@ -36,11 +31,11 @@ a {
   margin-bottom: 2rem;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-
 /* Product List Styles */
 .productListCont {
   margin-top: 2rem;
   width: 90%;
+  margin-bottom: 4rem;
 }
 
 .productGrid {
@@ -94,7 +89,6 @@ a {
   background-color: rgb(60, 60, 60);
   color: white;
   border: none;
-  border-radius: 0.2rem;
   text-align: center;
   font-size: 0.7rem;
   font-weight: 400;
@@ -102,8 +96,8 @@ a {
   width: 7rem;
   color: white;
   margin: 0 auto;
+  border-radius: 0.2rem;
 }
-
 /* Mailing List Styles */
 .mailinglistCont {
   margin: 0 auto;
@@ -115,16 +109,20 @@ a {
   width: 75%;
   margin: 1rem 0 3rem;
 }
-
 /* Mobile Landscape Styles */
 @media (max-width: 844px) and (orientation: landscape) {
+  .heroCont {
+    width: 70%;
+    margin: 1rem auto;
+  }
   .productListCont {
     margin: 0 auto;
   }
-
   .listItem {
-    padding-bottom: 1rem;
     text-align: center;
+  }
+  .listItemPrice {
+    margin: 0 auto;
   }
 
   .listImages {
@@ -139,9 +137,6 @@ a {
     width: 50%;
     padding-top: 0.5rem;
   }
-  .listItemPrice {
-    margin: 0 auto;
-  }
 
   .mailinglist {
     width: 60vw;
@@ -150,7 +145,12 @@ a {
 /* for desktop */
 @media (min-width: 1024px) {
   .heroCont {
-    width: 90%;
+    height: 70%;
+  }
+
+  .discountHeroPic {
+    height: 100%;
+    margin: 0 auto;
   }
   .subHeaderCont {
     margin-bottom: 5rem;

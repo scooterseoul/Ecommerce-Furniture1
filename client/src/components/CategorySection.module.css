@@ -28,9 +28,16 @@
   padding-bottom: 0.1rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  background-color: rgba(211, 211, 205, 0.3);
   color: rgb(70, 69, 69);
   margin-bottom: 1.5rem;
+}
+.sofaCont img,
+.lampCont img,
+.tableCont img,
+.accessCont img,
+.homeOfficeCont img {
+  width: 4rem;
+  border-radius: 0.2rem;
 }
 .copyCont {
   align-self: center;
@@ -54,7 +61,7 @@
 @media (min-width: 1024px) {
   /* Categories */
   .categoryCont {
-    width: 90%;
+    width: 70%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 0.5rem;
@@ -69,6 +76,7 @@
     margin: 0 auto;
     padding: 0;
   }
+
   .sofaCont,
   .lampCont,
   .tableCont,
@@ -79,6 +87,7 @@
     margin-right: 0;
     background-color: none;
     width: 100%;
+    text-align: center;
   }
 
   .sofaSQCopy,

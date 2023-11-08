@@ -1,51 +1,45 @@
 /* Carousel */
+
 .favHeader {
   color: rgb(90, 89, 88);
-  font-weight: 300;
-  font-size: 1rem;
-  margin-top: 2rem;
-  padding-left: 1rem;
-  width: 90%;
-}
-.carouselCont {
   width: 100%;
-  height: 55vh;
-  overflow: hidden;
-  position: relative;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-bottom: 2rem;
+  font-size: 1.2rem;
+  margin-left: 0;
+  text-align: center;
+}
+
+.carouselCont {
+  width: 90vw;
+  height: 50%;
   margin-bottom: 2rem;
   margin-top: 1rem;
   padding-bottom: 3rem;
+  margin: 0 auto;
 }
 .carousel {
-  display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
   padding-bottom: 1rem;
-}
-.carouselInner {
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  width: 90%;
 }
 
 .carouselItem {
-  flex: 0 0 100%;
-  scroll-snap-stop: always;
   height: 50vh;
+  width: 95%;
+  margin: 0 auto;
 }
 
-.carousel img {
-  max-width: 90%;
-  max-height: 45vh;
+.carouselCont img {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 0.2rem;
 }
 .caroItemTitle {
   color: rgb(90, 89, 88);
   margin: 0;
   font-size: 0.7rem;
   font-weight: bold;
-  text-decoration: underline;
+  padding-top: 0.5rem;
 }
 .caroFavCopy {
   text-align: center;
@@ -57,43 +51,10 @@
   color: white;
   margin: 0 auto;
   margin-top: 0.5rem;
-}
-.favFreeShipping {
-  margin: 0;
-  font-size: 0.6rem;
-  color: red;
-  margin: 0.2rem;
-  font-style: bold;
+  border: none;
+  border-radius: 0.2rem;
 }
 
-@keyframes scroll {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  20%,
-  25% {
-    transform: translateX(-100%);
-  }
-  40%,
-  45% {
-    transform: translateX(-200%);
-  }
-  60%,
-  65% {
-    transform: translateX(-300%);
-  }
-  80%,
-  85% {
-    transform: translateX(-400%);
-  }
-}
-/*  mobile landscape */
-@media (max-width: 844px) and (orientation: landscape) {
-  .carouselInner {
-    width: 50%;
-  }
-}
 /* for desktop */
 @media (min-width: 1024px) {
   .favHeader {
@@ -101,7 +62,8 @@
     height: 100%;
     margin: 0 auto;
     padding-left: 0;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
+    font-weight: 200;
     color: white;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
       sans-serif;
@@ -117,7 +79,7 @@
     text-align: center;
     border-bottom-color: none;
     border-bottom: none;
-    background-image: url("../images/interior-design-332210_1280.jpg");
+    background-image: url("../images/Favpexels-yan-krukau-5793642.jpg");
     min-height: 35vw;
     background-attachment: fixed;
     background-position: bottom;
@@ -125,50 +87,44 @@
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    border-radius: 0.2rem;
   }
   .carousel {
-    padding: 0;
-    overflow: hidden;
-    background-color: rgba(228, 161, 46, 0.3);
-  }
-  .carouselInner {
+    padding: 1.5rem;
+    background-color: rgba(44, 40, 43, 0.3);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.1rem;
-    width: 80%;
-    min-width: 35vw;
-    height: 80%;
-    margin: 0 auto;
-    padding: 2rem;
-    align-self: center;
+    gap: 1.5rem;
+    align-items: center;
   }
 
   .carouselItem {
-    height: 80%;
+    height: 100%;
     margin: 0 auto;
     width: 90%;
-    min-width: 35%;
-    margin-bottom: 3rem;
-    padding-bottom: 1rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    border-color: rgb(255, 250, 250);
+    border-width: 0.3rem;
+    border-style: solid;
+    background-color: rgb(240, 234, 234);
+    padding-bottom: 0.2rem;
   }
   .carousel img {
     width: 100%;
-    max-width: 100%;
-    box-shadow: 0.5rem 0.4rem 0.8rem 0.1rem #644203;
-    margin-bottom: 1rem;
+    border-radius: 0;
   }
 
   .caroItemTitle {
     text-align: center;
     width: 80%;
     min-width: 35%;
-    font-size: 0.7rem;
+    font-size: 0.5rem;
+    font-weight: 400;
     text-decoration: none;
     padding-bottom: 1rem;
-    color: white;
+    color: rgb(73, 71, 71);
   }
 
   .caroFavCopy {
@@ -177,9 +133,8 @@
     width: 60%;
     height: 1rem;
     font-size: 0.4rem;
-    background-color: white;
-    color: #757474;
-    align-self: flex-end;
+    align-self: last baseline;
+    border-radius: 0.2rem;
   }
 
   .favFreeShipping {
@@ -187,8 +142,7 @@
   }
   .favImages,
   .caroItemTitle,
-  .caroFavCopy,
-  .favFreeShipping {
+  .caroFavCopy {
     margin: 0 auto;
   }
 }
