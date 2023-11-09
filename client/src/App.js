@@ -10,8 +10,6 @@ import Products from "./components/Products";
 import Cart from "./components/Cart";
 import SingleItem from "./components/SingleItem";
 import DiscountSection from "./components/DiscountSection";
-
-import { ProductProvider } from "./components/StripeContext";
 import CategorySofas from "./components/CategorySofas";
 import CategoryTables from "./components/CategoryTables";
 import CategoryAccessories from "./components/CategoryAccessories";

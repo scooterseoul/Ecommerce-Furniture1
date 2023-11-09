@@ -22,7 +22,6 @@ const Products = () => {
     window.scrollTo(0, 0);
   };
   const scrollToTop = (behavior) => {
-
     window.scrollTo({
       top: 0,
       behavior: behavior,
