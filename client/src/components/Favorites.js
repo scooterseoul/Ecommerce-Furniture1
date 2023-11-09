@@ -1,80 +1,85 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { ProductContext } from "./StripeContext";
+import { useContext } from "react";
 import styles from "./Favorites.module.css";
-import carouselOutdoorBed from "../imagesFavorites/pexels-maria-salazar-879010-outdoorBed.jpg";
-import carouselChairs from "../imagesFavorites/pexels-pixabay-220749-singleChairs.jpg";
-import carouselSofa from "../imagesFavorites/pexels-rachel-claire-4846097-greenSofa.jpg";
-import carouselDining from "../imagesFavorites/architect-2071534_1280-diningTable.jpg";
-import carouselCushions from "../imagesFavorites/pillows-4326131_1280.jpg";
-import carouselDeskChair from "../imagesFavorites/desk-chair-pexels-lisa-fotios-1957478.jpeg";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Favorites = () => {
+  const { productData } = useContext(ProductContext);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1023);
+
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setIsMobile(window.innerWidth <= 1023);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
   return (
     <div className={styles.carouselCont}>
       <h1 className={styles.favHeader}>FAVORITES & SEASONALS</h1>
-      <div className={styles.carousel}>
-        <div className={styles.carouselInner}>
-          <div className={styles.carouselItem}>
-            <img
-              src={carouselChairs}
-              alt="rocking chair"
-              className={styles.favImages}
-            />
-            <p className={styles.caroItemTitle}>Gorgeous Rocking Chairs</p>
-            <button className={styles.caroFavCopy}>TAKE A LOOK &#10148;</button>
-            <p className={styles.favFreeShipping}>Free Shipping</p>
-          </div>
-          <div className={styles.carouselItem}>
-            <img
-              src={carouselOutdoorBed}
-              alt="outdoor bed"
-              className={styles.favImages}
-            />
-            <p className={styles.caroItemTitle}>Wicker Outdoor Swing</p>
-            <button className={styles.caroFavCopy}>TAKE A LOOK &#10148;</button>
-            <p className={styles.favFreeShipping}>Free Shipping</p>
-          </div>
-          <div className={styles.carouselItem}>
-            <img
-              src={carouselSofa}
-              alt="green sofa"
-              className={styles.favImages}
-            />
-            <p className={styles.caroItemTitle}>Plush Hunter Green Sofa</p>
-            <button className={styles.caroFavCopy}>TAKE A LOOK &#10148;</button>
-            <p className={styles.favFreeShipping}>Free Shipping</p>
-          </div>
-          <div className={styles.carouselItem}>
-            <img
-              src={carouselDining}
-              alt="dining table"
-              className={styles.favImages}
-            />
-            <p className={styles.caroItemTitle}>Sleek Minimalist Dining Set</p>
-            <button className={styles.caroFavCopy}>TAKE A LOOK &#10148;</button>
-            <p className={styles.favFreeShipping}>Free Shipping</p>
-          </div>{" "}
-          <div className={styles.carouselItem}>
-            <img
-              src={carouselCushions}
-              alt="cushions"
-              className={styles.favImages}
-            />
-            <p className={styles.caroItemTitle}>Cushions and accents</p>
-            <button className={styles.caroFavCopy}>TAKE A LOOK &#10148;</button>
-            <p className={styles.favFreeShipping}>Free Shipping</p>
-          </div>{" "}
-          <div className={styles.carouselItem}>
-            <img
-              src={carouselDeskChair}
-              alt="desk chair"
-              className={styles.favImages}
-            />
-            <p className={styles.caroItemTitle}>Ergo Desk Chair</p>
-            <button className={styles.caroFavCopy}>TAKE A LOOK &#10148;</button>
-            <p className={styles.favFreeShipping}>Free Shipping</p>
-          </div>
+
+      {isMobile ? (
+        <Slider {...settings}>
+          {productData
+            .filter(
+              (product) =>
+                product.metadata && product.metadata.favourite === "favourite"
+            )
+            .map((product) => (
+              <div key={product.id}>
+                <div className={styles.carouselItem}>
+                  <Link to={"/item/" + product.id} onClick={scrollTop}>
+                    <img src={product.images[0]} alt={product.name} />
+                  </Link>
+                  <p className={styles.caroItemTitle}>{product.name}</p>
+                  <button className={styles.caroFavCopy}>
+                    TAKE A LOOK &#10148;
+                  </button>
+                </div>
+              </div>
+            ))}
+        </Slider>
+      ) : (
+        <div className={styles.carousel}>
+          {productData
+            .filter(
+              (product) =>
+                product.metadata && product.metadata.favourite === "favourite"
+            )
+            .map((product) => (
+              <div key={product.id} className={styles.carouselItem}>
+                <Link to={"/item/" + product.id} onClick={scrollTop}>
+                  <img src={product.images[0]} alt={product.name} />
+                </Link>
+                <p className={styles.caroItemTitle}>{product.name}</p>
+                <button className={styles.caroFavCopy}>
+                  TAKE A LOOK &#10148;
+                </button>
+              </div>
+            ))}
         </div>
-      </div>
+      )}
     </div>
   );
 };

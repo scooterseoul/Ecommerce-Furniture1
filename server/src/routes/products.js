@@ -6,7 +6,7 @@ const Stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 router.get("/", async (req, res, next) => {
   try {
     const response = await Stripe.products.list({
-      limit: 20,
+      limit: 40,
     });
     const products = response.data;
     const productsWithPrices = await Promise.all(

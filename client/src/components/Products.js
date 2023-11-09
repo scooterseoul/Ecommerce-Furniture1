@@ -2,17 +2,25 @@ import { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./Products.module.css";
 import { ProductContext } from "./StripeContext";
-import livingRoomHero from "../imagesProduct/PROD-LIVING-ROOM-HERO-pexels-terry-magallanes-12639296.jpg";
+import livingRoomHero from "../images/LIVpexels-rdne-stock-project-8580720.jpg";
 import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusSquare, faMinusSquare } from "@fortawesome/free-solid-svg-icons";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+import MailingList from "./MailingList";
 
 const Products = () => {
   const { products } = useParams();
   const { productData } = useContext(ProductContext);
+  const [showMailingList, setShowMailingList] = useState(false);
+  const openPopup = () => {
+    setShowMailingList(true);
+  };
 
+  const closePopup = () => {
+    setShowMailingList(false);
+  };
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
   const scrollToTop = (behavior) => {
 
     window.scrollTo({
@@ -45,10 +53,7 @@ const Products = () => {
             return (
               <li key={product.id}>
                 <div className={styles.listItem}>
-                  <Link
-                    to={"/item/" + product.id}
-                    onClick={() => scrollToTop("instant")}
-                  >
+                  <Link to={"/item/" + product.id} onClick={scrollTop}>
                     <img
                       src={product.images}
                       alt={product.name}
@@ -110,7 +115,8 @@ const Products = () => {
         </button>
       </div>
       {/* Mailing list */}
-      <div className={styles.mailinglistCont}>
+      {showMailingList && <MailingList closePopup={closePopup} />}
+      <div className={styles.mailinglistCont} onClick={openPopup}>
         <img
           src={mailinglist}
           className={styles.mailinglist}

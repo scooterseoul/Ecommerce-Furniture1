@@ -1,12 +1,23 @@
+
 import { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProductContext } from "./StripeContext";
 import styles from "./SingleItem.module.css";
 import CategorySection from "./CategorySection";
 import mailinglist from "../images/mailinglist.png";
+import MailingList from "./MailingList";
 
 const SingleItem = () => {
   const navigate = useNavigate();
+
+  const [showMailingList, setShowMailingList] = useState(false);
+  const openPopup = () => {
+    setShowMailingList(true);
+  };
+  const closePopup = () => {
+    setShowMailingList(false);
+  };
+
   const { id } = useParams();
   const [addedToCart, setAddedToCart] = useState(false);
   const { productData, addToCart } = useContext(ProductContext);
@@ -93,7 +104,9 @@ const SingleItem = () => {
         </div>
       </div>
       {/* Mailing list */}
-      <div className={styles.mailinglistCont}>
+      {showMailingList && <MailingList closePopup={closePopup} />}
+      {/* <br /> */}
+      <div className={styles.mailinglistCont} onClick={openPopup}>
         <img
           src={mailinglist}
           className={styles.mailinglist}

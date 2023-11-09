@@ -2,17 +2,30 @@ import styles from "./Home.module.css";
 import mainHeaderPic from "../images/mainHeaderPic.png";
 import Favorites from "./Favorites";
 import discountPic from "../images/25dis.png";
-import livingRoomPicMob from "../images/pexels-vincent-rivaud-2227832-livingRoom.jpg";
-import diningRoomPicMob from "../images/pexels-rachel-claire-8113038-DiningMain.jpg";
-import bedroomPicMob from "../images/pexels-max-rahubovskiy-6782568-BedroomMain.jpg";
-import bathroomPicMob from "../images/pexels-max-rahubovskiy-6032424Bath.jpg";
+import livingRoomPicMob from "../images/LVpexels-vincent-rivaud-2227832 (1).jpg";
+import diningRoomPicMob from "../images/DRpexels-rdne-stock-project-6004743.jpg";
+import homeOfficePicMob from "../images/HOpexels-mikhail-nilov-6893322.jpg";
+import outdoorPicMob from "../images/ODpexels-çağın-kargi-7969010.jpg";
 import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
 import deskTopHeaderPic from "../images/dTMain.png";
 import discountAccessories from "../images/living-room-5979695_1280.jpg";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import MailingList from "./MailingList";
 
 const Home = () => {
+  const [showMailingList, setShowMailingList] = useState(false);
+  const openPopup = () => {
+    setShowMailingList(true);
+  };
+
+  const closePopup = () => {
+    setShowMailingList(false);
+  };
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -47,70 +60,82 @@ const Home = () => {
         {/* Main rooms */}
         <p className={styles.furnHeader}>FURNITURE</p>
         <div className={styles.mainRoomsContainer}>
-          <div className={styles.livingRoomMobCont}>
-            <img
-              src={livingRoomPicMob}
-              alt="livingroom"
-              className={styles.livingRoomPicMob}
-            />
-            <p className={styles.mainRoomPicTitle}>LIVING ROOMS</p>
-            <p className={styles.mainRoomPicSub}>New living room ideas</p>
-            <p className={styles.shopNow}>SHOP LIVING ROOMS</p>
+          <div className={styles.roomMobCont}>
+            <Link to="/products/living" onClick={scrollTop}>
+              <img
+                src={livingRoomPicMob}
+                alt="livingroom"
+                className={styles.roomPicMob}
+              />
+              <p className={styles.mainRoomPicTitle}>LIVING ROOMS</p>
+              <p className={styles.mainRoomPicSub}>New living room ideas</p>
+              <p className={styles.shopNow}>SHOP LIVING ROOMS</p>
+            </Link>
           </div>
-          <div className={styles.livingRoomMobCont}>
-            <img
-              src={diningRoomPicMob}
-              alt="diningroom"
-              className={styles.livingRoomPicMob}
-            />
-            <p className={styles.mainRoomPicTitle}>DINING ROOMS</p>
-            <p className={styles.mainRoomPicSub}>Warm spaces for dining</p>
-            <p className={styles.shopNow}>SHOP DINING ROOMS</p>
+          <div className={styles.roomMobCont}>
+            <Link to="/products/dining" onClick={scrollTop}>
+              <img
+                src={diningRoomPicMob}
+                alt="diningroom"
+                className={styles.roomPicMob}
+              />
+              <p className={styles.mainRoomPicTitle}>DINING ROOMS</p>
+              <p className={styles.mainRoomPicSub}>Warm spaces for dining</p>
+              <p className={styles.shopNow}>SHOP DINING ROOMS</p>
+            </Link>
           </div>
           {/* Main rooms 2 */}
-          <div className={styles.livingRoomMobCont}>
-            <img
-              src={bedroomPicMob}
-              alt="bedroom"
-              className={styles.livingRoomPicMob}
-            />
-            <p className={styles.mainRoomPicTitle}>BEDROOMS</p>
-            <p className={styles.mainRoomPicSub}>Relaxing bedroom spaces</p>
-            <p className={styles.shopNow}>SHOP BEDROOMS</p>
+          <div className={styles.roomMobCont}>
+            <Link to="/products/office" onClick={scrollTop}>
+              <img
+                src={homeOfficePicMob}
+                alt="living"
+                className={styles.roomPicMob}
+              />
+              <p className={styles.mainRoomPicTitle}>HOME OFFICE</p>
+              <p className={styles.mainRoomPicSub}>Relaxing work spaces</p>
+              <p className={styles.shopNow}>SHOP HOME OFFICE</p>
+            </Link>
           </div>
-          <div className={styles.livingRoomMobCont}>
-            <img
-              src={bathroomPicMob}
-              alt="diningroom"
-              className={styles.livingRoomPicMob}
-            />
-            <p className={styles.mainRoomPicTitle}>BATHROOMS</p>
-            <p className={styles.mainRoomPicSub}>Interesting bathroom spaces</p>
-            <p className={styles.shopNow}>SHOP BATHROOMS</p>
+          <div className={styles.roomMobCont}>
+            <Link to="/products/outdoor" onClick={scrollTop}>
+              <img
+                src={outdoorPicMob}
+                alt="outdoors"
+                className={styles.roomPicMob}
+              />
+              <p className={styles.mainRoomPicTitle}>OUTDOORS</p>
+              <p className={styles.mainRoomPicSub}>Outdoor spaces</p>
+              <p className={styles.shopNow}>SHOP OUTDOORS</p>
+            </Link>
           </div>
         </div>
-        <div className={styles.salesBanner}>
-          <div className={styles.salesBannerCopy}>
-            <p className={styles.superSale}>Super Sale</p>
-            <img
-              src={discountPic}
-              alt="discount"
-              className={styles.discountPic}
-            />
-            <div className={styles.disAccCont}>
+        <Link to="/discount" onClick={scrollTop}>
+          <div className={styles.salesBanner}>
+            <div className={styles.salesBannerCopy}>
+              <p className={styles.superSale}>Super Sale</p>
+
               <img
-                src={discountAccessories}
+                src={discountPic}
                 alt="discount"
-                className={styles.discountAccessories}
-              />{" "}
-              <p className={styles.bannerEveryday}>SHOP NOW</p>
-            </div>
+                className={styles.discountPic}
+              />
+              <div className={styles.disAccCont}>
+                <img
+                  src={discountAccessories}
+                  alt="discount"
+                  className={styles.discountAccessories}
+                />{" "}
+                <p className={styles.bannerEveryday}>SHOP NOW</p>
+              </div>
+            </div>{" "}
           </div>{" "}
-        </div>{" "}
+        </Link>
         {/* Carousel */}
         <Favorites />
         {/* Mailing list */}
-        <div className={styles.mailinglistCont}>
+        {showMailingList && <MailingList closePopup={closePopup} />}
+        <div className={styles.mailinglistCont} onClick={openPopup}>
           <img
             src={mailinglist}
             className={styles.mailinglist}
