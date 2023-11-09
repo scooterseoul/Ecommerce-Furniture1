@@ -41,6 +41,7 @@
 .listItemPrice {
   padding-top: 1rem;
 }
+
 .listImages,
 .itemTitle,
 .listItemCopy,
@@ -63,6 +64,7 @@
   font-size: 0.8rem;
   text-align: right;
 }
+
 .cartButtonCont {
   width: 100%;
   text-align: center;
@@ -78,6 +80,7 @@
   color: white;
   border-radius: 0.2rem;
 }
+
 /* Mailing List Styles */
 .mailinglistCont {
   margin: 0 auto;
@@ -98,6 +101,7 @@
     grid-column: 1/2;
     margin-bottom: 1rem;
   }
+
   .namePriceCont {
     grid-column: 2/3;
     display: grid;
@@ -105,11 +109,13 @@
     grid-template-rows: 3fr 1fr 1fr;
     margin-left: 1rem;
   }
+
   .itemTitle {
     grid-column: 1/2;
     grid-row: 1/2;
     font-size: 1.8rem;
     text-align: center;
+    padding: 1rem;
   }
   .priceCont {
     grid-column: 1/2;
@@ -120,13 +126,14 @@
   .readyToShip {
     width: 80%;
   }
-  .cartButtonCont {
-    grid-column: 1/2;
+
+  .cartBtnsCont {
+    /* grid-column: 1/2;
     grid-row: 3/4;
-    width: 50%;
     margin: 0 auto;
-    align-self: center;
+    align-self: center; */
   }
+
   .itemSubInfoCont {
     grid-column: 1/2;
     grid-row: 3/4;

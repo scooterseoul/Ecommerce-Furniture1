@@ -1,11 +1,13 @@
 // import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
+import { ProductContext } from "./StripeContext";
 import cartIcon from "../images/icons8-shopping-cart-64.png";
 
 const Header = () => {
   const [showNavbar, setShowNavbar] = useState(false);
+  const { cartItemsCount } = useContext(ProductContext);
 
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
@@ -76,6 +78,9 @@ const Header = () => {
                 onClick={closeNavbar}
               >
                 <img src={cartIcon} alt="cart" className={styles.cartPic} />
+                {cartItemsCount > 0 && (
+                  <span className={styles.cartItemCount}>{cartItemsCount}</span>
+                )}
               </Link>
             </li>
           </ul>

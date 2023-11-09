@@ -22,6 +22,7 @@ const Products = () => {
     window.scrollTo(0, 0);
   };
   const scrollToTop = (behavior) => {
+
     window.scrollTo({
       top: 0,
       behavior: behavior,
@@ -48,6 +49,7 @@ const Products = () => {
         <ul className={styles.productGrid}>
           {/* List of Products */}
           {productData.map((product) => {
+            // console.log("KKK : " + JSON.stringify(product));
             return (
               <li key={product.id}>
                 <div className={styles.listItem}>
@@ -63,6 +65,40 @@ const Products = () => {
                     $
                     {Number(product.price.unit_amount_decimal / 100).toFixed(2)}
                   </p>
+
+                  {/* <div className={styles.productFooter}>
+                    <div className={styles.footerLeft}>
+                      {product.qty > 0 && (
+                        <>
+                          <FontAwesomeIcon
+                            size="xl"
+                            className="fontawesomeIcons"
+                            icon={faMinusSquare}
+                            onClick={() =>
+                              product.qty > 0 && decrementQty(product)
+                            }
+                          />
+                          <p className={styles.productQty}>{product.qty}</p>
+                          <FontAwesomeIcon
+                            size="xl"
+                            className="fontawesomeIcons"
+                            icon={faPlusSquare}
+                            onClick={() => incrementProductQty(product)}
+                          />
+                        </>
+                      )}
+                    </div>
+                    <div className={styles.footerRight}>
+                      <button
+                        className={`${styles.addToCart} btn`}
+                        onClick={() => {
+                          handleAddTocart(product);
+                        }}
+                      >
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div> */}
                 </div>
               </li>
             );
