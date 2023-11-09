@@ -9,41 +9,34 @@
   background-size: cover;
 }
 .sqicon1,
-.sqicon2,
 .sqicon3,
 .sqicon4,
 .sqicon5 {
   width: 5rem;
   margin: 0 auto;
-  padding: 0.4rem;
 }
+
 .sofaCont,
-.lampCont,
 .tableCont,
 .accessCont,
 .homeOfficeCont {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   color: rgb(60, 60, 60);
   margin-bottom: 1.5rem;
 }
 .sofaCont img,
-.lampCont img,
 .tableCont img,
 .accessCont img,
 .homeOfficeCont img {
   width: 4rem;
-  border-radius: 0.2rem;
 }
 .copyCont {
   align-self: center;
 }
 .sofaSQCopy,
-.lampSQCopy,
 .tableSQCopy,
 .accessSQCopy,
 .homeOfficeSQCopy {
@@ -61,14 +54,20 @@
 @media (min-width: 1024px) {
   /* Categories */
   .categoryCont {
-    width: 70%;
+    width: 80%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
     padding-bottom: 3rem;
   }
+  .sofaCont img,
+  .tableCont img,
+  .accessCont img,
+  .homeOfficeCont img {
+    width: 100%;
+    /* border-radius: 0.2rem; */
+  }
   .sqicon1,
-  .sqicon2,
   .sqicon3,
   .sqicon4,
   .sqicon5 {
@@ -78,7 +77,6 @@
   }
 
   .sofaCont,
-  .lampCont,
   .tableCont,
   .accessCont,
   .homeOfficeCont {
@@ -91,7 +89,6 @@
   }
 
   .sofaSQCopy,
-  .lampSQCopy,
   .tableSQCopy,
   .accessSQCopy,
   .homeOfficeSQCopy {

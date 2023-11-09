@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CategorySection.module.css";
 import accessoriesSQ from "../images/CAT-ACCpexels-maria-henri-718760.jpg";
-import homeOfficeSQ from "../images/pexels-drew-williams-3143813-homeOfficeSQ.jpg";
+import homeOfficeSQ from "../images/CAT-OFFICEpexels-drew-williams-3143813.jpg";
 import tableSQ from "../images/pexels-franck-denis-5262675-tableSQ.jpg";
 import sofaSQ from "../images/CAT-SOFApexels-marko-stojkovic-17264276.jpg";
 import { Link } from "react-router-dom";
