@@ -85,14 +85,14 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/create-checkout-session", async (req, res) => {
   const lineItems = req.body.line_items;
-  console.log("SERVER : " + JSON.stringify(lineItems));
-  // const session = await Stripe.checkout.sessions.create({
-  //   line_items: lineItems,
-  //   mode: "payment",
-  //   success_url: "http://localhost:4242/success",
-  //   cancel_url: "http://localhost:4242/cancel",
-  // });
-  // res.json({ url: session.url });
+  // console.log("SERVER : " + JSON.stringify(lineItems));
+  const session = await Stripe.checkout.sessions.create({
+    line_items: lineItems,
+    mode: "payment",
+    success_url: "http://localhost:4242/success",
+    cancel_url: "http://localhost:4242/cancel",
+  });
+  res.json({ url: session.url });
   // res.redirect(303, session.url);
 });
 

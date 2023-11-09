@@ -88,7 +88,6 @@ export const ProductProvider = ({ children }) => {
       // alert("222");
       qty = cartAfterAdd.product.qty + 1;
     }
-    console.log("JJJJ :" + qty);
     product.qty = qty;
     const updatedProductArray = productData.map((item) => {
       if (item.id === product.id) {

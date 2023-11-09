@@ -16,12 +16,6 @@ const Cart = () => {
 
   useEffect(() => {
     const sum = cart.reduce((total, cartItem) => {
-      // console.log(
-      //   "SUBTOTAL : " +
-      //     cartItem.product.price.unit_amount_decimal +
-      //     "  " +
-      //     cartItem.product.qty
-      // );
       return (
         total +
         cartItem.product.price.unit_amount_decimal * cartItem.product.qty
@@ -33,7 +27,6 @@ const Cart = () => {
   }, [cart, gst, total]);
 
   const handleCheckout = async () => {
-    // console.log("cart: " + JSON.stringify(cart));
     const url = "http://localhost:5001/api/products/create-checkout-session"; // Replace with the actual API endpoint URL
 
     const lineItems = cart.map((item) => ({
@@ -42,28 +35,27 @@ const Cart = () => {
         product_data: {
           name: item.product.name,
         },
-        unit_amount: item.product.price.unit_amount / 100,
+        unit_amount: item.product.price.unit_amount,
       },
       quantity: item.product.qty,
     }));
     const data = {
       line_items: lineItems,
     };
-    console.log("LLLine ITEMS : " + JSON.stringify(data));
-    // const res = await fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
 
-    // const body = await res.json();
-    // console.log("RESPONSE : " + JSON.stringify(res));
-    // window.location.href = body.url;
+    const res = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).catch((error) => {
+      console.error("Error:", error);
+    });
+
+    const body = await res.json();
+    console.log("RESPONSE : " + JSON.stringify(res));
+    window.location.href = body.url;
   };
 
   return (
