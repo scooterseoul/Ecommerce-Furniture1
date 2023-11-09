@@ -1,7 +1,7 @@
 /* Carousel */
 
 .favHeader {
-  color: rgb(90, 89, 88);
+  color: rgb(60, 60, 60);
   width: 100%;
   margin: 0 auto;
   padding-left: 0;
@@ -35,7 +35,7 @@
   border-radius: 0.2rem;
 }
 .caroItemTitle {
-  color: rgb(90, 89, 88);
+  color: rgb(60, 60, 60);
   margin: 0;
   font-size: 0.7rem;
   font-weight: bold;
@@ -47,7 +47,7 @@
   font-weight: 600;
   padding: 0.4rem;
   width: 6rem;
-  background-color: rgb(72, 72, 74);
+  background-color: rgb(60, 60, 60);
   color: white;
   margin: 0 auto;
   margin-top: 0.5rem;
@@ -105,10 +105,10 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    border-color: rgb(255, 250, 250);
-    border-width: 0.3rem;
+    border-color: transparent;
+    border-width: 0.1rem;
     border-style: solid;
-    background-color: rgb(240, 234, 234);
+    background-color: rgb(240, 234, 234, 0.4);
     padding-bottom: 0.2rem;
   }
   .carousel img {
@@ -124,7 +124,7 @@
     font-weight: 400;
     text-decoration: none;
     padding-bottom: 1rem;
-    color: rgb(73, 71, 71);
+    color: rgb(60, 60, 60);
   }
 
   .caroFavCopy {

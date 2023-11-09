@@ -1,6 +1,7 @@
 .mainContainer {
   padding: 0;
 }
+
 .heroCont {
   height: 60vh;
   overflow: hidden;
@@ -45,13 +46,19 @@
 }
 
 /* Mobile Main Rooms */
-.livingRoomMobCont {
+.roomMobCont {
   width: 90vw;
   margin: 0 auto;
 }
-.livingRoomPicMob {
+.roomPicMob {
   width: 90vw;
   border-radius: 0.2rem;
+}
+.roomMobCont a {
+  color: rgb(60, 60, 60);
+}
+.roomMobCont a:visited {
+  color: rgb(60, 60, 60);
 }
 .mainRoomPicTitle {
   font-weight: 600;
@@ -242,7 +249,7 @@
 
 /*  mobile landscape */
 @media (max-width: 844px) and (orientation: landscape) {
-  .livingRoomMobCont img,
+  .roomMobCont img,
   .diningRoomMobCont img,
   .salesBanner img,
   .heroCont img {
@@ -336,13 +343,12 @@
     width: 90%;
     margin: 0 auto;
   }
-  .livingRoomMobCont {
+  .roomMobCont {
     width: 100%;
     margin: 0 auto;
   }
-  .livingRoomPicMob {
+  .roomPicMob {
     width: 100%;
-    height: 50%;
   }
   .shopNow {
     margin-bottom: 0;
@@ -354,6 +360,7 @@
     height: auto;
     margin: 0 auto;
     background-image: none;
+    margin-top: 5rem;
     margin-bottom: 8rem;
     transform: rotate(-7deg);
   }
