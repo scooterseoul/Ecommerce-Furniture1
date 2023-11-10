@@ -61,8 +61,7 @@ const CategoryOffice = () => {
                   </Link>
                   <p className={styles.itemTitle}>{product.name}</p>
                   <p className={styles.listItemPrice}>
-                    $
-                    {Number(product.price.unit_amount_decimal / 100).toFixed(2)}
+                    ${Number(product.price / 100).toFixed(2)}
                   </p>
                 </li>
               ))}

@@ -1,4 +1,3 @@
-
 import { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProductContext } from "./StripeContext";
@@ -50,7 +49,7 @@ const SingleItem = () => {
             <p className={styles.itemTitle}>{product.name}</p>
             <div className={styles.priceCont}>
               <p className={styles.listItemPrice}>
-                ${Number(product.price.unit_amount_decimal / 100).toFixed(2)}
+                ${Number(product.price / 100).toFixed(2)}
               </p>
               <p className={styles.readyToShip}>In stock and ready to ship</p>
             </div>

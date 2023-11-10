@@ -16,6 +16,7 @@ import MailingList from "./MailingList";
 
 const Home = () => {
   const [showMailingList, setShowMailingList] = useState(false);
+
   const openPopup = () => {
     setShowMailingList(true);
   };
@@ -36,7 +37,6 @@ const Home = () => {
     <>
       <div className={styles.mainContainer}>
         <div className={styles.mainHero}>
-          {" "}
           <div className={styles.heroCont}>
             <img
               src={mainHeaderPic}
@@ -125,11 +125,11 @@ const Home = () => {
                   src={discountAccessories}
                   alt="discount"
                   className={styles.discountAccessories}
-                />{" "}
+                />
                 <p className={styles.bannerEveryday}>SHOP NOW</p>
               </div>
-            </div>{" "}
-          </div>{" "}
+            </div>
+          </div>
         </Link>
         {/* Carousel */}
         <Favorites />
