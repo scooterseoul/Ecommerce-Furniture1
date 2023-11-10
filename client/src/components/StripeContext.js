@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { productsData } from "./stripedata";
 export const ProductContext = createContext();
 
 export function useProductContext() {
@@ -7,8 +6,29 @@ export function useProductContext() {
 }
 
 export const ProductProvider = ({ children }) => {
-  const [productData, setProductData] = useState(productsData);
+  const [productData, setProductData] = useState([]);
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/products`
+        );
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log(data);
+
+        setProductData(data);
+      } catch (e) {
+        console.error(e.message);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const cartItemsCount = cart.reduce((sum, item) => sum + item.product.qty, 0);
 
@@ -78,21 +98,15 @@ export const ProductProvider = ({ children }) => {
     // });
     // setCart(updatedArray);
     const cartAfterAdd = cart.find((item) => item.product.id === product.id);
-    // cartAfterAdd &&
-    console.log("JJJJ :" + JSON.stringify(cartAfterAdd));
     let qty = 0;
     if (!cartAfterAdd) {
-      alert("11");
       qty = 1;
     } else if (cartAfterAdd && cartAfterAdd.product.qty > 0) {
-      // alert("222");
       qty = cartAfterAdd.product.qty + 1;
     }
     product.qty = qty;
     const updatedProductArray = productData.map((item) => {
       if (item.id === product.id) {
-        alert("222");
-        // product.qty = item.qty + 1;
         return {
           ...item,
           product: { ...item.product, qty: qty },
@@ -132,26 +146,6 @@ export const ProductProvider = ({ children }) => {
   // }
   // console.log(productData);
   // alert("STRipeContext");
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `${process.env.REACT_APP_API_URL}/products`
-  //       );
-  //       if (!response.ok) {
-  //         throw new Error(`Error: ${response.statusText}`);
-  //       }
-  //       console.log("NNN:" + JSON.stringify(response));
-  //       const data = await response.json();
-
-  //       setProductData(data);
-  //     } catch (e) {
-  //       console.error(e.message);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
 
   //   useEffect(() => {
   //     const storeData = async () => {
