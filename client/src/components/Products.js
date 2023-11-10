@@ -30,7 +30,6 @@ const Products = () => {
   return (
     <div className={styles.mainCont}>
       <div className={styles.productHero}>
-        {" "}
         <div className={styles.heroCont}>
           <img
             src={livingRoomHero}
@@ -61,8 +60,7 @@ const Products = () => {
                   </Link>
                   <p className={styles.itemTitle}>{product.name}</p>
                   <p className={styles.listItemPrice}>
-                    $
-                    {Number(product.price.unit_amount_decimal / 100).toFixed(2)}
+                    ${Number(product.price / 100).toFixed(2)}
                   </p>
 
                   {/* <div className={styles.productFooter}>

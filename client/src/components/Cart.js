@@ -16,10 +16,7 @@ const Cart = () => {
 
   useEffect(() => {
     const sum = cart.reduce((total, cartItem) => {
-      return (
-        total +
-        cartItem.product.price.unit_amount_decimal * cartItem.product.qty
-      );
+      return total + cartItem.product.price * cartItem.product.qty;
     }, 0);
     setTotal(sum / 100);
     setGst((total * 15) / 100);
@@ -31,11 +28,11 @@ const Cart = () => {
 
     const lineItems = cart.map((item) => ({
       price_data: {
-        currency: item.product.price.currency,
+        currency: item.product.currency,
         product_data: {
           name: item.product.name,
         },
-        unit_amount: item.product.price.unit_amount,
+        unit_amount: item.product.price,
       },
       quantity: item.product.qty,
     }));
@@ -114,10 +111,7 @@ const Cart = () => {
                       <div className={styles.productRow}>
                         <div className={styles.unitPrice}>Unit Price: </div>
                         <div>
-                          $
-                          {Number(
-                            cartItem.product.price.unit_amount_decimal / 100
-                          ).toFixed(2)}
+                          ${Number(cartItem.product.price / 100).toFixed(2)}
                         </div>
                       </div>
                       <div className={styles.productQtyCont}>
@@ -142,8 +136,7 @@ const Cart = () => {
                         <div className={styles.productTotal}>
                           $
                           {Number(
-                            (cartItem.product.price.unit_amount_decimal *
-                              cartItem.product.qty) /
+                            (cartItem.product.price * cartItem.product.qty) /
                               100
                           ).toFixed(2)}
                         </div>
