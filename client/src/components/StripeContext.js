@@ -51,52 +51,7 @@ export const ProductProvider = ({ children }) => {
     }
   }
 
-  // function getProductQty(product) {
-  //   // const productInCart = cart.filter((item) => item.product.id === product.id);
-  //   // console.log("JJJJ :" + productInCart.product.qty);
-  //   // return productInCart.qty;
-  //   const cartAfterAdd = cart.find((item) => item.product.id === product.id);
-  //   // cartAfterAdd &&
-  //   console.log("JJJJ :" + JSON.stringify(cartAfterAdd));
-  //   let qty = 0;
-  //   if (!cartAfterAdd) {
-  //     alert("11");
-  //     qty = 1;
-  //   } else if (cartAfterAdd.product.qty > 0) {
-  //     alert("222");
-  //     qty = cartAfterAdd.product.qty + 1;
-  //   }
-  //   console.log("JJJJ :" + JSON.stringify(cartAfterAdd));
-  //   // const qty = !cartAfterAdd ? 1 : cartAfterAdd.product.qty + 1;
-  //   // const qty = cartAfterAdd && cartAfterAdd.product.qty + 1;
-  //   product.qty = qty;
-
-  //   const updatedArray = productData.map((item) => {
-  //     if (item.id === product.id) {
-  //       return {
-  //         ...item,
-  //         product: { ...item.product, qty: qty },
-  //       };
-  //     } else {
-  //       return item;
-  //     }
-  //   });
-  //   setProductData(updatedArray);
-  //   // return product;
-  // }
-
   function incrementQty(product) {
-    // const updatedArray = cart.map((item) => {
-    //   if (item.product.id === product.id) {
-    //     return {
-    //       ...item,
-    //       product: { ...item.product, qty: item.product.qty + 1 },
-    //     };
-    //   } else {
-    //     return item;
-    //   }
-    // });
-    // setCart(updatedArray);
     const cartAfterAdd = cart.find((item) => item.product.id === product.id);
     let qty = 0;
     if (!cartAfterAdd) {
@@ -116,9 +71,6 @@ export const ProductProvider = ({ children }) => {
       }
     });
     setProductData(updatedProductArray);
-    // const productAfterupdate = cart.find((item) => item.id === product.id);
-    // console.log("JJJJ :" + JSON.stringify(productAfterupdate));
-    // product.qty = productAfterupdate.product.qty;
   }
 
   function decrementQty(product) {
@@ -136,34 +88,9 @@ export const ProductProvider = ({ children }) => {
   }
 
   function removeFromCart(id) {
-    // console.log("REEMMOOVEE : " + id);
     const cartAfterDelete = cart.filter((item) => item.product.id !== id);
     setCart(cartAfterDelete);
   }
-
-  // function emptyTheCart() {
-  //   setCart([]);
-  // }
-  // console.log(productData);
-  // alert("STRipeContext");
-
-  //   useEffect(() => {
-  //     const storeData = async () => {
-  //       try {
-  //         const jsonValue = JSON.stringify(productData);
-  //         await fetch(process.env.EXPO_PUBLIC_API_URL, {
-  //           method: "POST",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //           body: jsonValue,
-  //         });
-  //       } catch (e) {
-  //         console.error(e);
-  //       }
-  //     };
-  //     storeData();
-  //   }, [productData]);
 
   return (
     <ProductContext.Provider
@@ -174,7 +101,6 @@ export const ProductProvider = ({ children }) => {
         setCart,
         cartItemsCount,
         addToCart,
-        // getProductQty,
         incrementQty,
         decrementQty,
         removeFromCart,

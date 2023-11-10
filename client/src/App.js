@@ -14,6 +14,8 @@ import CategorySofas from "./components/CategorySofas";
 import CategoryTables from "./components/CategoryTables";
 import CategoryAccessories from "./components/CategoryAccessories";
 import CategoryOffice from "./components/CategoryOffice";
+import Success from "./components/Success";
+import Cancel from "./components/Cancel";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/products/:products" element={<Products />} />
         <Route path="/item/:id" element={<SingleItem />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
         <Route path="/discount" element={<DiscountSection />} />
         <Route path="/sofas" element={<CategorySofas />} />
         <Route path="/tables" element={<CategoryTables />} />
