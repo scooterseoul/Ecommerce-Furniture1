@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./Products.module.css";
 import { ProductContext } from "./StripeContext";
