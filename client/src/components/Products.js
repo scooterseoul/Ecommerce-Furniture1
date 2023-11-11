@@ -11,6 +11,16 @@ const Products = () => {
   const { products } = useParams();
   const { productData } = useContext(ProductContext);
   const [showMailingList, setShowMailingList] = useState(false);
+
+  const filteredProducts = productData.filter((product) => {
+    if (products === "all") {
+      return true;
+    }
+    return (
+      product.metadata.room === products || product.metadata.type === products
+    );
+  });
+
   const openPopup = () => {
     setShowMailingList(true);
   };
@@ -46,7 +56,7 @@ const Products = () => {
       <div className={styles.productListCont}>
         <ul className={styles.productGrid}>
           {/* List of Products */}
-          {productData.map((product) => {
+          {filteredProducts.map((product) => {
             // console.log("KKK : " + JSON.stringify(product));
             return (
               <li key={product.id}>
