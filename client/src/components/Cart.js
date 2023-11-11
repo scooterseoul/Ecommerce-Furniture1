@@ -58,13 +58,13 @@ const Cart = () => {
   return (
     <section className={styles.cartCont}>
       {cart && (
-        <div className="cartButtonsCont">
+        <div className={styles.cartButtonsCont}>
           <button href="#back" className="btn" onClick={() => navigate(-2)}>
-            CONTINUE SHOPPING
+            &#11104; CONTINUE SHOPPING
           </button>
-          <button className="btn" onClick={handleCheckout}>
+          {/* <button className="btn" onClick={handleCheckout}>
             CHECKOUT
-          </button>
+          </button> */}
         </div>
       )}
       <div className={styles.cartHeader}>
@@ -87,62 +87,68 @@ const Cart = () => {
         <div className={styles.productCont}>
           <div className={styles.orderDetails}>
             <div className={styles.productHeadings}>
-              <h3>Item Description</h3>
-              <h3>Item Price</h3>
+              {/* <h3>Item Description</h3> */}
+              {/* <h3>Item Price</h3>
               <h3>Quantity</h3>
-              <h3>Sub Total</h3>
+              <h3>Sub Total</h3> */}
             </div>
             {cart.map((cartItem) => {
               return (
                 <figure key={cartItem.product.id} className={styles.product}>
-                  <img src={cartItem.product.images[0]} alt={cartItem.name} />
-                  <figcaption className={styles.productDescriptionCont}>
-                    <div className={styles.productDescription}>
+                  <div className={styles.productImage}>
+                    <img src={cartItem.product.images[0]} alt={cartItem.name} />
+                  </div>
+                  {/* <figcaption className={styles.productDescriptionCont}> */}
+                  <h3 className={styles.itemNameHeader}>Item</h3>
+                  <div className={styles.productDescription}>
+                    <div className={styles.itemName}>
                       {cartItem.product.name}
-                      <a
-                        className={styles.removeBtn}
-                        href="#remove"
-                        onClick={() => removeFromCart(cartItem.product.id)}
-                      >
-                        Remove
-                      </a>
                     </div>
-                    <div className={styles.productQtyRow}>
-                      <div className={styles.productRow}>
-                        <div className={styles.unitPrice}>Unit Price: </div>
-                        <div>
-                          ${Number(cartItem.product.price / 100).toFixed(2)}
-                        </div>
-                      </div>
-                      <div className={styles.productQtyCont}>
-                        <div className={styles.productQuantity}>
-                          <FontAwesomeIcon
-                            size="xl"
-                            className="fontawesomeIcons"
-                            icon={faMinusSquare}
-                            onClick={() =>
-                              cartItem.product.qty > 0 &&
-                              decrementQty(cartItem.product)
-                            }
-                          />
-                          {cartItem.product.qty}
-                          <FontAwesomeIcon
-                            size="xl"
-                            className="fontawesomeIcons"
-                            icon={faPlusSquare}
-                            onClick={() => incrementQty(cartItem.product)}
-                          />
-                        </div>
-                        <div className={styles.productTotal}>
-                          $
-                          {Number(
-                            (cartItem.product.price * cartItem.product.qty) /
-                              100
-                          ).toFixed(2)}
-                        </div>
-                      </div>
+                    <a
+                      className={styles.removeBtn}
+                      href="#remove"
+                      onClick={() => removeFromCart(cartItem.product.id)}
+                    >
+                      Remove
+                    </a>
+                  </div>
+                  {/* <div className={styles.productQtyRow}> */}
+                  <h3 className={styles.itemPriceHeader}>Item Price</h3>
+                  <div className={styles.productRow}>
+                    <div className={styles.unitPrice}>Price: </div>
+                    <div>
+                      ${Number(cartItem.product.price / 100).toFixed(2)}
                     </div>
-                  </figcaption>
+                  </div>
+                  <h3 className={styles.itemQtyHeader}>Quantity</h3>
+                  <div className={styles.productQtyCont}>
+                    <div className={styles.productQuantity}>
+                      <FontAwesomeIcon
+                        size="xl"
+                        className="fontawesomeIcons"
+                        icon={faMinusSquare}
+                        onClick={() =>
+                          cartItem.product.qty > 0 &&
+                          decrementQty(cartItem.product)
+                        }
+                      />
+                      {cartItem.product.qty}
+                      <FontAwesomeIcon
+                        size="xl"
+                        className="fontawesomeIcons"
+                        icon={faPlusSquare}
+                        onClick={() => incrementQty(cartItem.product)}
+                      />
+                    </div>
+                    <div className={styles.productTotal}>
+                      $
+                      {Number(
+                        (cartItem.product.price * cartItem.product.qty) / 100
+                      ).toFixed(2)}
+                    </div>
+                  </div>
+                  {/* </div> */}
+                  {/* </figcaption> */}
                 </figure>
               );
             })}
@@ -150,7 +156,7 @@ const Cart = () => {
           <div className={styles.orderSummaryCont}>
             {cart.length > 0 && (
               <>
-                <hr className={styles.line} />
+                {/* <hr className={styles.line} /> */}
                 <div className={styles.orderSummary}>
                   <h3>ORDER SUMMARY</h3>
                   <div className={styles.orderRow}>
