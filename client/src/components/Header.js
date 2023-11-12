@@ -7,8 +7,8 @@ import cartIcon from "../images/icons8-shopping-cart-64.png";
 
 const Header = () => {
   const [showNavbar, setShowNavbar] = useState(false);
-  const { cartItemsCount } = useContext(ProductContext);
-
+  const { cart } = useContext(ProductContext);
+  const cartItemsCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };

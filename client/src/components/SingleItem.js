@@ -7,30 +7,23 @@ import mailinglist from "../images/mailinglist.png";
 import MailingList from "./MailingList";
 
 const SingleItem = () => {
-  const navigate = useNavigate();
-
-  const [showMailingList, setShowMailingList] = useState(false);
-  const openPopup = () => {
-    setShowMailingList(true);
-  };
-  const closePopup = () => {
-    setShowMailingList(false);
-  };
-
+  const { productData, cart, setCart } = useContext(ProductContext);
   const { id } = useParams();
-  const [addedToCart, setAddedToCart] = useState(false);
-  const { productData, addToCart } = useContext(ProductContext);
+  const navigate = useNavigate();
+  const [showMailingList, setShowMailingList] = useState(false);
 
   const product = productData.find((product) => product.id === id);
 
+  const addedToCart = cart.some((item) => item.id === id);
+
+  console.log("addedToCart: " + addedToCart);
   if (!product) {
     return <div>Product not found.</div>;
   }
 
   const handleAddTocart = async (product) => {
     if (!addedToCart) {
-      await addToCart(product);
-      setAddedToCart(true);
+      setCart([...cart, { ...product, qty: 1 }]);
     } else {
       navigate("/cart");
     }
@@ -103,9 +96,14 @@ const SingleItem = () => {
         </div>
       </div>
       {/* Mailing list */}
-      {showMailingList && <MailingList closePopup={closePopup} />}
+      {showMailingList && (
+        <MailingList closePopup={() => setShowMailingList(false)} />
+      )}
       {/* <br /> */}
-      <div className={styles.mailinglistCont} onClick={openPopup}>
+      <div
+        className={styles.mailinglistCont}
+        onClick={() => setShowMailingList(true)}
+      >
         <img
           src={mailinglist}
           className={styles.mailinglist}
