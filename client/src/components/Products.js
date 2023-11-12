@@ -2,7 +2,13 @@ import { useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./Products.module.css";
 import { ProductContext } from "./StripeContext";
-import livingRoomHero from "../images/LIVpexels-rdne-stock-project-8580720.jpg";
+import livingRoomHero from "../images/livingHero.jpg";
+import diningRoomHero from "../images/diningHero.jpg";
+import officeHero from "../images/officeHero.jpg";
+import outdoorHero from "../images/outdoorHero.jpg";
+import tablesHero from "../images/tablesHero.jpg";
+import sofasHero from "../images/sofasHero.jpg";
+import accessoriesHero from "../images/accessoriesHero.jpg";
 import mailinglist from "../images/mailinglist.png";
 import CategorySection from "./CategorySection";
 import MailingList from "./MailingList";
@@ -37,18 +43,45 @@ const Products = () => {
       behavior: behavior,
     });
   };
+  let productsHero = livingRoomHero;
+  if (products === "dining") {
+    productsHero = diningRoomHero;
+  } else if (products === "office") {
+    productsHero = officeHero;
+  } else if (products === "outdoors") {
+    productsHero = outdoorHero;
+  } else if (products === "sofa") {
+    productsHero = sofasHero;
+  } else if (products === "table") {
+    productsHero = tablesHero;
+  } else if (products === "accessories") {
+    productsHero = accessoriesHero;
+  }
+  let productsTitle = "Room Adornments";
+  if (products === "living") {
+    productsTitle = "LIVING ROOM SPACES";
+  } else if (products === "dining") {
+    productsTitle = "DINING ROOM SPACES";
+  } else if (products === "office") {
+    productsTitle = "OFFICE SPACES";
+  } else if (products === "outdoors") {
+    productsTitle = "OUTDOOR SPACES";
+  } else if (products === "sofa") {
+    productsTitle = "SOFA SPACES";
+  } else if (products === "table") {
+    productsTitle = "TABLE SPACES";
+  } else if (products === "accessories") {
+    productsTitle = "ACCESSORIES";
+  }
+
   return (
     <div className={styles.mainCont}>
       <div className={styles.productHero}>
         <div className={styles.heroCont}>
-          <img
-            src={livingRoomHero}
-            alt="living room"
-            className={styles.livingRoomHeroPic}
-          />
+          <img src={productsHero} alt="Hero" className={styles.roomHeroPic} />
         </div>
         <div className={styles.subHeaderCont}>
-          <p className={styles.subCopy}>LIVING ROOM SPACES</p>
+          <p className={styles.subCopy}>{productsTitle}</p>
           <p className={styles.subCopy2}>Spruce up your favorite spaces!</p>
         </div>
       </div>
@@ -57,7 +90,6 @@ const Products = () => {
         <ul className={styles.productGrid}>
           {/* List of Products */}
           {filteredProducts.map((product) => {
-            // console.log("KKK : " + JSON.stringify(product));
             return (
               <li key={product.id}>
                 <div className={styles.listItem}>

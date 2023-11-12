@@ -20,6 +20,10 @@ const Cart = () => {
   useEffect(() => {}, [cart, gst, total]);
 
   const handleCheckout = async () => {
+    if (cart.reduce((sum, item) => sum + item.qty, 0) < 1) {
+      alert("Your cart is empty");
+      return;
+    }
     const url = "http://localhost:5001/api/products/create-checkout-session"; // Replace with the actual API endpoint URL
 
     const lineItems = cart.map((item) => ({
@@ -62,8 +66,10 @@ const Cart = () => {
     setCart((prevItems) =>
       prevItems.reduce((acc, item) => {
         if (item.id === id) {
-          if (item.qty - 1 > 0) {
+          if (item.qty > 0) {
             acc.push({ ...item, qty: item.qty - 1 });
+          } else {
+            acc.push(item);
           }
         } else {
           acc.push(item);
