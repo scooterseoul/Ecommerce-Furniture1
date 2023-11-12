@@ -12,7 +12,7 @@ export const CategorySection = () => {
   };
   return (
     <div className={styles.categoryCont}>
-      <Link to="/sofas" onClick={scrollTop}>
+      <Link to="/products/sofa" onClick={scrollTop}>
         <div className={styles.sofaCont}>
           <img src={sofaSQ} className={styles.sqicon1} alt="sofas" />
           <div className={styles.copyCont}>
@@ -21,7 +21,7 @@ export const CategorySection = () => {
           </div>
         </div>
       </Link>
-      <Link to="/tables" onClick={scrollTop}>
+      <Link to="/products/table" onClick={scrollTop}>
         <div className={styles.tableCont}>
           <img src={tableSQ} className={styles.sqicon3} alt="tables" />
           <div className={styles.copyCont}>
@@ -30,7 +30,7 @@ export const CategorySection = () => {
           </div>
         </div>
       </Link>
-      <Link to="/accessories" onClick={scrollTop}>
+      <Link to="/products/accessories" onClick={scrollTop}>
         <div className={styles.accessCont}>
           <img
             src={accessoriesSQ}
@@ -43,7 +43,7 @@ export const CategorySection = () => {
           </div>
         </div>
       </Link>
-      <Link to="/office" onClick={scrollTop}>
+      <Link to="/products/office" onClick={scrollTop}>
         <div className={styles.homeOfficeCont}>
           <img
             src={homeOfficeSQ}

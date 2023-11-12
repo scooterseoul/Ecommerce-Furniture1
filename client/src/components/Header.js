@@ -50,15 +50,6 @@ const Header = () => {
             <li>
               <Link
                 // activeClassName={`${showNavbar && styles.active}`}
-                to="/products/bedroom"
-                onClick={closeNavbar}
-              >
-                Bedroom
-              </Link>
-            </li>
-            <li>
-              <Link
-                // activeClassName={`${showNavbar && styles.active}`}
                 to="/products/dining"
                 onClick={closeNavbar}
               >
@@ -66,8 +57,17 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/products/bathroom" onClick={closeNavbar}>
-                Bathroom
+              <Link to="/products/office" onClick={closeNavbar}>
+                Office
+              </Link>
+            </li>
+            <li>
+              <Link
+                // activeClassName={`${showNavbar && styles.active}`}
+                to="/products/outdoors"
+                onClick={closeNavbar}
+              >
+                Outdoors
               </Link>
             </li>
             <li>
