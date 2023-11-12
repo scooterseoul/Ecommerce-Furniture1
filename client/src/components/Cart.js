@@ -8,33 +8,29 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const [total, setTotal] = useState(0);
-  const [gst, setGst] = useState(0);
-  const [orderTotal, setOrderTotal] = useState(0);
-  const { cart, incrementQty, decrementQty, removeFromCart } =
-    useContext(ProductContext);
+  const { cart, setCart } = useContext(ProductContext);
 
-  useEffect(() => {
-    const sum = cart.reduce((total, cartItem) => {
-      return total + cartItem.product.price * cartItem.product.qty;
-    }, 0);
-    setTotal(sum / 100);
-    setGst((total * 15) / 100);
-    setOrderTotal(total + gst);
-  }, [cart, gst, total]);
+  const sum = cart.reduce((total, cartItem) => {
+    return total + cartItem.price * cartItem.qty;
+  }, 0);
+  const total = sum / 100;
+  const gst = total * 0.15;
+  const orderTotal = total + gst;
+
+  useEffect(() => {}, [cart, gst, total]);
 
   const handleCheckout = async () => {
     const url = "http://localhost:5001/api/products/create-checkout-session"; // Replace with the actual API endpoint URL
 
     const lineItems = cart.map((item) => ({
       price_data: {
-        currency: item.product.currency,
+        currency: item.currency,
         product_data: {
-          name: item.product.name,
+          name: item.name,
         },
-        unit_amount: item.product.price,
+        unit_amount: item.price,
       },
-      quantity: item.product.qty,
+      quantity: item.qty,
     }));
     const data = {
       line_items: lineItems,
@@ -51,8 +47,34 @@ const Cart = () => {
     });
 
     const body = await res.json();
-    console.log("RESPONSE : " + JSON.stringify(res));
     window.location.href = body.url;
+  };
+
+  const increaseQty = (id) => {
+    setCart(
+      cart.map((item) =>
+        item.id === id ? { ...item, qty: item.qty + 1 } : item
+      )
+    );
+  };
+
+  const decreaseQty = (id) => {
+    setCart((prevItems) =>
+      prevItems.reduce((acc, item) => {
+        if (item.id === id) {
+          if (item.qty - 1 > 0) {
+            acc.push({ ...item, qty: item.qty - 1 });
+          }
+        } else {
+          acc.push(item);
+        }
+        return acc;
+      }, [])
+    );
+  };
+
+  const removeFromCart = (id) => {
+    setCart((currentCart) => currentCart.filter((item) => item.id !== id));
   };
 
   return (
@@ -94,20 +116,18 @@ const Cart = () => {
             </div>
             {cart.map((cartItem) => {
               return (
-                <figure key={cartItem.product.id} className={styles.product}>
+                <figure key={cartItem.id} className={styles.product}>
                   <div className={styles.productImage}>
-                    <img src={cartItem.product.images[0]} alt={cartItem.name} />
+                    <img src={cartItem.images[0]} alt={cartItem.name} />
                   </div>
                   {/* <figcaption className={styles.productDescriptionCont}> */}
                   <h3 className={styles.itemNameHeader}>Item</h3>
                   <div className={styles.productDescription}>
-                    <div className={styles.itemName}>
-                      {cartItem.product.name}
-                    </div>
+                    <div className={styles.itemName}>{cartItem.name}</div>
                     <a
                       className={styles.removeBtn}
                       href="#remove"
-                      onClick={() => removeFromCart(cartItem.product.id)}
+                      onClick={() => removeFromCart(cartItem.id)}
                     >
                       Remove
                     </a>
@@ -116,9 +136,7 @@ const Cart = () => {
                   <h3 className={styles.itemPriceHeader}>Item Price</h3>
                   <div className={styles.productRow}>
                     <div className={styles.unitPrice}>Price: </div>
-                    <div>
-                      ${Number(cartItem.product.price / 100).toFixed(2)}
-                    </div>
+                    <div>${Number(cartItem.price / 100).toFixed(2)}</div>
                   </div>
                   <h3 className={styles.itemQtyHeader}>Quantity</h3>
                   <div className={styles.productQtyCont}>
@@ -128,23 +146,20 @@ const Cart = () => {
                         className="fontawesomeIcons"
                         icon={faMinusSquare}
                         onClick={() =>
-                          cartItem.product.qty > 0 &&
-                          decrementQty(cartItem.product)
+                          cartItem.qty > 0 && decreaseQty(cartItem.id)
                         }
                       />
-                      {cartItem.product.qty}
+                      {cartItem.qty}
                       <FontAwesomeIcon
                         size="xl"
                         className="fontawesomeIcons"
                         icon={faPlusSquare}
-                        onClick={() => incrementQty(cartItem.product)}
+                        onClick={() => increaseQty(cartItem.id)}
                       />
                     </div>
                     <div className={styles.productTotal}>
                       $
-                      {Number(
-                        (cartItem.product.price * cartItem.product.qty) / 100
-                      ).toFixed(2)}
+                      {Number((cartItem.price * cartItem.qty) / 100).toFixed(2)}
                     </div>
                   </div>
                   {/* </div> */}
