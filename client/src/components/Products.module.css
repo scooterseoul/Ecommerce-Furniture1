@@ -53,18 +53,18 @@ a {
 .listItem {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 4rem 2rem auto 1rem;
+  grid-template-rows: max-content 0.5fr 0.5fr;
   border-bottom: 0.08rem solid gray;
-  gap: 0.5rem;
+  gap: 0.1rem;
   margin-top: 2rem;
   height: 90%;
 }
 
-.listImages {
-  height: 4rem;
+.listItem img {
+  height: auto;
   width: 100%;
-  object-fit: cover;
   margin: 0 auto;
+  grid-row: 1/2;
 }
 
 .itemTitle {
@@ -72,8 +72,9 @@ a {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   width: 100%;
   color: rgb(60, 60, 60);
-  margin-top: 0.5rem;
+  margin-top: 0;
   margin-bottom: 0;
+  grid-row: 2/3;
 }
 
 .listItemPrice {
@@ -84,6 +85,8 @@ a {
   width: 90%;
   align-self: center;
   margin-top: 0;
+  margin-bottom: 0;
+  grid-row: 3/4;
 }
 
 .buttonToTop {

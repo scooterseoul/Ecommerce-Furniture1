@@ -44,13 +44,17 @@ const SingleItem = () => {
               <p className={styles.listItemPrice}>
                 ${Number(product.price / 100).toFixed(2)}
               </p>
-              <p className={styles.readyToShip}>In stock and ready to ship</p>
+              <p className={styles.readyToShip}>In stock</p>
             </div>
 
             {/* Add to Cart button */}
             <div className={`${styles.cartBtnsCont} cartButtonsCont`}>
-              <button href="#back" className="btn" onClick={() => navigate(-1)}>
-                CONTINUE SHOPPING
+              <button
+                href="#back"
+                className={styles.contShopping}
+                onClick={() => navigate(-1)}
+              >
+                &#11104; CONTINUE SHOPPING
               </button>
 
               <button
@@ -86,7 +90,7 @@ const SingleItem = () => {
             <p className={styles.listItemSubHeader}>Shipping</p>
             <p className={styles.listItemCopy}>
               In-stock furniture delivered via our preferred shipping service
-              and should arrive within 10–14 business days after order
+              and should arrive within 10 - 14 business days after order
               processing.
               <br />
               <br />

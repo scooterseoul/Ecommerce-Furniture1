@@ -98,7 +98,7 @@ const Home = () => {
             </Link>
           </div>
           <div className={styles.roomMobCont}>
-            <Link to="/products/outdoor" onClick={scrollTop}>
+            <Link to="/products/outdoors" onClick={scrollTop}>
               <img
                 src={outdoorPicMob}
                 alt="outdoors"

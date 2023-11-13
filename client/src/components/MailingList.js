@@ -1,61 +1,64 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
+import { useForm, ValidationError } from "@formspree/react";
 import styles from "./MailingList.module.css";
 
 const MailingList = ({ closePopup }) => {
+  const [state, handleSubmit] = useForm("mvojngwj");
   const [submitted, setSubmitted] = useState(false);
 
-  const sendEmail = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
-        e.target,
-        process.env.REACT_APP_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          //   alert("Thank you for subscribing!");
-          setSubmitted(true);
-        },
-        (error) => {
-          console.error("Error sending email:", error);
-        }
-      );
+    handleSubmit(e);
   };
 
   return (
     <div className={styles.popupCont}>
-      {submitted ? null : (
+      {submitted || state.succeeded ? (
+        <div className={styles.popup}>
+          <div className={styles.popupContent}>
+            <span className={styles.close} onClick={closePopup}>
+              X
+            </span>
+            <h2 className={styles.join}>Thanks for joining!</h2>
+          </div>
+        </div>
+      ) : (
         <div className={styles.popup}>
           <div className={styles.popupContent}>
             <span className={styles.close} onClick={closePopup}>
               X
             </span>
             <h2 className={styles.join}>Join today!</h2>
-            <form onSubmit={sendEmail} className={styles.form}>
+            <form onSubmit={handleFormSubmit} className={styles.form}>
+              <label htmlFor="email" className={styles.label1} />
               <input
-                type="text"
-                className={styles.input}
-                placeholder="Name"
-                name="name"
-                required
-              />
-
-              <br />
-
-              <input
+                id="email"
                 type="email"
-                className={styles.input}
-                placeholder="Email"
                 name="email"
-                required
+                placeholder="email"
+                className={styles.input1}
+              />
+              <label htmlFor="name" className={styles.label2} />
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="name"
+                className={styles.input2}
+              />
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={state.errors}
               />
 
-              <br />
-              <button type="submit" className={styles.button}>
+              {/* Add more form fields if needed */}
+
+              <button
+                type="submit"
+                className={styles.button}
+                disabled={state.submitting}
+              >
                 Subscribe
               </button>
             </form>
