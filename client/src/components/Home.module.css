@@ -246,7 +246,7 @@
 }
 
 /*  mobile landscape */
-@media (max-width: 844px) and (orientation: landscape) {
+@media (max-width: 940px) and (orientation: landscape) {
   .roomMobCont img,
   .diningRoomMobCont img,
   .salesBanner img,
