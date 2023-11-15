@@ -81,7 +81,6 @@
   font-size: 0.7rem;
   font-weight: bold;
   padding: 0.4rem;
-  color: white;
   border-radius: 0.2rem;
 }
 .contShopping {
@@ -100,7 +99,8 @@
   width: 75%;
   margin: 1rem 0 3rem;
 }
-@media (min-width: 1024px) {
+/* Desktop */
+@media (min-width: 46rem) {
   .listItem {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -129,7 +129,7 @@
   .priceCont {
     grid-column: 1/2;
     grid-row: 2/3;
-    width: 100%;
+    width: 80%;
     margin-bottom: 0;
   }
   .readyToShip {

@@ -13,6 +13,7 @@
   align-self: center;
   grid-row: 1/4;
   padding-right: 0.5rem;
+  border-right: 0.1rem solid white;
 }
 .getText {
   font-size: 1.5rem;
@@ -38,10 +39,7 @@
 }
 .infoCont {
   grid-column: 2/3;
-  border-left: 0.1rem;
-  border-left-style: solid;
-  border-left-color: white;
-  margin-left: 1rem;
+  text-align: center;
 }
 .meetTeam {
   text-align: center;
@@ -55,44 +53,58 @@
 
 .contactCont {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.1rem;
+  margin: 0 auto;
+  width: 60%;
+  padding-bottom: 1rem;
 }
 .name {
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
   padding-bottom: 0.5rem;
   font-size: 0.8rem;
 }
 
-.gitIcon {
-  text-align: right;
+.emailPic {
+  width: 1.1rem;
+}
+.wwwIcon {
+  width: 1.1rem;
 }
 .gitPic {
-  width: 1.5rem;
-  padding-right: 0.5rem;
-  padding-bottom: 0.4rem;
+  width: 1.2rem;
 }
-.linkdInIcon {
-  text-align: left;
-}
+
 .linkedPic {
-  width: 1.5rem;
-  padding-left: 0.5rem;
-  padding-bottom: 0.4rem;
+  width: 1.2rem;
 }
 .guy {
   grid-column: 2/-1;
   grid-row: 2/3;
   margin-bottom: 0.5rem;
+  margin: 0 auto;
 }
 .alex {
   grid-column: 2/-1;
   grid-row: 3/4;
   margin-bottom: 0.5rem;
+  margin: 0 auto;
 }
 .shan {
   grid-column: 2/-1;
   grid-row: 4/5;
   margin-bottom: 1rem;
+  margin: 0 auto;
+}
+@media (min-width: 46rem) {
+  .footer {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* .infoCont {
+    width: 50%;
+  } */
+  .contactCont {
+    width: 50%;
+  }
 }

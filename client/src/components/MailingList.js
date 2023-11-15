@@ -46,6 +46,12 @@ const MailingList = ({ closePopup }) => {
                 placeholder="name"
                 className={styles.input2}
               />
+              <textarea
+                id="message"
+                name="message"
+                placeholder="message"
+                className={styles.input3}
+              />
               <ValidationError
                 prefix="Email"
                 field="email"

@@ -13,6 +13,7 @@
 }
 .logo {
   font-size: 1rem;
+  color: rgb(60, 60, 60);
 }
 .menuIcon {
   display: block;
@@ -21,6 +22,7 @@
   text-align: right;
   padding: 0;
   padding-top: 0.1rem;
+  background-color: transparent;
 }
 .menuIcon img {
   width: 1rem;
@@ -37,8 +39,8 @@
   width: 96vw;
 }
 
-.logo,
-.navElements ul a {
+.navElements ul,
+.navElements a {
   font-weight: 500;
   color: white;
   text-decoration: none;
@@ -50,10 +52,10 @@
 }
 
 /* a:hover, */
-.navbar a:focus,
-.navbar a:visited {
+.navElements a:focus,
+.navElements a:visited {
   text-decoration: none;
-  color: rgb(60, 60, 60);
+  color: white;
   box-shadow: 1px 1px 5px 1px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 1px 1px 5px 1px rgba(255, 255, 255, 0.75);
   -moz-box-shadow: 1px 1px 5px 1px rgba(255, 255, 255, 0.75);
@@ -159,7 +161,10 @@
   .navElements ul li:not(:last-child) {
     margin-right: 1rem;
   }
-
+  .navElements a:focus,
+  .navElements a:visited {
+    color: rgb(60, 60, 60);
+  }
   .navElements.close {
     width: unset;
   }

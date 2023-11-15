@@ -163,7 +163,7 @@
 }
 
 /*  mobile landscape */
-@media (max-width: 52rem) and (orientation: landscape) {
+@media (max-width: 940px) and (orientation: landscape) {
   .cartHeader {
     margin-top: 3.5rem;
   }

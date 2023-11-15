@@ -274,10 +274,10 @@
 }
 
 /* for desktop */
-@media (min-width: 1024px) {
+@media (min-width: 46rem) {
   .mainHero {
     display: grid;
-    gap: 0.2rem;
+    grid-gap: 0.2rem;
     grid-template-columns: 3fr 1fr;
     width: 90%;
     height: auto;
@@ -309,9 +309,9 @@
   .subCopy {
     display: block;
     color: white;
-    width: 60%;
+    width: 100%;
     margin: auto;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center;
     position: relative;
     top: 30%;
@@ -324,7 +324,7 @@
     color: white;
     margin: auto;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   /* Main Rooms */

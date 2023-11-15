@@ -154,7 +154,7 @@ a {
 }
 
 /* Mobile Landscape Styles */
-@media (max-width: 844px) and (orientation: landscape) {
+@media (max-width: 940px) and (orientation: landscape) {
   .productListCont {
     margin: 0 auto;
   }
@@ -185,7 +185,7 @@ a {
   }
 }
 /* for desktop */
-@media (min-width: 1024px) {
+@media (min-width: 46rem) {
   .heroCont {
     width: 90%;
   }
