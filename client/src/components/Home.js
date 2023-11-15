@@ -50,7 +50,10 @@ const Home = () => {
             />
           </div>
           <div className={styles.subHeaderCont}>
-            <p className={styles.subCopy}>QUALITY &#x2748; CRAFTMANSHIP</p>
+            <p className={styles.subCopy}>
+              QUALITY <br /> &#x2748; <br />
+              CRAFTMANSHIP
+            </p>
             <p className={styles.subCopy2}>
               Bring quality craftmanship into your favorite spaces & create
               spaces worth being in.
@@ -98,7 +101,7 @@ const Home = () => {
             </Link>
           </div>
           <div className={styles.roomMobCont}>
-            <Link to="/products/outdoor" onClick={scrollTop}>
+            <Link to="/products/outdoors" onClick={scrollTop}>
               <img
                 src={outdoorPicMob}
                 alt="outdoors"

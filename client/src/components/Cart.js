@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import styles from "./Cart.module.css";
 import { ProductContext } from "./StripeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -90,9 +90,6 @@ const Cart = () => {
           <button href="#back" className="btn" onClick={() => navigate(-2)}>
             &#11104; CONTINUE SHOPPING
           </button>
-          {/* <button className="btn" onClick={handleCheckout}>
-            CHECKOUT
-          </button> */}
         </div>
       )}
       <div className={styles.cartHeader}>
@@ -106,7 +103,11 @@ const Cart = () => {
             <h2>Your cart is empty</h2>
           </div>
           <div className={styles.checkOut}>
-            <a href="#checkout" className="btn" onClick={() => navigate(-1)}>
+            <a
+              href="#checkout"
+              className={styles.startShopping}
+              onClick={() => navigate(-1)}
+            >
               START SHOPPING
             </a>
           </div>
@@ -114,19 +115,13 @@ const Cart = () => {
       ) : (
         <div className={styles.productCont}>
           <div className={styles.orderDetails}>
-            <div className={styles.productHeadings}>
-              {/* <h3>Item Description</h3> */}
-              {/* <h3>Item Price</h3>
-              <h3>Quantity</h3>
-              <h3>Sub Total</h3> */}
-            </div>
+            <div className={styles.productHeadings}></div>
             {cart.map((cartItem) => {
               return (
                 <figure key={cartItem.id} className={styles.product}>
                   <div className={styles.productImage}>
                     <img src={cartItem.images[0]} alt={cartItem.name} />
                   </div>
-                  {/* <figcaption className={styles.productDescriptionCont}> */}
                   <h3 className={styles.itemNameHeader}>Item</h3>
                   <div className={styles.productDescription}>
                     <div className={styles.itemName}>{cartItem.name}</div>
@@ -138,7 +133,6 @@ const Cart = () => {
                       Remove
                     </a>
                   </div>
-                  {/* <div className={styles.productQtyRow}> */}
                   <h3 className={styles.itemPriceHeader}>Item Price</h3>
                   <div className={styles.productRow}>
                     <div className={styles.unitPrice}>Price: </div>
@@ -168,8 +162,6 @@ const Cart = () => {
                       {Number((cartItem.price * cartItem.qty) / 100).toFixed(2)}
                     </div>
                   </div>
-                  {/* </div> */}
-                  {/* </figcaption> */}
                 </figure>
               );
             })}
@@ -177,7 +169,6 @@ const Cart = () => {
           <div className={styles.orderSummaryCont}>
             {cart.length > 0 && (
               <>
-                {/* <hr className={styles.line} /> */}
                 <div className={styles.orderSummary}>
                   <h3>ORDER SUMMARY</h3>
                   <div className={styles.orderRow}>

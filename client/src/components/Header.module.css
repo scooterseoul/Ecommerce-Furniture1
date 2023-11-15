@@ -1,23 +1,32 @@
-.navbarContainer {
-  width: 90vw;
-  margin: 0 auto;
-  /* padding: 0rem 0.5rem; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-
 .navbar {
-  height: 60px;
   position: relative;
 }
-
+.navbarContainer {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 0.5fr;
+  height: 100%;
+  padding-top: 1rem;
+  padding-bottom: 0.7rem;
+  color: rgb(60, 60, 60);
+}
+.logo {
+  font-size: 1rem;
+  color: rgb(60, 60, 60);
+}
 .menuIcon {
   display: block;
   cursor: pointer;
+  border: none;
+  text-align: right;
+  padding: 0;
+  padding-top: 0.1rem;
+  background-color: transparent;
 }
-
+.menuIcon img {
+  width: 1rem;
+}
 .cartPic {
   width: 1rem;
 }
@@ -30,12 +39,11 @@
   width: 96vw;
 }
 
-.logo,
-.navElements ul a {
+.navElements ul,
+.navElements a {
   font-weight: 500;
-  color: rgb(60, 60, 60);
+  color: white;
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 .navElements ul a {
@@ -43,16 +51,11 @@
   padding: 0.2rem 0.3rem;
 }
 
-.logo {
-  font-size: 1rem;
-  padding: 0.2rem 0;
-}
-
-a:hover,
-a:focus,
-a:visited {
+/* a:hover, */
+.navElements a:focus,
+.navElements a:visited {
   text-decoration: none;
-  color: black;
+  color: white;
   box-shadow: 1px 1px 5px 1px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 1px 1px 5px 1px rgba(255, 255, 255, 0.75);
   -moz-box-shadow: 1px 1px 5px 1px rgba(255, 255, 255, 0.75);
@@ -118,22 +121,24 @@ a:visited {
   font-size: 12px;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 46rem) {
   .navbar {
-    width: 90%;
-    margin: 0 auto;
+    margin: 1rem 0;
   }
-
+  .navbarContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
   .menuIcon {
     display: none;
   }
-
   .navElements {
-    position: absolute;
-    top: unset;
-    height: inherit;
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: auto;
   }
-
   .navElements ul {
     display: flex;
     flex-direction: row;
@@ -141,6 +146,9 @@ a:visited {
     height: unset;
     width: inherit;
     background-color: unset;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    margin: 0;
   }
 
   .navElements ul li {
@@ -150,22 +158,17 @@ a:visited {
   }
 
   .navElements ul li a {
-    color: #2f234f;
+    color: rgb(60, 60, 60);
   }
 
   .navElements ul li:not(:last-child) {
     margin-right: 1rem;
   }
-
+  .navElements a:focus,
+  .navElements a:visited {
+    color: rgb(60, 60, 60);
+  }
   .navElements.close {
     width: unset;
-  }
-
-  a:hover,
-  a:focus,
-  a:visited {
-    box-shadow: 1px 0px 5px 5px rgba(0, 0, 0, 0.12);
-    -webkit-box-shadow: 1px 0px 5px 5px rgba(255, 255, 255, 0.12);
-    -moz-box-shadow: 1px 0px 5px 5px rgba(255, 255, 255, 0.12);
   }
 }

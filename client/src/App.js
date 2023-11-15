@@ -16,20 +16,22 @@ import Cancel from "./components/Cancel";
 function App() {
   return (
     <ProductProvider>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products/:products" element={<Products />} />
-        <Route path="/item/:id" element={<SingleItem />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/success" element={<Success />} />
-        <Route path="/cancel" element={<Cancel />} />
-        <Route path="/discount" element={<DiscountSection />} />
+      <div className="app">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:products" element={<Products />} />
+          <Route path="/item/:id" element={<SingleItem />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/cancel" element={<Cancel />} />
+          <Route path="/discount" element={<DiscountSection />} />
 
-        {/* add a 404 Not Found route here if needed */}
-        {/* <Route component={NotFound} /> */}
-      </Routes>
-      <Footer />
+          {/* add a 404 Not Found route here if needed */}
+          {/* <Route component={NotFound} /> */}
+        </Routes>
+        <Footer />
+      </div>
     </ProductProvider>
   );
 }

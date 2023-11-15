@@ -48,17 +48,18 @@
 .listItem {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 4rem 2rem auto;
+  grid-template-rows: max-content 0.5fr 0.5fr;
   border-bottom: 0.08rem solid gray;
+  gap: 0.1rem;
   margin-top: 2rem;
   height: 90%;
 }
 
-.listImages {
-  height: 4rem;
+.listItem img {
+  height: auto;
   width: 100%;
-  object-fit: cover;
   margin: 0 auto;
+  grid-row: 1/2;
 }
 
 .itemTitle {
@@ -110,7 +111,7 @@
   margin: 1rem 0 3rem;
 }
 /* Mobile Landscape Styles */
-@media (max-width: 844px) and (orientation: landscape) {
+@media (max-width: 940px) and (orientation: landscape) {
   .heroCont {
     width: 70%;
     margin: 1rem auto;
@@ -143,7 +144,7 @@
   }
 }
 /* for desktop */
-@media (min-width: 1024px) {
+@media (min-width: 46rem) {
   .heroCont {
     height: 70%;
   }

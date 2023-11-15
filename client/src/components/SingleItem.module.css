@@ -59,15 +59,19 @@
   margin-bottom: 2rem;
   font-size: 1.2rem;
   color: green;
+  width: 100%;
 }
 .readyToShip {
   font-size: 0.8rem;
   text-align: right;
+  width: 80%;
 }
 
-.cartButtonCont {
+.cartBtnsCont {
   width: 100%;
   text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 .addToCart {
   background-color: rgb(60, 60, 60);
@@ -77,10 +81,14 @@
   font-size: 0.7rem;
   font-weight: bold;
   padding: 0.4rem;
-  color: white;
   border-radius: 0.2rem;
 }
-
+.contShopping {
+  font-size: 0.7rem;
+  border-radius: 0.2rem;
+  color: rgb(60, 60, 60);
+  border: none;
+}
 /* Mailing List Styles */
 .mailinglistCont {
   margin: 0 auto;
@@ -91,7 +99,8 @@
   width: 75%;
   margin: 1rem 0 3rem;
 }
-@media (min-width: 1024px) {
+/* Desktop */
+@media (min-width: 46rem) {
   .listItem {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -120,18 +129,11 @@
   .priceCont {
     grid-column: 1/2;
     grid-row: 2/3;
-    width: 50%;
+    width: 80%;
     margin-bottom: 0;
   }
   .readyToShip {
     width: 80%;
-  }
-
-  .cartBtnsCont {
-    /* grid-column: 1/2;
-    grid-row: 3/4;
-    margin: 0 auto;
-    align-self: center; */
   }
 
   .itemSubInfoCont {
