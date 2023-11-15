@@ -465,10 +465,3 @@
     margin-bottom: 2rem;
   }
 }
-
-@media (min-width: 90rem) {
-  .mainContainer {
-    width: 60%;
-    margin: 0 auto;
-  }
-}

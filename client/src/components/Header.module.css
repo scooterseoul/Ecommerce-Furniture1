@@ -172,12 +172,3 @@
     width: unset;
   }
 }
-@media (min-width: 90rem) {
-  .navbar {
-    width: 60%;
-    margin: 1rem auto;
-  }
-  .navbarContainer {
-    width: 90%;
-  }
-}
