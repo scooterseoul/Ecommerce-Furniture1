@@ -2,7 +2,7 @@
   position: relative;
 }
 .navbarContainer {
-  width: 90vw;
+  width: 90%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 0.5fr;
@@ -122,6 +122,9 @@
 }
 
 @media (min-width: 46rem) {
+  .navbar {
+    margin: 1rem 0;
+  }
   .navbarContainer {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -167,5 +170,14 @@
   }
   .navElements.close {
     width: unset;
+  }
+}
+@media (min-width: 90rem) {
+  .navbar {
+    width: 60%;
+    margin: 1rem auto;
+  }
+  .navbarContainer {
+    width: 90%;
   }
 }

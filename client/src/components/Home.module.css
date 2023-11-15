@@ -282,7 +282,7 @@
     width: 90%;
     height: auto;
     margin: 0 auto;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
   }
   .heroCont {
     height: 100%;
@@ -463,5 +463,12 @@
     width: 80%;
     margin: 0 auto;
     margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 90rem) {
+  .mainContainer {
+    width: 60%;
+    margin: 0 auto;
   }
 }
