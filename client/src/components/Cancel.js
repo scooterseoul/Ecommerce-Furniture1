@@ -6,7 +6,7 @@ const Cancel = () => {
   return (
     <div className={styles.cancelCont}>
       <Link to="/" className={styles.backToShopping}>
-        &#8592; Back to Shopping
+        <h1>&#8592;</h1> Back to Shopping
       </Link>
     </div>
   );
