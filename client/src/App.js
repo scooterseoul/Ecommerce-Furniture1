@@ -10,8 +10,6 @@ import Products from "./components/Products";
 import Cart from "./components/Cart";
 import SingleItem from "./components/SingleItem";
 import DiscountSection from "./components/DiscountSection";
-import Success from "./components/Success";
-import Cancel from "./components/Cancel";
 
 function App() {
   return (
@@ -23,15 +21,10 @@ function App() {
           <Route path="/products/:products" element={<Products />} />
           <Route path="/item/:id" element={<SingleItem />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/cancel" element={<Cancel />} />
           <Route path="/discount" element={<DiscountSection />} />
-
-          {/* add a 404 Not Found route here if needed */}
-          {/* <Route component={NotFound} /> */}
         </Routes>
-        <Footer />
       </div>
+      <Footer />
     </ProductProvider>
   );
 }
