@@ -57,10 +57,7 @@ const Header = () => {
             </li>
             <li>
               <Link to="/cart" className={styles.cartPic} onClick={closeNavbar}>
-                <img src={cartIcon} alt="cart" className={styles.cartPic} />
-                {cartItemsCount > 0 && (
-                  <span className={styles.cartItemCount}>{cartItemsCount}</span>
-                )}
+                GO TO CART
               </Link>
             </li>
           </ul>
