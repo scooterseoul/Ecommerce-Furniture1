@@ -19,24 +19,41 @@ const Footer = () => {
         </div>
         <div className={styles.infoCont}>
           <div className={styles.meetTeam}>Meet the team!</div>
-          {/* Alex */}
+          {/* Guy */}
           <div className={styles.guy}>
             <p className={styles.name}>Guy K.</p>
             <div className={styles.contactCont}>
               <div className={styles.gitIcon}>
-                <Link to="/">
-                  <img src={github} alt="github" className={styles.gitPic} />
-                </Link>
+                <a
+                  href="https://github.com/guykibby?tab=repositories"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={github} className={styles.gitPic} alt="github" />
+                </a>
               </div>
               <div className={styles.linkdInIcon}>
-                {" "}
-                <Link to="/">
+                <a
+                  href="https://www.linkedin.com/in/guy-kibby-33a48b231/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <img
                     src={linkedin}
                     alt="linkedin"
                     className={styles.linkedPic}
                   />
-                </Link>
+                </a>
+              </div>
+              <div className={styles.email}>
+                <img
+                  src={emailIcon}
+                  alt="mail"
+                  className={styles.emailPic}
+                  onClick={() =>
+                    (window.location = "mailto: guykibby@gmail.com")
+                  }
+                />
               </div>
             </div>
           </div>
@@ -67,7 +84,6 @@ const Footer = () => {
                 </a>
               </div>
               <div className={styles.linkdInIcon}>
-                {" "}
                 <a
                   href="https://www.linkedin.com/in/claudette-alexander"
                   target="_blank"
@@ -97,12 +113,15 @@ const Footer = () => {
             <p className={styles.name}>Shanthi K.</p>
             <div className={styles.contactCont}>
               <div className={styles.gitIcon}>
-                <Link to="/">
-                  <img src={github} alt="github" className={styles.gitPic} />
-                </Link>
+                <a
+                  href="https://github.com/shvinprog"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={github} className={styles.gitPic} alt="github" />
+                </a>
               </div>
-              <div className={styles.linkdInIcon}>
-                {" "}
+              {/* <div className={styles.linkdInIcon}>
                 <Link to="/">
                   <img
                     src={linkedin}
@@ -110,6 +129,16 @@ const Footer = () => {
                     className={styles.linkedPic}
                   />
                 </Link>
+              </div>{" "} */}
+              <div className={styles.email}>
+                <img
+                  src={emailIcon}
+                  alt="mail"
+                  className={styles.emailPic}
+                  onClick={() =>
+                    (window.location = "mailto: shankoy05@gmail.com")
+                  }
+                />
               </div>
             </div>
           </div>

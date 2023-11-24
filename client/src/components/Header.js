@@ -24,7 +24,7 @@ const Header = () => {
           LE SEAU a BOUE
         </Link>
         <button className={styles.menuIcon} onClick={handleShowNavbar}>
-          <img src={hamburger} />
+          <img alt="" src={hamburger} />
         </button>
         <div
           className={`${styles.navElements}
