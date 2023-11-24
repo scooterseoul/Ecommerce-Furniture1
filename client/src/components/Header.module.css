@@ -30,7 +30,13 @@
 .cartPic {
   width: 1rem;
 }
-
+.cartIconBlack {
+  display: none;
+  width: 1rem;
+}
+.cartIconWhite {
+  width: 1rem;
+}
 .navElements ul {
   display: flex;
   list-style-type: none;
@@ -130,6 +136,12 @@
     grid-template-columns: 1fr 2fr;
   }
   .menuIcon {
+    display: none;
+  }
+  .cartIconBlack {
+    display: unset;
+  }
+  .cartIconWhite {
     display: none;
   }
   .navElements {

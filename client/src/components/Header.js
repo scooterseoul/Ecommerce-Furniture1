@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import { ProductContext } from "./StripeContext";
-import cartIcon from "../images/icons8-shopping-cart-64.png";
+import cartIconBlack from "../images/icons8-shopping-cart-64.png";
+import cartIconWhite from "../images/icons8-shopping-cart-90.png";
 import hamburger from "../images/icons8-hamburger-menu-50.png";
 
 const Header = () => {
@@ -57,7 +58,16 @@ const Header = () => {
             </li>
             <li>
               <Link to="/cart" className={styles.cartPic} onClick={closeNavbar}>
-                <img src={cartIcon} alt="cart" className={styles.cartPic} />
+                <img
+                  src={cartIconBlack}
+                  alt="cart"
+                  className={styles.cartIconBlack}
+                />
+                <img
+                  src={cartIconWhite}
+                  alt="cart"
+                  className={styles.cartIconWhite}
+                />
                 {cartItemsCount > 0 && (
                   <span className={styles.cartItemCount}>{cartItemsCount}</span>
                 )}
