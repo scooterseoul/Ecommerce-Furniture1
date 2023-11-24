@@ -1,6 +1,8 @@
 .footer {
   background-color: rgb(60, 60, 60);
   color: white;
+  justify-self: stretch;
+  align-self: end;
 }
 .footerContent {
   width: 100%;

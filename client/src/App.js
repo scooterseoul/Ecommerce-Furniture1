@@ -14,17 +14,19 @@ import DiscountSection from "./components/DiscountSection";
 function App() {
   return (
     <ProductProvider>
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products/:products" element={<Products />} />
-          <Route path="/item/:id" element={<SingleItem />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/discount" element={<DiscountSection />} />
-        </Routes>
+      <div className="mainContainer">
+        <div className="app">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products/:products" element={<Products />} />
+            <Route path="/item/:id" element={<SingleItem />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/discount" element={<DiscountSection />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </ProductProvider>
   );
 }
