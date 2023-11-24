@@ -1,6 +1,11 @@
 .footer {
   background-color: rgb(60, 60, 60);
   color: white;
+  justify-self: stretch;
+  align-self: end;
+}
+.footerContent {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 0.5rem;
@@ -9,7 +14,7 @@
 }
 .getInTouch {
   grid-column: 1/2;
-  text-align: right;
+  text-align: center;
   align-self: center;
   grid-row: 1/4;
   padding-right: 0.5rem;
@@ -53,8 +58,9 @@
 
 .contactCont {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 0.1rem;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  gap: 0.3rem;
   margin: 0 auto;
   width: 60%;
   padding-bottom: 1rem;
@@ -98,13 +104,17 @@
   margin: 0 auto;
 }
 @media (min-width: 46rem) {
-  .footer {
+  .footerContent {
     grid-template-columns: 1fr 1fr;
   }
-  /* .infoCont {
-    width: 50%;
-  } */
+
   .contactCont {
     width: 50%;
+  }
+}
+@media (min-width: 90rem) {
+  .footerContent {
+    width: 60%;
+    margin: 1rem auto;
   }
 }

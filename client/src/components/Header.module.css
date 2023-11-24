@@ -27,9 +27,6 @@
 .menuIcon img {
   width: 1rem;
 }
-.cartPic {
-  width: 1rem;
-}
 
 .navElements ul {
   display: flex;
@@ -108,17 +105,24 @@
 
 .cartPic {
   position: relative;
+  width: 1rem;
 }
-
+.cartIconBlack {
+  display: none;
+  width: 1rem;
+}
+.cartIconWhite {
+  width: 3rem;
+}
 .cartPic .cartItemCount {
   position: absolute;
-  top: -0.6rem;
-  right: 0;
-  background-color: black;
+  top: -1.1rem;
+  right: 0.9rem;
+  background-color: rgb(60, 60, 60);
   color: white;
   border-radius: 50%;
   padding: 4px 8px;
-  font-size: 12px;
+  font-size: 8px;
 }
 
 @media (min-width: 46rem) {
@@ -131,6 +135,17 @@
   }
   .menuIcon {
     display: none;
+  }
+  .cartIconBlack {
+    display: unset;
+  }
+  .cartIconWhite {
+    display: none;
+  }
+  .cartPic .cartItemCount {
+    top: -1rem;
+    right: -0.5rem;
+    font-size: 12px;
   }
   .navElements {
     position: static;

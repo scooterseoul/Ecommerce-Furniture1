@@ -11,6 +11,9 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
+.cartButtons {
+  width: 10rem;
+}
 .cartHeader {
   align-items: flex-start;
   margin-top: 2.5rem;
