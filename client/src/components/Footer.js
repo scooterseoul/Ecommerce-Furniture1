@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Footer.module.css";
-import { Link } from "react-router-dom";
 import github from "../images/icons8-github-48.png";
 import linkedin from "../images/icons8-linkedin-50.png";
 import contact from "../images/icons8-contact-100.png";
